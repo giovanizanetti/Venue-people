@@ -26,6 +26,7 @@ declare module 'vue' {
     PeopleListItem: typeof import('./src/components/PeopleListItem.vue')['default']
     TeamCard: typeof import('./src/components/TeamCard.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
+    UserAvatar: typeof import('./src/components/UserAvatar.vue')['default']
     UtilCard: typeof import('./src/components/UtilCard.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }

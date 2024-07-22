@@ -19,7 +19,9 @@ const onClick = () =>
 
 <template>
   <li class="list-item">
-    <span class="avatar"></span>
+    <span class="avatar">
+      <UserAvatar :src="user.url" />
+    </span>
     <span class="username">{{ props.user.fullName }}</span>
     <span class="team-icon"></span>
     <span class="remove-team-member">
@@ -29,7 +31,6 @@ const onClick = () =>
 </template>
 
 <style lang="scss" scoped>
-  
 .list-item {
   list-style-type: none;
   display: flex;
@@ -38,8 +39,9 @@ const onClick = () =>
   height: 64px;
 
   .avatar {
-    flex: 1;
-    background-color: aqua;
+    flex: 0.75;
+    text-align: center;
+    margin-top: 3px;
   }
   .usename {
     flex: 5;
@@ -50,7 +52,7 @@ const onClick = () =>
     background-color: red;
   }
   .remove-team-member {
-    flex: .75;
+    flex: 0.5;
   }
 }
 </style>
