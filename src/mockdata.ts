@@ -22,7 +22,7 @@ export const mockUser = {
   image: 'image.png',
   address: userAddressMock,
   isEmployee: true,
-  functionName: '1st Chef',
+  xc: '1st Chef',
   userPermissions: []
 }
 
