@@ -27,6 +27,7 @@ defineProps<{ color: string; label: string }>()
   height: 72px;
   border-radius: $radius-xs;
   background-color: $white-1;
+
   .title {
     flex: 5;
     padding: 0.5rem;
