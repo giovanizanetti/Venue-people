@@ -3,9 +3,15 @@ import { BREAKPOINTS } from '@/styles/variables'
 
 import type { IUser } from '@/mockdata/users'
 import { useWindowResize } from '@/composables/useWindowResize'
-import { computed } from 'vue'
+import { computed, ComputedRef } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useTeams } from '@/stores/teams'
+import { userAddressMock } from '@/mockdata/usersAddress'
 
+const { teams } = storeToRefs(useTeams())
 const { width } = useWindowResize()
+
+const locale: 'en' | 'nl' = 'en'
 
 // const POSITION = {
 //   first: 'fist',
@@ -27,8 +33,64 @@ const dynamicClasses = computed((): string[] => {
   return classes
 })
 
+interface ITeamIconData {
+  label: string
+  backgroundColor: string
+  title: string
+}
+
+const getTeamIconData = (teamId: number): ITeamIconData | null => {
+  const hasTeam = props.user.teamIds.some((id) => id === teamId)
+  if (hasTeam) {
+    const team = teams.value[teamId]
+    return {
+      label: team.abbreviation,
+      backgroundColor: team.color,
+      title: team.name[locale]
+    }
+  } else return null
+}
+
+const iconData = computed((): ITeamIconData[] => {
+  const placeholderIconData: ITeamIconData = {
+    label: '',
+    backgroundColor: 'white',
+    title: ''
+  }
+  const data = [placeholderIconData, placeholderIconData, placeholderIconData]
+  const team1 = getTeamIconData(1)
+  const team2 = getTeamIconData(2)
+  const team3 = getTeamIconData(3)
+  if (team1) data[0] = team1
+  if (team2) data[1] = team2
+  if (team3) data[2] = team3
+  return data
+})
+
+// const teamIconData1 = computed(():ITeamIconData | null =>
+//   getTeamIconData(1)
+// )
+// const teamIconData2: ComputedRef<ITeamIconData | > = computed(() =>
+//   getTemIconData(2)
+// )
+// const teamIconData3: ComputedRef<ITeamIconData> = computed(() =>
+//   getTemIconData(3)
+// )
+
+// const circleOneLabel = computed(() => {
+//   const hasTeam1 = props.user.teamIds.some((id) => id === 1)
+//   if (hasTeam1) {
+//     return teams.value[1].name[locale]
+//   }
+//   return ''
+// })
+
 const onClick = () =>
   console.warn('Currentelly there is no functionalitty attached to this button')
+
+//TODO: think about a util function to get the team from the store.
+// Apply dynamic style color with the color from the team
+// Lable should come from the team
 </script>
 
 <template>
@@ -53,9 +115,15 @@ const onClick = () =>
     </div>
     <span class="team-icon"
       ><!--I'm assuming the team will be always 3-->
-      <div class="circle green">1</div>
-      <div class="circle pink">2</div>
-      <div class="circle purple">3</div>
+      <div
+        v-for="(item, index) in iconData"
+        :key="index"
+        :title="item.title"
+        class="circle"
+        :style="{ backgroundColor: item.backgroundColor }"
+      >
+        {{ item.label }}
+      </div>
     </span>
     <span class="remove-team-member" @click="onClick">
       <carbon:trash-can class="w-5 h-5" />
@@ -128,7 +196,7 @@ const onClick = () =>
   }
   .team-icon {
     flex: 2;
-
+    cursor: default;
     display: flex;
     justify-content: center;
 
@@ -143,7 +211,6 @@ const onClick = () =>
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      cursor: pointer;
       background-color: white;
       border: 1px solid black;
       margin-right: -5px;

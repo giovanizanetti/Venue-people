@@ -1,17 +1,20 @@
 import { teamsMock, type ITeam } from '@/mockdata/teams'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref, type Ref } from 'vue'
 
-export const useConfig = defineStore('config', () => {
-  const data: Ref<ITeam[]> = ref([...teamsMock])
+export const useTeams = defineStore('team', () => {
+  const teams: Ref<{ [id: number]: ITeam }> = ref({ ...teamsMock })
 
-  const addTeam = (team: ITeam) => data.value.push(team)
-  const editTeam = (team: ITeam) => 'No functionality'
-  const deleteTeam = (teamId: number) => 'No functionality'
+  const addTeam = (team: ITeam) => (teams.value[team.id] = team)
+  const deleteTeam = (teamId: number) => console.log(teamId)
+
   return {
-    data,
+    teams,
     addTeam,
-    editTeam,
     deleteTeam
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useTeams, import.meta.hot))
+}
