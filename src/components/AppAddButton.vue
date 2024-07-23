@@ -19,7 +19,7 @@ defineProps<{
 <style lang="scss" scoped>
 .add-user {
   display: flex;
-  margin: $margin-xs;
+  margin: $margin-sm $margin-xs;
   .text {
     margin: 0 $margin-xxs;
     font-weight: 500;
