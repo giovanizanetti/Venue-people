@@ -31,16 +31,18 @@ const props = defineProps<{ color: string; label: string }>()
 
 <style lang="scss" scoped>
 .card {
+  margin: $margin-xxs;
   display: flex;
   align-items: center;
   padding: $padding-sm;
   width: 358px;
   height: 72px;
-  border-radius: $radius-sm;
+  border-radius: $radius-xs;
   background-color: $white-1;
   .title {
     flex: 5;
     padding: 0.5rem;
+    font-weight: 500;
   }
   .circle-container {
     flex: 1;

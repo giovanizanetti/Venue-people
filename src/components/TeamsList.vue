@@ -21,3 +21,10 @@ const locale = 'en' //TODO: get from I18n
 
 const { teams } = storeToRefs(useTeams())
 </script>
+
+<style scope lang="scss">
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
