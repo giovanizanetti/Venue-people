@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { capitalize } from '@/Utils/strings'
+import { capitalize } from '@/helpers/strings'
 import { TEAM_TYPE } from '@/constants'
 import { COLOR } from '@/styles/variables'
 import type { TeamType } from '@/types'
 import { computed } from 'vue'
+import { handleDummyClick } from '@/helpers/dummyFunctinality'
 
 const props = defineProps<{ type: TeamType }>()
 
@@ -14,9 +15,6 @@ const circleBgColor = computed(() => {
     ? COLOR.gree1
     : COLOR.purple1
 })
-
-const onClick = () =>
-  console.warn('Currentelly there is no functionalitty attached to this button')
 </script>
 
 <template>
@@ -25,7 +23,7 @@ const onClick = () =>
       <div class="circle" :style="{ backgroundColor: circleBgColor }" />
     </div>
     <div class="title">{{ capitalize($t(`${type}`)) }}</div>
-    <div class="icon-button" role="button" @click="onClick">
+    <div class="icon-button" role="button" @click="handleDummyClick">
       <carbon:edit class="w-5 h-5" />
     </div>
   </div>

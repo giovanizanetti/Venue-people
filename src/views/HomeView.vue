@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import TeamCard from '@/components/TeamCard.vue'
-import { TEAM_TYPE } from '@/constants'
+import PeopleList from '@/components/PeopleList.vue'
+import { mockUsers } from '@/mockdata/users'
 </script>
 
 <template>
-  <TeamCard :type="TEAM_TYPE.backOfHouse" />
+  <!-- <TeamCard :type="TEAM_TYPE.backOfHouse" /> -->
+  <!-- <PeopleListItem :user="mockUsers[0]" /> -->
+  <PeopleList :users="mockUsers" />
 </template>
