@@ -12,6 +12,6 @@ defineProps<{
   font-family: Space Grotesk;
   font-weight: 300;
   font-size: $typography-2;
-  margin: 7.5px $radius-md;
+  margin: 7.5px $radius-sm;
 }
 </style>

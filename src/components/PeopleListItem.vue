@@ -68,13 +68,13 @@ const onClick = () =>
 
   &__first {
     border-top: $thin-light-1;
-    border-top-left-radius: $radius-md;
-    border-top-right-radius: $radius-md;
+    border-top-left-radius: $radius-sm;
+    border-top-right-radius: $radius-sm;
   }
 
   &__last {
-    border-bottom-left-radius: $radius-md;
-    border-bottom-right-radius: $radius-md;
+    border-bottom-left-radius: $radius-sm;
+    border-bottom-right-radius: $radius-sm;
   }
 
   .avatar {
