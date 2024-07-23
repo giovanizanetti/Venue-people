@@ -26,5 +26,9 @@ defineProps<{
     font-size: $typography-2;
     text-decoration: underline;
   }
+
+  &:hover {
+      color: lighten($black-1, 35%);
+    }
 }
 </style>

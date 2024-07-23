@@ -1,8 +1,11 @@
 <template>
   <nav class="navbar">
     <span class="link">
-      <carbon:arrow-left class="w-5 h-5" />
-      <a @click="router.back()" to="#" class="link__text">Back</a>
+      <a @click="router.back()" to="#"
+        ><carbon:arrow-left class="w-5 h-5" /><span class="link__text"
+          >Back</span
+        ></a
+      >
     </span>
   </nav>
 </template>
@@ -25,13 +28,20 @@ $nav-height: 64px;
   font-size: typography-1;
 
   .link {
-    display: flex;
-    align-items: center;
-    height: inherit;
+    cursor: pointer;
+    a {
+      display: flex;
+      align-items: center;
+      height: $nav-height;
+    }
 
     &__text {
       text-decoration: underline;
-      margin-left: $margin-xxs;
+      margin-left: $margin-xs;
+    }
+
+    &:hover {
+      color: darken($white-1, 15%);
     }
   }
 }
