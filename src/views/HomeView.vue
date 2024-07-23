@@ -3,11 +3,12 @@ import TeamCard from '@/components/TeamCard.vue'
 import { TEAM_TYPE } from '@/constants'
 import PeopleListItem from '@/components/PeopleListItem.vue'
 import PeopleList from '@/components/PeopleList.vue'
-import { mockUser } from '@/mockdata'
+import { mockUsers } from '@/mockdata/users'
 </script>
 
 <template>
   <!-- <TeamCard :type="TEAM_TYPE.backOfHouse" /> -->
-  <PeopleListItem :user="mockUser" />
+  <PeopleListItem :user="mockUsers[0]" />
   <PeopleList></PeopleList>
 </template>
+@/views/mockdata/mockdata

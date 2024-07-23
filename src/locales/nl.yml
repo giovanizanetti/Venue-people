@@ -2,6 +2,6 @@ hello: Hello, {name}!
 language: Language
 menu:
   home: Home
-menagement: menagement
+management: management
 frontOfHouse: front of house
 backOfHouse: back of house
