@@ -8,7 +8,7 @@ import { mockUsers } from '@/mockdata/users'
 
 <template>
   <!-- <TeamCard :type="TEAM_TYPE.backOfHouse" /> -->
-  <PeopleListItem :user="mockUsers[0]" />
-  <PeopleList></PeopleList>
+  <!-- <PeopleListItem :user="mockUsers[0]" /> -->
+  <PeopleList :users="mockUsers" />
 </template>
 @/views/mockdata/mockdata

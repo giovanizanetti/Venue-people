@@ -1,23 +1,40 @@
 <script setup lang="ts">
 import { BREAKPOINTS, COLOR } from '@/styles/variables'
 
-import type { userAddressMock, mockUser } from '../mockdata'
+import type { IUser } from '@/mockdata/users'
 import { useWindowResize } from '@/composables/useWindowResize'
+import { computed } from 'vue'
 
 const { width } = useWindowResize()
 
+// const POSITION = {
+//   first: 'fist',
+//   last: 'last',
+//   single: 'single'
+// } as const
+// type TPosition = (typeof POSITION)[keyof typeof POSITION]
+
 const props = defineProps<{
-  user: typeof mockUser
+  user: IUser
+  isFirst: boolean
+  isLast: boolean
 }>()
+
+const dynamicClasses = computed((): string[] => {
+  const classes: string[] = []
+  if (props.isFirst) classes.push('list-item__first') 
+  if (props.isLast) classes.push('list-item__last')
+  return classes
+})
 
 const onClick = () =>
   console.warn('Currentelly there is no functionalitty attached to this button')
 </script>
 
 <template>
-  <li class="list-item">
+  <li :class="['list-item', ...[dynamicClasses]]">
     <span class="avatar">
-      <UserAvatar :src="user.url" />
+      <UserAvatar :src="user.image" />
     </span>
     <div class="user-info">
       <div class="username">
@@ -46,13 +63,26 @@ const onClick = () =>
 </template>
 
 <style lang="scss" scoped>
+.list-item__first {
+  border-top: $thin-light-1;
+  border-top-left-radius: $radius-sm;
+  border-top-right-radius: $radius-sm;
+}
+
+.list-item__last {
+  border-bottom-left-radius: $radius-sm;
+  border-bottom-right-radius: $radius-sm;
+}
 .list-item {
+  border-bottom: $thin-light-1;
+  border-left: $thin-light-1;
+  border-right: $thin-light-1;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 12px;
   list-style-type: none;
   display: flex;
   align-items: center;
-  background-color: orange;
+  background-color: $grey-light-1;
   height: 64px;
 
   .avatar {
