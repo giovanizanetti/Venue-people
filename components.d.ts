@@ -4,12 +4,17 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AppAddButton: typeof import('./src/components/AppAddButton.vue')['default']
+    AppHeading: typeof import('./src/components/AppHeading.vue')['default']
+    'Carbon:add': typeof import('~icons/carbon/add')['default']
     'Carbon:bin': typeof import('~icons/carbon/bin')['default']
     'Carbon:delete': typeof import('~icons/carbon/delete')['default']
     'Carbon:edit': typeof import('~icons/carbon/edit')['default']
     'Carbon:language': typeof import('~icons/carbon/language')['default']
     'Carbon:logoGithub': typeof import('~icons/carbon/logo-github')['default']
     'Carbon:moon': typeof import('~icons/carbon/moon')['default']
+    'Carbon:plaunchStudy1': typeof import('~icons/carbon/plaunch-study1')['default']
+    'Carbon:plus': typeof import('~icons/carbon/plus')['default']
     'Carbon:sun': typeof import('~icons/carbon/sun')['default']
     'Carbon:tra': typeof import('~icons/carbon/tra')['default']
     'Carbon:tradioPushToTalk': typeof import('~icons/carbon/tradio-push-to-talk')['default']
@@ -25,6 +30,7 @@ declare module 'vue' {
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     PeopleList: typeof import('./src/components/PeopleList.vue')['default']
     PeopleListItem: typeof import('./src/components/PeopleListItem.vue')['default']
+    SessionHeading: typeof import('./src/components/SessionHeading.vue')['default']
     TeamCard: typeof import('./src/components/TeamCard.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     UserAvatar: typeof import('./src/components/UserAvatar.vue')['default']

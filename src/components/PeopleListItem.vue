@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BREAKPOINTS, COLOR } from '@/styles/variables'
+import { BREAKPOINTS } from '@/styles/variables'
 
 import type { IUser } from '@/mockdata/users'
 import { useWindowResize } from '@/composables/useWindowResize'
@@ -65,13 +65,13 @@ const onClick = () =>
 <style lang="scss" scoped>
 .list-item__first {
   border-top: $thin-light-1;
-  border-top-left-radius: $radius-sm;
-  border-top-right-radius: $radius-sm;
+  border-top-left-radius: $radius-md;
+  border-top-right-radius: $radius-md;
 }
 
 .list-item__last {
-  border-bottom-left-radius: $radius-sm;
-  border-bottom-right-radius: $radius-sm;
+  border-bottom-left-radius: $radius-md;
+  border-bottom-right-radius: $radius-md;
 }
 .list-item {
   border-bottom: $thin-light-1;

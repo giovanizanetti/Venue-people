@@ -20,6 +20,7 @@ const props = withDefaults(
 )
 
 const sizeClass = computed(() => `avatar--${props.size}`)
+//TODO: NEST STYLES
 </script>
 
 <style scoped>
