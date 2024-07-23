@@ -47,7 +47,6 @@ const iconData = computed((): ITeamIconData[] => {
 </script>
 <template>
   <!--I'm assuming the team will be always 3 teams-->
-
   <div
     v-for="(item, index) in iconData"
     :key="index"

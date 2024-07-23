@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+</script>
+
 <template>
   <nav class="navbar">
     <span class="link">
@@ -9,13 +14,6 @@
     </span>
   </nav>
 </template>
-<script setup lang="ts">
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-console.log('NAVBAR CREATED')
-</script>
 
 <style lang="scss" scoped>
 $nav-height: 64px;

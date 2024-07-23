@@ -1,9 +1,3 @@
-<template>
-  <div :class="['avatar', sizeClass]">
-    <img :src="src" :alt="alt" />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -19,8 +13,13 @@ const props = withDefaults(
 )
 
 const sizeClass = computed(() => `avatar__${props.size}`)
-//TODO: NEST STYLES
 </script>
+
+<template>
+  <div :class="['avatar', sizeClass]">
+    <img :src="src" :alt="alt" />
+  </div>
+</template>
 
 <style scoped>
 .avatar {
