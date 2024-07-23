@@ -37,7 +37,12 @@
   <RouterView />
 </template>
 
+
+
 <script setup lang="ts">
+//TODO
+//* add loading
+
 import { RouterLink, RouterView } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 

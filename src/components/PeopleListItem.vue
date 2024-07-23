@@ -1,18 +1,11 @@
 <script setup lang="ts">
 import { BREAKPOINTS } from '@/styles/variables'
-
 import type { IUser } from '@/mockdata/users'
 import { useWindowResize } from '@/composables/useWindowResize'
 import { computed } from 'vue'
+import PeopleListItemTeamIcon from './PeopleListItemTeamIcon.vue'
 
 const { width } = useWindowResize()
-
-// const POSITION = {
-//   first: 'fist',
-//   last: 'last',
-//   single: 'single'
-// } as const
-// type TPosition = (typeof POSITION)[keyof typeof POSITION]
 
 const props = defineProps<{
   user: IUser
@@ -51,11 +44,8 @@ const onClick = () =>
         ><span>{{ user.phoneNumber }}</span>
       </div>
     </div>
-    <span class="team-icon"
-      ><!--I'm assuming the team will be always 3-->
-      <div class="circle green">1</div>
-      <div class="circle pink">2</div>
-      <div class="circle purple">3</div>
+    <span class="team-icon">
+      <PeopleListItemTeamIcon :user="user" />
     </span>
     <span class="remove-team-member" @click="onClick">
       <carbon:trash-can class="w-5 h-5" />
@@ -97,23 +87,6 @@ const onClick = () =>
     display: flex;
     flex-direction: column;
 
-    @media screen and (max-width: $desktop) {
-      .divisor {
-        margin: 0 0.5rem;
-      }
-    }
-
-    @media screen and (min-width: $desktop) {
-      flex: 10;
-      flex-direction: row !important;
-      .divisor {
-        display: none;
-      }
-      &__item {
-        margin: 0 2rem;
-      }
-    }
-
     .username {
       font-weight: 600;
     }
@@ -125,30 +98,35 @@ const onClick = () =>
         margin-right: $margin-xs;
       }
     }
+
+    @media screen and (max-width: $desktop) {
+      .divisor {
+        margin: 0 0.5rem;
+      }
+    }
+    @media screen and (min-width: $desktop) {
+      flex: 10;
+      flex-direction: row !important;
+      .divisor {
+        display: none;
+      }
+      &__item {
+        margin: 0 2rem;
+      }
+    }
   }
+
   .team-icon {
     flex: 2;
-
+    cursor: default;
     display: flex;
     justify-content: center;
 
     @media screen and (min-width: $desktop) {
       flex: 0.5;
     }
-
-    .circle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      cursor: pointer;
-      background-color: white;
-      border: 1px solid black;
-      margin-right: -5px;
-    }
   }
+
   .remove-team-member {
     flex: 1.4;
     display: flex;
@@ -161,4 +139,3 @@ const onClick = () =>
   }
 }
 </style>
-../views/mockdata/mockdata
