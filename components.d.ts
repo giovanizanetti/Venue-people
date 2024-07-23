@@ -30,6 +30,7 @@ declare module 'vue' {
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     PeopleList: typeof import('./src/components/PeopleList.vue')['default']
     PeopleListItem: typeof import('./src/components/PeopleListItem.vue')['default']
+    PeopleListItemTeamIcon: typeof import('./src/components/PeopleListItemTeamIcon.vue')['default']
     SessionHeading: typeof import('./src/components/SessionHeading.vue')['default']
     TeamCard: typeof import('./src/components/TeamCard.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']

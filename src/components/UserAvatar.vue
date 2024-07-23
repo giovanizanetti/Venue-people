@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { defineProps } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -19,7 +18,7 @@ const props = withDefaults(
   }
 )
 
-const sizeClass = computed(() => `avatar--${props.size}`)
+const sizeClass = computed(() => `avatar__${props.size}`)
 //TODO: NEST STYLES
 </script>
 
@@ -35,7 +34,7 @@ const sizeClass = computed(() => `avatar--${props.size}`)
   height: auto;
 }
 
-.avatar--small {
+.avatar__small {
   width: 24px;
   height: 24px;
 }
