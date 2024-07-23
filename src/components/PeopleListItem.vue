@@ -22,7 +22,7 @@ const props = defineProps<{
 
 const dynamicClasses = computed((): string[] => {
   const classes: string[] = []
-  if (props.isFirst) classes.push('list-item__first') 
+  if (props.isFirst) classes.push('list-item__first')
   if (props.isLast) classes.push('list-item__last')
   return classes
 })
@@ -51,8 +51,9 @@ const onClick = () =>
         ><span>{{ user.phoneNumber }}</span>
       </div>
     </div>
-    <span class="team-icon">
-      <div class="circle">1</div>
+    <span class="team-icon"
+      ><!--I'm assuming the team will be always 3-->
+      <div class="circle green">1</div>
       <div class="circle pink">2</div>
       <div class="circle purple">3</div>
     </span>
@@ -63,27 +64,28 @@ const onClick = () =>
 </template>
 
 <style lang="scss" scoped>
-.list-item__first {
-  border-top: $thin-light-1;
-  border-top-left-radius: $radius-md;
-  border-top-right-radius: $radius-md;
-}
-
-.list-item__last {
-  border-bottom-left-radius: $radius-md;
-  border-bottom-right-radius: $radius-md;
-}
 .list-item {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
   border-bottom: $thin-light-1;
   border-left: $thin-light-1;
   border-right: $thin-light-1;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  list-style-type: none;
-  display: flex;
-  align-items: center;
   background-color: $grey-light-1;
   height: 64px;
+
+  &__first {
+    border-top: $thin-light-1;
+    border-top-left-radius: $radius-md;
+    border-top-right-radius: $radius-md;
+  }
+
+  &__last {
+    border-bottom-left-radius: $radius-md;
+    border-bottom-right-radius: $radius-md;
+  }
 
   .avatar {
     flex: 1.4;
