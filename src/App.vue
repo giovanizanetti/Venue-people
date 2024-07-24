@@ -1,3 +1,38 @@
+<script setup lang="ts">
+import MainNavigationBar from './components/MainNavigationBar.vue'
+//TODO
+//* add loading
+
+import { RouterLink, RouterView } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import NavBar from '@/components/NavBar.vue'
+
+import HelloWorld from '@/components/HelloWorld.vue'
+import { isDark, toggleDark } from '@/composables/useDarkmode'
+import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
+
+import '@/styles/base.scss'
+import { useWindowResize } from './composables/useWindowResize'
+import { BREAKPOINTS } from './styles/variables'
+
+const { locale } = useI18n()
+
+const { width } = useWindowResize()
+
+const gotoGitHub = () => {
+  window.open('https://github.com/xiaoluoboding/vue3-starter', '_blank')
+}
+
+async function toggleLocales() {
+  // change to some real logic
+  const locales = availableLocales
+  const newLocale =
+    locales[(locales.indexOf(locale.value) + 1) % locales.length]
+  await loadLanguageAsync(newLocale)
+  locale.value = newLocale
+}
+</script>
+
 <template>
   <!-- <header>
     <div class="wrapper" lg="flex place-items-center flex-wrap">
@@ -34,40 +69,24 @@
       </div>
     </div>
   </header> -->
-  <NavBar />
-  <RouterView />
+
+  <MainNavigationBar v-if="width >= BREAKPOINTS.tabletSm" />
+  <div class="main-left">
+    <main class="main">
+      <NavBar />
+
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-
-
-<script setup lang="ts">
-//TODO
-//* add loading
-
-import { RouterLink, RouterView } from 'vue-router'
-import { useI18n } from 'vue-i18n'
-import NavBar from '@/components/NavBar.vue'
-
-import HelloWorld from '@/components/HelloWorld.vue'
-import { isDark, toggleDark } from '@/composables/useDarkmode'
-import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
-
-import '@/styles/base.scss'
-
-const { locale } = useI18n()
-
-const gotoGitHub = () => {
-  window.open('https://github.com/xiaoluoboding/vue3-starter', '_blank')
+<style lang="scss" scoped>
+@media screen and (min-width: $tablet-sm) {
+  .main {
+    margin-top: $top-nav-height;
+  }
+  .main-left {
+    margin-left: $main-menu-width-closed;
+  }
 }
-
-async function toggleLocales() {
-  // change to some real logic
-  const locales = availableLocales
-  const newLocale =
-    locales[(locales.indexOf(locale.value) + 1) % locales.length]
-  await loadLanguageAsync(newLocale)
-  locale.value = newLocale
-}
-</script>
-
-<style lang="scss"></style>
+</style>

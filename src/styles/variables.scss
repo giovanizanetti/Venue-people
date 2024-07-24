@@ -7,7 +7,7 @@ $margin-xs: 0.4rem;
 $margin-sm: 1rem;
 $margin-md: 2rem;
 $margin-lg: 3rem;
-$margin-xl: 4rem;
+$margin-xl: 5.5rem;
 $margin-xxl: 7rem;
 
 //BORDER
@@ -26,14 +26,17 @@ $black-1: #17171d;
 $black-2: #282829;
 $white-1: #efefef;
 $grey-light-1: #e2e2e2;
-$grey-light-2: #5F5F5F;
+$grey-light-2: #5f5f5f;
 $pink-1: #ffc9c9;
 $purple-1: #a5a4d4;
 $green-1: #c1e0b9;
-
 
 //BRAKEPOINTS
 $mobile: 400px;
 $tablet-sm: 600px;
 $tablet-md: 712px;
 $desktop: 1100px;
+
+//ELEMENTS
+$main-menu-width-closed: 56px;
+$top-nav-height: 64px;

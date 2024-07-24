@@ -37,8 +37,9 @@ const onClick = () =>
           ></span
         ><span class="xs user-info__position">{{ user.xc }}</span>
       </div>
+
       <div class="contact">
-        <span v-if="width >= BREAKPOINTS.tablet" class="email user-info__item"
+        <span v-if="width >= BREAKPOINTS.tabletMd" class="email user-info__item"
           >{{ user.email }} <span class="divisor">|</span></span
         >
         <span class="phone phone__prefix user-info__item">{{
@@ -114,6 +115,8 @@ const onClick = () =>
       margin-left: $margin-xs;
     }
     .contact {
+      display: flex;
+      align-items: center;
       color: $grey-light-2;
       .phone {
         font-weight: 300;
