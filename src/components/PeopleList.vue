@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import type { IUser } from '@/mockdata/users'
-import PeopleListItem from './PeopleListItem.vue'
-import AppHeading from './AppHeading.vue'
-import AppAddButton from './AppAddButton.vue'
 import { storeToRefs } from 'pinia'
 import { useUsers } from '@/stores/users'
 

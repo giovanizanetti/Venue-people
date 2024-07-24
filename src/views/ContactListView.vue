@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import PeopleList from '@/components/PeopleList.vue'
-import TeamsList from '@/components/TeamsList.vue'
-import BrandName from '@/components/BrandName.vue'
 import { useWindowResize } from '@/composables/useWindowResize'
 import { BREAKPOINTS } from '@/styles/variables';
 

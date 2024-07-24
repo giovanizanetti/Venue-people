@@ -3,7 +3,6 @@ import { BREAKPOINTS } from '@/styles/variables'
 import type { IUser } from '@/mockdata/users'
 import { useWindowResize } from '@/composables/useWindowResize'
 import { computed } from 'vue'
-import PeopleListItemTeamIcon from './PeopleListItemTeamIcon.vue'
 
 const { width } = useWindowResize()
 
