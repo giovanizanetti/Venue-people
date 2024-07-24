@@ -10,7 +10,7 @@ const { teams } = storeToRefs(useTeams())
 
 <template>
   <div class="container">
-    <AppHeading text="Teams" />
+    <AppHeading class="heading" text="Teams" />
     <ul class="list">
       <TeamsListItem
         v-for="(team, key) in teams"
@@ -28,13 +28,22 @@ const { teams } = storeToRefs(useTeams())
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.list {
-  display: flex;
-  flex-wrap: wrap;
+  .list {
+    display: flex;
+    flex-wrap: wrap;
 
-  @media screen and (max-width: ) {
+    @media screen and (max-width: $tablet-sm) {
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: $tablet-sm) {
     justify-content: center;
+    align-items: center;
+  }
+  .heading {
+    @media screen and (max-width: $tablet-sm) {
+      width: 358px;
+    }
   }
 }
 </style>
