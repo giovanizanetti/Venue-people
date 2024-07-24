@@ -1,32 +1,30 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 const router = useRouter()
-
-console.log(router)
 </script>
 
 <template>
   <header>
     <nav class="navbar">
-    <span class="link">
-      <a @click="router.back()" to="#"
+      <span class="link">
+        <a @click="router.back()" to="#">
+          <carbon:arrow-left class="w-5 h-5" /><span class="link__text"
+            >Back</span
+          ></a
         >
-        <carbon:arrow-left class="w-5 h-5" /><span class="link__text"
-          >Back</span
-        ></a
-      >
-    </span>
-  </nav>
+      </span>
+    </nav>
   </header>
 </template>
 
 <style lang="scss" scoped>
-$nav-height: 64px;
-
 .navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
   width: 100vw;
   padding: 0 $padding-lg;
-  height: $nav-height;
+  height: $top-nav-height;
   background-color: $black-2;
   color: $white-1;
   font-size: typography-1;
@@ -36,7 +34,7 @@ $nav-height: 64px;
     a {
       display: flex;
       align-items: center;
-      height: $nav-height;
+      height: $top-nav-height;
     }
 
     &__text {

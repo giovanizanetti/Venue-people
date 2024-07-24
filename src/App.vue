@@ -66,10 +66,18 @@ async function toggleLocales() {
   </header> -->
 
   <MainNavigationBar />
-  <div class="main-left"><NavBar /> <RouterView /></div>
+  <div class="main-left">
+    <NavBar />
+    <main class="main">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.main {
+  margin-top: $top-nav-height;
+}
 .main-left {
   margin-left: $main-menu-width-closed;
 }
