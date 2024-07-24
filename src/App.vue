@@ -52,7 +52,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import { isDark, toggleDark } from '@/composables/useDarkmode'
 import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
 
-import '@/assets/base.css'
+import '@/styles/base.scss'
 
 const { locale } = useI18n()
 

@@ -9,7 +9,7 @@ const { teams } = storeToRefs(useTeams())
 </script>
 
 <template>
-  <div class="container">
+  <div class="teams-wrapper">
     <AppHeading class="heading" text="Teams" />
     <ul class="list">
       <TeamsListItem
@@ -24,10 +24,11 @@ const { teams } = storeToRefs(useTeams())
 </template>
 
 <style scope lang="scss">
-.container {
+.teams-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0;
   .list {
     display: flex;
     flex-wrap: wrap;
