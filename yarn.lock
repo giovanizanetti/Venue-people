@@ -370,6 +370,91 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
+"@formkit/core@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/core/-/core-1.6.5.tgz#f6f75ad98ad95198507986c674dfbf2f211a0971"
+  integrity sha512-LLq8+vLd9ddPYA0NkyvnKycN4ESU8Wqcl9TrllPyU/axduJunSIJMZz4LHzlwK8G26b0pQNegXF/hXaj4wbmng==
+  dependencies:
+    "@formkit/utils" "1.6.5"
+
+"@formkit/dev@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/dev/-/dev-1.6.5.tgz#010cf704f995b2795188827fd61e950c4697cb93"
+  integrity sha512-dg62HTehLPi9lLBShixr9AoYgIv13gpxTZgiHEvf1UZz2HQq0Lcp63d0a+XT/tQ2HTz2ewLUGeXSN9dUVkYFSg==
+  dependencies:
+    "@formkit/core" "1.6.5"
+    "@formkit/utils" "1.6.5"
+
+"@formkit/i18n@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/i18n/-/i18n-1.6.5.tgz#34b0eaf12598375fda5b0ee0aa5c5c30903d4522"
+  integrity sha512-mM1UKGSa0Mdd8a8AAF+6BCNFnf8gUD1nOzU6dJ9UoPE8M/qA+hmcPR3PJm39p6e3OaT5O0Gn/J6JxgccPyWmGA==
+  dependencies:
+    "@formkit/core" "1.6.5"
+    "@formkit/utils" "1.6.5"
+    "@formkit/validation" "1.6.5"
+
+"@formkit/inputs@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/inputs/-/inputs-1.6.5.tgz#8a61bf4540f5371e6d6e27ce55c8674456cef984"
+  integrity sha512-mHLMF0JMFZL/JC6NYrG4xaIdi7lUNE+tdC+QMipBdhobUhND0EJSpO6QNPGF6OLd9Zm9MDgqAzNXEtc05/nvow==
+  dependencies:
+    "@formkit/core" "1.6.5"
+    "@formkit/utils" "1.6.5"
+
+"@formkit/observer@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/observer/-/observer-1.6.5.tgz#2e01311a0b1fb57f4cdc01b6e990112ddf4baf33"
+  integrity sha512-3Vh2Pj6tHX3wosbNm5VvwVVlTI5Zq0FT3dl/+DAuaCG84abpTLoc3O0C2pmbQcDaJ4aCuxu3+tBmhY9J7qFXMQ==
+  dependencies:
+    "@formkit/core" "1.6.5"
+    "@formkit/utils" "1.6.5"
+
+"@formkit/rules@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/rules/-/rules-1.6.5.tgz#f37cad06b64fa0b6a85ac9c1941c563b9790b6de"
+  integrity sha512-j9ylAibBvNx+3tEAkYzl2HjQwDzWV2mRPmFH7GTAmtxijFiktPS8HTU9H88H/x2stkYk9S13/MMeqDgZnc3VrQ==
+  dependencies:
+    "@formkit/core" "1.6.5"
+    "@formkit/utils" "1.6.5"
+    "@formkit/validation" "1.6.5"
+
+"@formkit/themes@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/themes/-/themes-1.6.5.tgz#b964932cf8e8b50933f37f690d7598916509eecb"
+  integrity sha512-C+ANzH6qw4zS7niv+RamJAqpASOPfrZvMURVj5HQcT1XlcYB7ULvA9UmDW/AKOqP/OGf/OL6WvOzA7B16UkiiA==
+  dependencies:
+    "@formkit/core" "1.6.5"
+
+"@formkit/utils@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-1.6.5.tgz#a9a93a5d8650506c4eed9e74c1751859ab96a523"
+  integrity sha512-fohOg344tqFujHlEwvyHzzH5YiOBgecuOPkg7r7QObUrsH8gP1N8Rp9CHZlafxZ1zAEHZY2nTNx0VVQBkVmJbA==
+
+"@formkit/validation@1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/validation/-/validation-1.6.5.tgz#fb9b07f02cf7a4c4ae216dde8c1d940b6adb3376"
+  integrity sha512-mnU+F6uXsNlczbU7QOq6QfsafSYNmMF9zvOpk4ravn9mba0IDXRhkPgU/+VFpcF/EEiXmqQql3pqQ7Vqv2wVbg==
+  dependencies:
+    "@formkit/core" "1.6.5"
+    "@formkit/observer" "1.6.5"
+    "@formkit/utils" "1.6.5"
+
+"@formkit/vue@^1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@formkit/vue/-/vue-1.6.5.tgz#36e42d995e9a9b04ea345d95f3e6eb2dbc0b3d9b"
+  integrity sha512-D5W8JfhFJXUXm8RX0OfPbPZt3Ds68iqxSrvbvmyabae2cBlGl8sqhMEuc48FptnsGOYqYXOhG+CPni+uE72Whw==
+  dependencies:
+    "@formkit/core" "1.6.5"
+    "@formkit/dev" "1.6.5"
+    "@formkit/i18n" "1.6.5"
+    "@formkit/inputs" "1.6.5"
+    "@formkit/observer" "1.6.5"
+    "@formkit/rules" "1.6.5"
+    "@formkit/themes" "1.6.5"
+    "@formkit/utils" "1.6.5"
+    "@formkit/validation" "1.6.5"
+
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"

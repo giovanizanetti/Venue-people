@@ -37,11 +37,11 @@ const sizeClass = computed(() => `avatar__${props.size}`)
   width: 24px;
   height: 24px;
 }
-.avatar--medium {
-  width: 64px;
-  height: 64px;
+.avatar__medium {
+  width: 72px;
+  height: 72px;
 }
-.avatar--large {
+.avatar__large {
   width: 128px;
   height: 128px;
 }
