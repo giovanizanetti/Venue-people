@@ -69,7 +69,7 @@ async function toggleLocales() {
   <div class="main-left"><NavBar /> <RouterView /></div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .main-left {
   margin-left: $main-menu-width-closed;
 }

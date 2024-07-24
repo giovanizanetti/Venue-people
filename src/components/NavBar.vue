@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 const router = useRouter()
+
+console.log(router)
 </script>
 
 <template>
@@ -22,7 +24,6 @@ const router = useRouter()
 $nav-height: 64px;
 
 .navbar {
-  position: fixed;
   width: 100vw;
   padding: 0 $padding-lg;
   height: $nav-height;

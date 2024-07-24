@@ -6,11 +6,11 @@ const { width } = useWindowResize()
 </script>
 
 <template>
-  <main class="main">
+  <div class="main">
     <BrandName v-if="width >= BREAKPOINTS.desktop" />
     <TeamsList class="session" />
     <PeopleList class="session" />
-  </main>
+  </div>
 </template>
 
 <style scoped lang="scss">
