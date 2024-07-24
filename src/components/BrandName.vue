@@ -3,7 +3,7 @@ import { TYPOGRAPHY, type TTypography } from '@/styles/variables'
 
 withDefaults(
   defineProps<{
-    size: TTypography
+    size?: TTypography
   }>(),
   { size: TYPOGRAPHY.lg }
 )

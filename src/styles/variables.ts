@@ -12,6 +12,7 @@ export const BREAKPOINTS = {
 }
 
 export const TYPOGRAPHY = {
-  lg: '45px'
+  lg: '45px',
+  xxl: '70px'
 } as const
 export type TTypography = (typeof TYPOGRAPHY)[keyof typeof TYPOGRAPHY]

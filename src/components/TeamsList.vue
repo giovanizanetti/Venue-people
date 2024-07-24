@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useTeams } from '@/stores/teams'
-import TeamsListItem from './TeamsListItem.vue'
 import { storeToRefs } from 'pinia'
 
 const locale = 'en' //TODO: get from I18n
