@@ -1,4 +1,6 @@
 $padding-sm: 1rem;
+$padding-md: 2rem;
+$padding-lg: 4.5em;
 
 $margin-xxs: 0.2rem;
 $margin-xs: 0.4rem;
@@ -10,10 +12,12 @@ $radius-xs: 4px;
 $radius-sm: 15px;
 
 //FONT-SIZE
+$typography-1: 14px;
 $typography-2: 12px;
 
 //COLORS👇🏻
-$back-1: #17171d;
+$black-1: #17171d;
+$black-2: #282829;
 $white-1: #efefef;
 $grey-light-1: #e2e2e2;
 $pink-1: #ffc9c9;
@@ -21,6 +25,7 @@ $purple-1: #a5a4d4;
 $green-1: #c1e0b9;
 
 //BRAKEPOINTS
-$mobile: 390px;
-$tablet: 600px;
+$mobile: 400px;
+$tablet-sm: 600px;
+$tablet-md: 712px;
 $desktop: 1100px;

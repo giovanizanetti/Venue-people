@@ -34,6 +34,7 @@
       </div>
     </div>
   </header> -->
+  <NavBar />
   <RouterView />
 </template>
 
@@ -45,6 +46,7 @@
 
 import { RouterLink, RouterView } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import NavBar from '@/components/NavBar.vue'
 
 import HelloWorld from '@/components/HelloWorld.vue'
 import { isDark, toggleDark } from '@/composables/useDarkmode'

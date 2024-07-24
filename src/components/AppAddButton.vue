@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { capitalize } from '../helpers/strings'
-import { handleDummyClick } from '@/helpers/dummyFunctinality';
+import { handleDummyClick } from '@/helpers/dummyFunctinality'
 
 defineProps<{
   type: string
@@ -18,6 +18,7 @@ defineProps<{
 </template>
 <style lang="scss" scoped>
 .add-user {
+  width: 100%;
   display: flex;
   margin: $margin-sm $margin-xs;
   .text {
@@ -25,6 +26,14 @@ defineProps<{
     font-weight: 500;
     font-size: $typography-2;
     text-decoration: underline;
+  }
+
+  @media screen and (max-width: $tablet-md) {
+    justify-content: center;
+  }
+
+  &:hover {
+    color: lighten($black-1, 35%);
   }
 }
 </style>

@@ -1,20 +1,8 @@
 <script setup lang="ts">
 import { capitalize } from '@/helpers/strings'
-import { TEAM_TYPE } from '@/constants'
-import { COLOR } from '@/styles/variables'
-import type { TeamType } from '@/types'
-import { computed } from 'vue'
 import { handleDummyClick } from '@/helpers/dummyFunctinality'
 
-const props = defineProps<{ color: string; label: string }>()
-
-// const circleBgColor = computed(() => {
-//   return props.type == TEAM_TYPE.management
-//     ? COLOR.pink1
-//     : props.type == TEAM_TYPE.backOfHouse
-//     ? COLOR.gree1
-//     : COLOR.purple1
-// })
+defineProps<{ color: string; label: string }>()
 </script>
 
 <template>
@@ -39,6 +27,7 @@ const props = defineProps<{ color: string; label: string }>()
   height: 72px;
   border-radius: $radius-xs;
   background-color: $white-1;
+
   .title {
     flex: 5;
     padding: 0.5rem;

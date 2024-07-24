@@ -9,4 +9,5 @@ import TeamsList from '@/components/TeamsList.vue'
   <!-- <PeopleListItem :user="mockUsers[0]" /> -->
   <!-- <PeopleList :users="mockUsers" /> -->
   <TeamsList />
+  <PeopleList />
 </template>
