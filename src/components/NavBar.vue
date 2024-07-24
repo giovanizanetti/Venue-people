@@ -4,21 +4,26 @@ const router = useRouter()
 </script>
 
 <template>
-  <nav class="navbar">
+  <header>
+    <nav class="navbar">
     <span class="link">
       <a @click="router.back()" to="#"
-        ><carbon:arrow-left class="w-5 h-5" /><span class="link__text"
+        >
+        <carbon:arrow-left class="w-5 h-5" /><span class="link__text"
           >Back</span
         ></a
       >
     </span>
   </nav>
+  </header>
 </template>
 
 <style lang="scss" scoped>
 $nav-height: 64px;
 
 .navbar {
+  position: fixed;
+  width: 100vw;
   padding: 0 $padding-lg;
   height: $nav-height;
   background-color: $black-2;

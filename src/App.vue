@@ -1,3 +1,33 @@
+<script setup lang="ts">
+//TODO
+//* add loading
+
+import { RouterLink, RouterView } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import NavBar from '@/components/NavBar.vue'
+
+import HelloWorld from '@/components/HelloWorld.vue'
+import { isDark, toggleDark } from '@/composables/useDarkmode'
+import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
+
+import '@/styles/base.scss'
+
+const { locale } = useI18n()
+
+const gotoGitHub = () => {
+  window.open('https://github.com/xiaoluoboding/vue3-starter', '_blank')
+}
+
+async function toggleLocales() {
+  // change to some real logic
+  const locales = availableLocales
+  const newLocale =
+    locales[(locales.indexOf(locale.value) + 1) % locales.length]
+  await loadLanguageAsync(newLocale)
+  locale.value = newLocale
+}
+</script>
+
 <template>
   <!-- <header>
     <div class="wrapper" lg="flex place-items-center flex-wrap">
@@ -34,40 +64,13 @@
       </div>
     </div>
   </header> -->
-  <NavBar />
-  <RouterView />
+
+  <MainNavigationBar />
+  <div class="main-left"><NavBar /> <RouterView /></div>
 </template>
 
-
-
-<script setup lang="ts">
-//TODO
-//* add loading
-
-import { RouterLink, RouterView } from 'vue-router'
-import { useI18n } from 'vue-i18n'
-import NavBar from '@/components/NavBar.vue'
-
-import HelloWorld from '@/components/HelloWorld.vue'
-import { isDark, toggleDark } from '@/composables/useDarkmode'
-import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
-
-import '@/styles/base.scss'
-
-const { locale } = useI18n()
-
-const gotoGitHub = () => {
-  window.open('https://github.com/xiaoluoboding/vue3-starter', '_blank')
+<style lang="scss">
+.main-left {
+  margin-left: $main-menu-width-closed;
 }
-
-async function toggleLocales() {
-  // change to some real logic
-  const locales = availableLocales
-  const newLocale =
-    locales[(locales.indexOf(locale.value) + 1) % locales.length]
-  await loadLanguageAsync(newLocale)
-  locale.value = newLocale
-}
-</script>
-
-<style lang="scss"></style>
+</style>
