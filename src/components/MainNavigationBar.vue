@@ -20,18 +20,19 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
 import { computed } from 'vue'
 
 const { height } = useWindowResize()
 const minHeight = computed(() => `${height.value - 60}px`)
-
 </script>
 
 <style lang="scss" scope>
 .main-navigation {
   position: fixed;
+  top: 0;
   width: 56px;
   border: $thin-light-1;
   padding: $margin-md 0;

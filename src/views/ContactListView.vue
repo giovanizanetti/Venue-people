@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
-import { BREAKPOINTS } from '@/styles/variables';
+import { BREAKPOINTS } from '@/styles/variables'
 
 const { width } = useWindowResize()
 </script>
 
 <template>
-  <div class="main">
+  <div class="contact-list-container">
     <BrandName v-if="width >= BREAKPOINTS.desktop" />
     <TeamsList class="session" />
     <PeopleList class="session" />
@@ -14,17 +14,17 @@ const { width } = useWindowResize()
 </template>
 
 <style scoped lang="scss">
-.main {
-  margin: $margin-xl $margin-lg;
+.contact-list-container {
+  margin: $margin-xxl $margin-lg;
   .session {
-    margin: $margin-sm 0;
+    margin: $margin-md 0;
   }
   @media screen and (max-width: $tablet-sm) {
-    margin: $margin-xl 0;
+    margin: $margin-xxl 0;
   }
 
   @media screen and (min-width: $desktop) {
-    margin: $margin-md $margin-lg;
+    margin: $margin-xl $margin-lg;
   }
 }
 </style>

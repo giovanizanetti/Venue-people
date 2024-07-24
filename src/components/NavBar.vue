@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useWindowResize } from '@/composables/useWindowResize'
+import { BREAKPOINTS } from '@/styles/variables'
 import { useRouter } from 'vue-router'
 const router = useRouter()
+const { width } = useWindowResize()
 </script>
 
 <template>
@@ -8,42 +11,59 @@ const router = useRouter()
     <nav class="navbar">
       <span class="link">
         <a @click="router.back()" to="#">
-          <carbon:arrow-left class="w-5 h-5" /><span class="link__text"
-            >Back</span
-          ></a
+          <carbon:arrow-left class="w-5 h-5" />
+          <span v-if="width >= BREAKPOINTS.tabletSm" class="link__text"
+            >Back
+          </span></a
         >
+      </span>
+      <span v-if="width <= BREAKPOINTS.tabletSm" class="link">
+        <a @click="router.back()" to="#">
+          <carbon:circle-dash class="w-5 h-5" />
+        </a>
       </span>
     </nav>
   </header>
 </template>
 
 <style lang="scss" scoped>
-.navbar {
+header {
   position: fixed;
   top: 0;
   z-index: 1;
-  width: 100vw;
-  padding: 0 $padding-lg;
-  height: $top-nav-height;
-  background-color: $black-2;
-  color: $white-1;
-  font-size: typography-1;
+  width: fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
 
-  .link {
-    cursor: pointer;
-    a {
-      display: flex;
-      align-items: center;
-      height: $top-nav-height;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $padding-lg;
+    height: $top-nav-height;
+    background-color: $black-2;
+    color: $white-1;
+
+    @media screen and (max-width: $tablet-sm) {
+      padding: 0 $padding-md;
+
     }
 
-    &__text {
-      text-decoration: underline;
-      margin-left: $margin-xs;
-    }
+    .link {
+      cursor: pointer;
+      a {
+        display: flex;
+        align-items: center;
+        height: $top-nav-height;
+      }
 
-    &:hover {
-      color: darken($white-1, 15%);
+      &__text {
+        text-decoration: underline;
+        margin-left: $margin-xs;
+      }
+
+      &:hover {
+        color: darken($white-1, 15%);
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import MainNavigationBar from './components/MainNavigationBar.vue'
 //TODO
 //* add loading
 
@@ -11,8 +12,12 @@ import { isDark, toggleDark } from '@/composables/useDarkmode'
 import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
 
 import '@/styles/base.scss'
+import { useWindowResize } from './composables/useWindowResize'
+import { BREAKPOINTS } from './styles/variables'
 
 const { locale } = useI18n()
+
+const { width } = useWindowResize()
 
 const gotoGitHub = () => {
   window.open('https://github.com/xiaoluoboding/vue3-starter', '_blank')
@@ -65,20 +70,23 @@ async function toggleLocales() {
     </div>
   </header> -->
 
-  <MainNavigationBar />
+  <MainNavigationBar v-if="width >= BREAKPOINTS.tabletSm" />
   <div class="main-left">
-    <NavBar />
     <main class="main">
+      <NavBar />
+
       <RouterView />
     </main>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.main {
-  margin-top: $top-nav-height;
-}
-.main-left {
-  margin-left: $main-menu-width-closed;
+@media screen and (min-width: $tablet-sm) {
+  .main {
+    margin-top: $top-nav-height;
+  }
+  .main-left {
+    margin-left: $main-menu-width-closed;
+  }
 }
 </style>
