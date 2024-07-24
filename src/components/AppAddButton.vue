@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <RouterLink to="/" @click="handleDummyClick">
-    <span class="add-user"
+    <span class="add"
       ><carbon:add class="w-5 h-5" /><span class="text">{{
         `New ${capitalize(type)}`
       }}</span>
@@ -17,7 +17,7 @@ defineProps<{
   >
 </template>
 <style lang="scss" scoped>
-.add-user {
+.add {
   width: 100%;
   display: flex;
   margin: $margin-sm $margin-xs;
@@ -26,10 +26,6 @@ defineProps<{
     font-weight: 500;
     font-size: $typography-2;
     text-decoration: underline;
-  }
-
-  @media screen and (max-width: $tablet-md) {
-    justify-content: center;
   }
 
   &:hover {

@@ -12,7 +12,7 @@ defineProps<{ color: string; label: string }>()
     </div>
     <div class="title">{{ capitalize(label) }}</div>
     <div class="icon-button" role="button" @click="handleDummyClick">
-      <carbon:edit class="w-5 h-5" />
+      <carbon:edit class="w-4 h-4" />
     </div>
   </li>
 </template>

@@ -31,14 +31,18 @@ const onClick = () =>
     </span>
     <div class="user-info">
       <div class="username">
-        <span class="user-info__item"> {{ props.user.fullName }}</span
-        ><span class="xs user-info__item">{{ user.xc }}</span>
+        <span class="user-info__name">
+          {{ props.user.displayName
+          }}<span
+            ><!--TODO: display user full name for large screens--></span
+          ></span
+        ><span class="xs user-info__position">{{ user.xc }}</span>
       </div>
-      <div class="phone">
+      <div class="contact">
         <span v-if="width >= BREAKPOINTS.tablet" class="email user-info__item"
           >{{ user.email }} <span class="divisor">|</span></span
         >
-        <span class="phone__prefix user-info__item">{{
+        <span class="phone phone__prefix user-info__item">{{
           user.phoneCountryPrefix
         }}</span
         ><span>{{ user.phoneNumber }}</span>
@@ -48,7 +52,7 @@ const onClick = () =>
       <PeopleListItemTeamIcon :user="user" />
     </span>
     <span class="remove-team-member" @click="onClick">
-      <carbon:trash-can class="w-5 h-5" />
+      <carbon:trash-can class="w-4 h-4" />
     </span>
   </li>
 </template>
@@ -68,19 +72,29 @@ const onClick = () =>
 
   &__first {
     border-top: $thin-light-1;
-    border-top-left-radius: $radius-sm;
-    border-top-right-radius: $radius-sm;
+    @media screen and (min-width: $tablet-sm) {
+      border-top-left-radius: $radius-sm;
+      border-top-right-radius: $radius-sm;
+    }
   }
 
   &__last {
-    border-bottom-left-radius: $radius-sm;
-    border-bottom-right-radius: $radius-sm;
+    @media screen and (min-width: $tablet-sm) {
+      border-bottom-left-radius: $radius-sm;
+      border-bottom-right-radius: $radius-sm;
+    }
   }
 
   .avatar {
-    flex: 1.4;
+    flex: 1.5;
     margin-top: 4px;
     text-align: center;
+    @media screen and (min-width: $tablet-md) {
+      flex: 0.5;
+    }
+    @media screen and (min-width: $tablet-md) {
+      flex: 1;
+    }
   }
   .user-info {
     flex: 7;
@@ -88,14 +102,25 @@ const onClick = () =>
     flex-direction: column;
 
     .username {
-      font-weight: 600;
+      .user-info {
+        &__name {
+          font-weight: 500;
+        }
+        &__position {
+          font-weight: 300;
+        }
+      }
     }
     .xs {
       margin-left: $margin-xs;
     }
-    .phone {
-      &__prefix {
-        margin-right: $margin-xs;
+    .contact {
+      color: $grey-light-2;
+      .phone {
+        font-weight: 300;
+        &__prefix {
+          margin-right: $margin-xs;
+        }
       }
     }
 
@@ -122,13 +147,17 @@ const onClick = () =>
     display: flex;
     justify-content: center;
 
+    @media screen and (max-width: $tablet-sm) {
+      margin-right: $margin-md;
+    }
+
     @media screen and (min-width: $desktop) {
       flex: 0.5;
     }
   }
 
   .remove-team-member {
-    flex: 1.4;
+    flex: 1.5;
     display: flex;
     justify-content: center;
     margin-right: -0.5rem;

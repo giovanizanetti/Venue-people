@@ -2,20 +2,18 @@
 import type { IUser } from '@/mockdata/users'
 import PeopleListItem from './PeopleListItem.vue'
 import AppHeading from './AppHeading.vue'
-import AppAddButton from './AppAddButton.vue';
-import { storeToRefs } from 'pinia';
+import AppAddButton from './AppAddButton.vue'
+import { storeToRefs } from 'pinia'
 import { useUsers } from '@/stores/users'
 
-
-
-const { users }  = storeToRefs(useUsers())
+const { users } = storeToRefs(useUsers())
 
 const isFirst = (index: number) => index == 0
 const isLast = (index: number) => users.value.length == index + 1
 </script>
 
 <template>
-  <div>
+  <div class="users-wrapper">
     <AppHeading text="People" />
     <ul>
       <PeopleListItem
@@ -26,18 +24,23 @@ const isLast = (index: number) => users.value.length == index + 1
         :isFirst="isFirst(index)"
       />
     </ul>
-    <AppAddButton type="user" />
+    <AppAddButton class="add" type="user" />
   </div>
 </template>
 <style lang="scss" scoped>
-.add-user {
-  display: flex;
-  margin: $margin-xs;
-  .text {
-    margin: 0 $margin-xxs;
-    font-weight: 500;
-    font-size: $typography-2;
-    text-decoration: underline;
+.users-wrapper {
+  margin: 0;
+}
+
+.heading {
+  justify-content: center;
+}
+
+.add:deep(.add) {
+  margin-top: -0.5px;
+
+  @media screen and (max-width: $tablet-sm) {
+    justify-content: center;
   }
 }
 </style>
