@@ -37,6 +37,8 @@ const isLast = (index: number) => users.value.length == index + 1
 }
 
 .add:deep(.add) {
+  margin-top: -0.5px;
+
   @media screen and (max-width: $tablet-sm) {
     justify-content: center;
   }

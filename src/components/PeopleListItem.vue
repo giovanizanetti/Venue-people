@@ -31,7 +31,11 @@ const onClick = () =>
     </span>
     <div class="user-info">
       <div class="username">
-        <span class="user-info__name"> {{ props.user.fullName }}</span
+        <span class="user-info__name">
+          {{ props.user.displayName
+          }}<span
+            ><!--TODO: display user full name for large screens--></span
+          ></span
         ><span class="xs user-info__position">{{ user.xc }}</span>
       </div>
       <div class="contact">
@@ -85,6 +89,12 @@ const onClick = () =>
     flex: 1.5;
     margin-top: 4px;
     text-align: center;
+    @media screen and (min-width: $tablet-md) {
+      flex: 0.5;
+    }
+    @media screen and (min-width: $tablet-md) {
+      flex: 1;
+    }
   }
   .user-info {
     flex: 7;

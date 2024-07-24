@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppAddButton: typeof import('./src/components/AppAddButton.vue')['default']
     AppHeading: typeof import('./src/components/AppHeading.vue')['default']
+    BrandName: typeof import('./src/components/BrandName.vue')['default']
     'Carbon:a': typeof import('~icons/carbon/a')['default']
     'Carbon:add': typeof import('~icons/carbon/add')['default']
     'Carbon:ar': typeof import('~icons/carbon/ar')['default']

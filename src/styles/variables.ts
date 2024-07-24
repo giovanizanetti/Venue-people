@@ -10,3 +10,8 @@ export const BREAKPOINTS = {
   tablet: 600,
   desktop: 1100
 }
+
+export const TYPOGRAPHY = {
+  lg: '45px'
+} as const
+export type TTypography = (typeof TYPOGRAPHY)[keyof typeof TYPOGRAPHY]
