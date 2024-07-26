@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     404: typeof import('./src/components/404.vue')['default']
     AppAddButton: typeof import('./src/components/AppAddButton.vue')['default']
+    AppForm: typeof import('./src/components/AppForm.vue')['default']
     AppHeading: typeof import('./src/components/AppHeading.vue')['default']
     AppInput: typeof import('./src/components/AppInput.vue')['default']
     AppTextInput: typeof import('./src/components/AppTextInput.vue')['default']
@@ -63,6 +64,7 @@ declare module 'vue' {
     Card: typeof import('./src/components/Card.vue')['default']
     CardUtil: typeof import('./src/components/CardUtil.vue')['default']
     DoubleFieldFormContainer: typeof import('./src/components/DoubleFieldFormContainer.vue')['default']
+    FormActions: typeof import('./src/components/FormActions.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']

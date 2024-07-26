@@ -4,10 +4,9 @@ import { useRouter } from 'vue-router'
 import { VALIDATION } from '@/constants'
 import AppInput from '@/components/AppInput.vue'
 import DoubleFieldFormContainer from '@/components/DoubleFieldFormContainer.vue'
+import AppForm from '@/components/AppForm.vue'
 
 const router = useRouter()
-
-const formRef = ref(null)
 
 const initalState = {
   fullname: '',
@@ -29,27 +28,19 @@ const formData = ref({ ...initalState })
 const onSubmit = (data: typeof initalState) => {
   //TODO: Display a toast or other feedback to the user
 
-  console.log(data)
-  router.back()
+  console.log(data.fullname)
+  // router.back()
 }
 
 const onCancel = () => {
-  if (formRef.value) {
-    // formRef.value.reset();
-    router.push('./contact-list')
-  }
+  // formRef.value.reset();
+  router.push('./contact-list')
 }
 </script>
 
 <template>
-  <FormKit
-    type="form"
-    ref="formRef"
-    submit-label="Save"
-    @submit="onSubmit"
-    #default="{ value }"
-  >
-    <section class="form-body">
+  <AppForm :data="initalState" @submit="onSubmit">
+    <template #body="{ value }">
       <div class="profile-picture">
         <UserAvatar :src="formData.image" size="medium" />
       </div>
@@ -118,81 +109,31 @@ const onCancel = () => {
           v-model="formData.country"
         />
       </section>
-    </section>
-    <pre wrap>{{ value }}</pre>
-    <section class="form-actions">
-      <button type="button" @click="onCancel" class="cancel-button">
-        Cancel
-      </button>
-    </section>
-  </FormKit>
+      <pre wrap>{{ value }}</pre>
+    </template>
+  </AppForm>
 </template>
 
 <style scoped lang="scss">
-.form-body {
+.profile-picture {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  margin: 0 $margin-sm;
-
-  @media screen and (min-width: $mobile) {
-    margin: 0 $margin-md;
-  }
-
-  @media screen and (min-width: $desktop) {
-    margin: 0 $margin-xl;
-  }
-
-  @media screen and (min-width: $desktop-md) {
-    margin: 0 $margin-xxl;
-  }
+  justify-content: center;
 
   @media screen and (min-width: $tablet-sm) {
-    flex-direction: row;
-    .profile-picture {
-      flex: 1;
-      margin-top: $margin-xl;
-    }
-    .form-fields-container {
-      flex: 5;
-      margin-top: $margin-xl;
-    }
+    margin-left: -$margin-sm;
+    flex: 1;
+    margin: 1rem;
+    margin-top: $margin-xl;
   }
 
-  .profile-picture {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    @media screen and (max-width: $mobile) {
-      margin-top: -$margin-sm;
-    }
-
-    @media screen and (min-width: $tablet-sm) {
-      margin-left: -$margin-md;
-    }
-
-    :deep(.avatar) {
-      border: $thin-dark-1;
-    }
+  :deep(.avatar) {
+    border: $thin-dark-1;
   }
 }
 
-.form-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.cancel-button {
-  background-color: #f44336;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.cancel-button:hover {
-  background-color: #d32f2f;
+.form-fields-container {
+  flex: 5;
+  margin-top: $margin-xl;
 }
 </style>
