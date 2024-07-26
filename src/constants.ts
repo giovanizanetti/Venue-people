@@ -21,3 +21,7 @@ export const ROUTE = {
   contactEditor: 'contact-editor',
   home: 'home'
 }
+
+export const LOCAL_STORAGE_PROPS = {
+  users: 'users'
+} as const

@@ -1,4 +1,4 @@
-import { ROUTE } from '@/constants'
+import { LOCAL_STORAGE_PROPS, ROUTE } from '@/constants'
 import axios from '@/mockdata/axiosMock'
 import type { IUser } from '@/mockdata/users'
 import { acceptHMRUpdate, defineStore } from 'pinia'
@@ -11,13 +11,16 @@ export const useUsers = defineStore('users', () => {
   const loading = ref(false)
   const success = ref(false)
 
-  
+  const syncWithLocalStorage = () => {
+    localStorage.setItem(LOCAL_STORAGE_PROPS.users, JSON.stringify(users.value))
+  }
 
   const fetchUsers = async () => {
     try {
       loading.value = true
       const response = await axios.get('/users')
       users.value = response.data
+      syncWithLocalStorage()
       console.log(localStorage)
       success.value = true
     } catch (error) {
@@ -40,6 +43,7 @@ export const useUsers = defineStore('users', () => {
     try {
       loading.value = true
       const response = await axios.put(`/users/${data.id}`, data)
+      syncWithLocalStorage
       return response.data
     } catch (error) {
       console.log(error)
@@ -49,7 +53,7 @@ export const useUsers = defineStore('users', () => {
   }
 
   // const addUser = (user: IUser) => users.value.unshift(user)
-  const deleteUser = (teamId: number) => console.log(teamId)
+  const deleteUser = (teamId: number) => {}
 
   const loadFromLocalStorage = () => {
     const storedData = localStorage.getItem('users')

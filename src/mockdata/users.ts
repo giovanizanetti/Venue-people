@@ -1,6 +1,7 @@
+import { LOCAL_STORAGE_PROPS } from '@/constants'
 import { userAddressMock } from './usersAddress'
 
-export const mockUsers: IUser[] = [
+const defaultData: IUser[] = [
   {
     id: 1,
     fullName: 'Staffy de Nielden',
@@ -108,3 +109,12 @@ export interface IUser {
   xc: string
   userPermissions?: string[]
 }
+
+const loadData = (): IUser[]=> {
+  const storedData = localStorage.getItem('users')
+  if (storedData?.length) {
+    return JSON.parse(storedData)
+  } else return defaultData
+}
+
+export const mockUsers = loadData()
