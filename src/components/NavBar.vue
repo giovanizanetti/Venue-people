@@ -2,6 +2,7 @@
 import { useWindowResize } from '@/composables/useWindowResize'
 import { BREAKPOINTS } from '@/styles/variables'
 import { useRouter } from 'vue-router'
+
 const router = useRouter()
 const { width } = useWindowResize()
 </script>
@@ -45,7 +46,6 @@ header {
 
     @media screen and (max-width: $tablet-sm) {
       padding: 0 $padding-md;
-
     }
 
     .link {

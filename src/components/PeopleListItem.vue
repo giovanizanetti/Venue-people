@@ -117,7 +117,7 @@ const onClick = () =>
     .contact {
       display: flex;
       align-items: center;
-      color: $grey-light-2;
+      color: $grey-medium-1;
       .phone {
         font-weight: 300;
         &__prefix {

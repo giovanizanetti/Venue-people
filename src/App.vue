@@ -72,15 +72,17 @@ async function toggleLocales() {
 
   <MainNavigationBar v-if="width >= BREAKPOINTS.tabletSm" />
   <div class="main-left">
+    <NavBar />
     <main class="main">
-      <NavBar />
-
       <RouterView />
     </main>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.main {
+  margin-top: $margin-xxl;
+}
 @media screen and (min-width: $tablet-sm) {
   .main {
     margin-top: $top-nav-height;
