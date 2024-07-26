@@ -14,6 +14,7 @@ import { TYPOGRAPHY } from '@/styles/variables'
   justify-content: center;
   align-items: center;
   height: 60vh;
+
   .brand-name {
     margin-top: -$margin-xxl;
   }

@@ -2,7 +2,7 @@
 import type { EMIT } from '@/constants'
 import AppButton from '@/components/AppButton.vue'
 
-const emit = defineEmits<{
+defineEmits<{
   (e: typeof EMIT.submit, value: any): void
   (e: typeof EMIT.cancel): void
 }>()
@@ -59,19 +59,12 @@ const emit = defineEmits<{
   bottom: 0;
 
   &__inner {
+    align-items: center;
     display: flex;
     gap: $margin-sm;
-    @include getMargin;
-
     height: 124px;
     justify-content: center;
-    align-items: center;
-
-    &__cancel {
-    }
-
-    &__save {
-    }
+    @include getMargin;
   }
 }
 </style>
