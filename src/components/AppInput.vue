@@ -1,32 +1,36 @@
-
-
 <template>
   <FormKit v-bind="$attrs" />
 </template>
 
 <style scoped lang="scss">
-:deep(.formkit-form) {
-  /* Custom styles for the form */
-}
+// :deep(.formkit-input-group) {
+//   margin-bottom: 1rem;
+// }
 
-:deep(.formkit-input-group) {
-  margin-bottom: 1rem;
-}
+:deep(.formkit-wrapper) {
+  margin: $margin-sm 0;
 
-:deep(.formkit-label) {
-  display: block;
-  margin-bottom: 0.5rem;
-}
+  .formkit-label {
+    font-weight: 300;
+    font-size: $typography-2;
+  }
 
-:deep(.formkit-input) {
-  width: 100%;
-  padding: 0.5rem;
-  height: 52px;
-  border: $thin-light-1;
-  border-radius: $radius-xxs;
-  background: transparent;
+  .formkit-input {
+    width: 100%;
+    padding: 0.5rem;
+    height: 52px;
+    border: $thin-light-1;
+    border-radius: $radius-xs;
+    background: transparent;
+    margin: $margin-xxs 0;
+  }
 }
-/* 
+:deep(.formkit-message) {
+  color: $danger;
+  margin-top: -$margin-sm;
+  font-size: $typography-2;
+}
+/*
 :deep(.formkit-button) {
   padding: 0.5rem 1rem;
   background-color: #007bff;

@@ -48,99 +48,138 @@ const onCancel = () => {
     @submit="onSubmit"
     #default="{ value }"
   >
-    <UserAvatar :src="formData.image" size="medium" />
-    <AppInput />
+    <section class="form-body">
+      <div class="profile-picture">
+        <UserAvatar :src="formData.image" size="medium" />
+      </div>
 
-    bananan
-    <AppInput
-      type="text"
-      name="fullname"
-      label="Fullname"
-      v-model="formData.fullname"
-    />
-    <FormKit
-      type="text"
-      class="input"
-      name="initials"
-      label="Initials"
-      v-model="formData.initials"
-    />
-    <FormKit
-      type="text"
-      class="input"
-      name="display-name"
-      label="Display name"
-      v-model="formData.displayName"
-    />
-    <FormKit type="text" name="role" label="Role" v-model="formData.role" />
-    <FormKit
-      type="email"
-      class="input"
-      name="email"
-      label="Email"
-      v-model="formData.email"
-      validation-visibility="live"
-      :validation="VALIDATION.email"
-    />
-    <FormKit
-      type="text"
-      class="input"
-      name="phoneCountryPrefix"
-      label="Prefix"
-      v-model="formData.phoneCountryPrefix"
-      validation-visibility="live"
-      :validation="'required'"
-    />
-    <FormKit
-      type="text"
-      class="input"
-      name="phone-number"
-      label="Phone Number"
-      v-model="formData.phoneNumber"
-      validation-visibility="live"
-      :validation="VALIDATION.phoneNumber"
-    />
-    <FormKit
-      type="text"
-      class="input"
-      name="street"
-      label="Street"
-      v-model="formData.street"
-    />
-    <FormKit type="text" name="city" label="City" v-model="formData.city" />
-    <FormKit
-      type="text"
-      class="input"
-      name="postal-code"
-      label="Postal Code"
-      v-model="formData.postalCode"
-    />
-    <FormKit
-      type="text"
-      class="input"
-      name="country"
-      label="Country"
-      v-model="formData.country"
-    />
+      <section class="form-fields-container">
+        <div class="field-section-multiple">
+          <AppInput
+            name="fullname"
+            label="Full name *"
+            v-model="formData.fullname"
+          />
+
+          <AppInput
+            name="initials"
+            label="Initials"
+            v-model="formData.initials"
+          />
+        </div>
+
+        <AppInput
+          name="display-name"
+          label="Display name"
+          v-model="formData.displayName"
+        />
+        <AppInput name="role" label="Role" v-model="formData.role" />
+        <AppInput
+          type="email"
+          name="email"
+          label="Email"
+          v-model="formData.email"
+          :validation-visibility="formData.email?.length > 3 && 'live'"
+          :validation="VALIDATION.email"
+        />
+        <!--TODO: Check input group-->
+        <AppInput
+          name="phoneCountryPrefix"
+          v-model="formData.phoneCountryPrefix"
+          :validation-visibility="
+            formData.phoneCountryPrefix?.length > 2 && 'live'
+          "
+          :validation="'required'"
+        />
+        <AppInput
+          name="phone-number"
+          v-model="formData.phoneNumber"
+          :validation="VALIDATION.phoneNumber"
+        />
+        <!---->
+        <AppInput name="street" label="Street" v-model="formData.street" />
+        <div class="field-section-multiple">
+          <AppInput name="city" label="City" v-model="formData.city" />
+          <AppInput
+            name="postal-code"
+            label="Postal Code"
+            v-model="formData.postalCode"
+          />
+        </div>
+
+        <AppInput
+          type="text"
+          class="input"
+          name="country"
+          label="Country"
+          v-model="formData.country"
+        />
+      </section>
+    </section>
     <pre wrap>{{ value }}</pre>
-    <div class="form-actions">
+    <section class="form-actions">
       <button type="button" @click="onCancel" class="cancel-button">
         Cancel
       </button>
-    </div>
+    </section>
   </FormKit>
 </template>
 
 <style scoped lang="scss">
-// .input-outter {
-//   background: purple;
-//   border: 2px sooid blue;
-// }
+.form-body {
+  display: flex;
+  flex-direction: column;
+  margin: $margin-sm;
 
-:deep(.input-inner) {
-  background: orange;
-  border: 2px sooid blue;
+  // $tablet-sm
+
+  @media screen and (min-width: $mobile) {
+    margin: $margin-md;
+  }
+
+  @media screen and (min-width: $tablet-sm) {
+    flex-direction: row;
+    .profile-picture {
+      flex: 1;
+      margin-top: $margin-xl;
+    }
+    .form-fields-container {
+      flex: 5;
+      margin-top: $margin-xl
+    }
+  }
+
+  .profile-picture {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (man-width: $mobile) {
+      margin-top: -$margin-sm;
+    }
+    :deep(.avatar) {
+      border: $thin-dark-1;
+    }
+  }
+  .form-fields-container {
+    .field-section-multiple {
+      display: flex;
+      justify-content: center;
+      margin-bottom: -$margin-sm;
+      & > :first-child {
+        margin-right: $margin-sm;
+        @media screen and (min-width: $mobile) {
+          // margin-right: $margin-md;
+        }
+      }
+    }
+  }
 }
+
+:deep(.formkit-form) {
+  // margin: $margin-xxl $margin-lg;
+}
+
 .form-actions {
   display: flex;
   gap: 1rem;

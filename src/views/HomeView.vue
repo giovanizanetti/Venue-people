@@ -13,7 +13,7 @@ import { TYPOGRAPHY } from '@/styles/variables'
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
   .brand-name {
     margin-top: -$margin-xxl;
   }
