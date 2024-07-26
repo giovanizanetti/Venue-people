@@ -3,13 +3,15 @@ $black-1: #17171d;
 $black-2: #282829;
 $white-1: #efefef;
 $grey-light-1: #e2e2e2;
-$grey-light-2: #5f5f5f;
+$grey-light-2: #efefef;
+$grey-medium-1: #5f5f5f;
 $pink-1: #ffc9c9;
 $purple-1: #a5a4d4;
 $green-1: #c1e0b9;
 $danger: #da0c0ced;
 
 //SPACES
+$padding-xs: 0.5rem;
 $padding-sm: 1rem;
 $padding-md: 2rem;
 $padding-lg: 4.5em;
@@ -28,6 +30,7 @@ $thin-dark-1: 1px solid $black-1;
 $radius-xxs: 2px;
 $radius-xs: 4px;
 $radius-sm: 15px;
+$radius-lg: 20px;
 
 //FONT-SIZE
 $typography-1: 14px;

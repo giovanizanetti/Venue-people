@@ -39,8 +39,8 @@ const onCancel = () => {
 </script>
 
 <template>
-  <AppForm :data="initalState" @submit="onSubmit">
-    <template #body="{ value }">
+  <AppForm @submit="onSubmit">
+    <template #body>
       <div class="profile-picture">
         <UserAvatar :src="formData.image" size="medium" />
       </div>
@@ -92,6 +92,7 @@ const onCancel = () => {
         />
 
         <AppInput name="street" label="Street" v-model="formData.street" />
+
         <DoubleFieldFormContainer>
           <AppInput name="city" label="City" v-model="formData.city" />
           <AppInput
@@ -102,14 +103,13 @@ const onCancel = () => {
         </DoubleFieldFormContainer>
 
         <AppInput
-          type="text"
           class="input"
           name="country"
           label="Country"
           v-model="formData.country"
         />
       </section>
-      <pre wrap>{{ value }}</pre>
+      <!-- <pre wrap>{{ value }}</pre> -->
     </template>
   </AppForm>
 </template>

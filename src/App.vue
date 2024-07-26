@@ -81,17 +81,7 @@ async function toggleLocales() {
 
 <style lang="scss" scoped>
 .main {
-  margin: $margin-xxl 0;
-  // .session {
-  //   margin: $margin-md 0;
-  // }
-  // @media screen and (max-width: $tablet-sm) {
-  //   margin: $margin-xxl 0;
-  // }
-
-  // @media screen and (min-width: $desktop) {
-  //   margin: $margin-xl $margin-lg;
-  // }
+  margin-top: $margin-xxl;
 }
 @media screen and (min-width: $tablet-sm) {
   .main {

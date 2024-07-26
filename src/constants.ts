@@ -13,5 +13,5 @@ export const VALIDATION = {
 export const EMIT = {
   submit: 'submit',
   cancel: 'cancel',
-  save: 'save'
+  click: 'click'
 } as const

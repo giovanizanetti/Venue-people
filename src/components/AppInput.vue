@@ -3,11 +3,6 @@
 </template>
 
 <style scoped lang="scss">
-// :deep(.formkit-input-group) {
-//   margin-bottom: 1rem;
-// }
-
-
 :deep(.formkit-wrapper) {
   margin: $margin-sm 0;
 
@@ -31,13 +26,4 @@
   margin-top: -$margin-sm;
   font-size: $typography-2;
 }
-/*
-:deep(.formkit-button) {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-} */
 </style>

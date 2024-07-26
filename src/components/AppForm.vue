@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { EMIT } from '@/constants'
+import type { EMIT } from '@/constants'
+import AppButton from '@/components/AppButton.vue'
 
 const emit = defineEmits<{
   (e: typeof EMIT.submit, value: any): void
@@ -13,31 +14,16 @@ const emit = defineEmits<{
       <slot name="body" :value="value"></slot>
     </section>
     <section class="form-actions">
-      <button
-        class="form-actions__save"
-        type="button"
-        @click="emit(EMIT.submit, value)"
-      >
-        Save
-      </button>
-
-      <button
-        class="form-actions__cancel"
-        type="button"
-        @click="emit(EMIT.cancel)"
-      >
-        Cancel
-      </button>
+      <div class="form-actions__inner">
+        <AppButton variant="secondary">Cancel</AppButton>
+        <AppButton>Save changes</AppButton>
+      </div>
     </section>
   </FormKit>
 </template>
 
 <style scoped lang="scss">
-.form-body {
-  display: flex;
-  flex-direction: column;
-  margin: 0 $margin-sm;
-
+@mixin getMargin {
   @media screen and (min-width: $mobile) {
     margin: 0 $margin-md;
   }
@@ -49,6 +35,14 @@ const emit = defineEmits<{
   @media screen and (min-width: $desktop-md) {
     margin: 0 $margin-xxl;
   }
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 $margin-sm;
+
+  @include getMargin;
 
   @media screen and (min-width: $tablet-sm) {
     flex-direction: row;
@@ -56,26 +50,28 @@ const emit = defineEmits<{
 }
 
 .form-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  margin-top: $margin-lg !important;
+  background-color: $white-1;
+  border-top: $thin-light-1;
+  border-bottom: $thin-light-1;
+  position: relative;
+  widows: 100%;
+  bottom: 0;
 
-  color: white;
+  &__inner {
+    display: flex;
+    gap: $margin-sm;
+    @include getMargin;
 
-  cursor: pointer;
+    height: 124px;
+    justify-content: center;
+    align-items: center;
 
-  &__cancel {
-    background-color: #f44336;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-
-    &:hover {
-      background-color: #d32f2f;
+    &__cancel {
     }
-  }
 
-  &__save {
+    &__save {
+    }
   }
 }
 </style>
