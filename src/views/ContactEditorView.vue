@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { VALIDATION } from '@/constants'
 import AppInput from '@/components/AppInput.vue'
+import DoubleFieldFormContainer from '@/components/DoubleFieldFormContainer.vue'
 
 const router = useRouter()
 
@@ -54,7 +55,7 @@ const onCancel = () => {
       </div>
 
       <section class="form-fields-container">
-        <div class="field-section-multiple">
+        <DoubleFieldFormContainer>
           <AppInput
             name="fullname"
             label="Full name *"
@@ -66,14 +67,16 @@ const onCancel = () => {
             label="Initials"
             v-model="formData.initials"
           />
-        </div>
+        </DoubleFieldFormContainer>
 
         <AppInput
           name="display-name"
           label="Display name"
           v-model="formData.displayName"
         />
+
         <AppInput name="role" label="Role" v-model="formData.role" />
+
         <AppInput
           type="email"
           name="email"
@@ -82,7 +85,7 @@ const onCancel = () => {
           :validation-visibility="formData.email?.length > 3 && 'live'"
           :validation="VALIDATION.email"
         />
-        <!--TODO: Check input group-->
+
         <AppInput
           name="phoneCountryPrefix"
           v-model="formData.phoneCountryPrefix"
@@ -96,16 +99,16 @@ const onCancel = () => {
           v-model="formData.phoneNumber"
           :validation="VALIDATION.phoneNumber"
         />
-        <!---->
+
         <AppInput name="street" label="Street" v-model="formData.street" />
-        <div class="field-section-multiple">
+        <DoubleFieldFormContainer>
           <AppInput name="city" label="City" v-model="formData.city" />
           <AppInput
             name="postal-code"
             label="Postal Code"
             v-model="formData.postalCode"
           />
-        </div>
+        </DoubleFieldFormContainer>
 
         <AppInput
           type="text"
@@ -129,12 +132,18 @@ const onCancel = () => {
 .form-body {
   display: flex;
   flex-direction: column;
-  margin: $margin-sm;
-
-  // $tablet-sm
+  margin: 0 $margin-sm;
 
   @media screen and (min-width: $mobile) {
-    margin: $margin-md;
+    margin: 0 $margin-md;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin: 0 $margin-xl;
+  }
+
+  @media screen and (min-width: $desktop-md) {
+    margin: 0 $margin-xxl;
   }
 
   @media screen and (min-width: $tablet-sm) {
@@ -145,7 +154,7 @@ const onCancel = () => {
     }
     .form-fields-container {
       flex: 5;
-      margin-top: $margin-xl
+      margin-top: $margin-xl;
     }
   }
 
@@ -154,30 +163,18 @@ const onCancel = () => {
     display: flex;
     justify-content: center;
 
-    @media screen and (man-width: $mobile) {
+    @media screen and (max-width: $mobile) {
       margin-top: -$margin-sm;
     }
+
+    @media screen and (min-width: $tablet-sm) {
+      margin-left: -$margin-md;
+    }
+
     :deep(.avatar) {
       border: $thin-dark-1;
     }
   }
-  .form-fields-container {
-    .field-section-multiple {
-      display: flex;
-      justify-content: center;
-      margin-bottom: -$margin-sm;
-      & > :first-child {
-        margin-right: $margin-sm;
-        @media screen and (min-width: $mobile) {
-          // margin-right: $margin-md;
-        }
-      }
-    }
-  }
-}
-
-:deep(.formkit-form) {
-  // margin: $margin-xxl $margin-lg;
 }
 
 .form-actions {
