@@ -25,10 +25,14 @@ const initalState = {
 
 const formData = ref({ ...initalState })
 
-const onSubmit = (data: typeof initalState) => {
+const onSubmit = async (data: typeof initalState) => {
+  console.log('submit', data)
   //TODO: Display a toast or other feedback to the user
-
-  console.log(data.fullname)
+  // try {
+  // } catch (error) {
+  //   console.error(error)
+  // }
+  // console.log(data.fullname)
   // router.back()
 }
 

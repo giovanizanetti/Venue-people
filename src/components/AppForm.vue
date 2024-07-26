@@ -1,11 +1,20 @@
 <script setup lang="ts">
-import type { EMIT } from '@/constants'
+import { EMIT } from '@/constants'
 import AppButton from '@/components/AppButton.vue'
 
-defineEmits<{
+const emit = defineEmits<{
   (e: typeof EMIT.submit, value: any): void
   (e: typeof EMIT.cancel): void
 }>()
+
+const onCancel = () => {
+  console.log('CANCEL')
+}
+
+const onSave = (value: any) => {
+  emit(EMIT.submit, value)
+  console.log('askjhdsajkjdk')
+}
 </script>
 
 <template>
@@ -15,8 +24,8 @@ defineEmits<{
     </section>
     <section class="form-actions">
       <div class="form-actions__inner">
-        <AppButton variant="secondary">Cancel</AppButton>
-        <AppButton>Save changes</AppButton>
+        <AppButton @click="onCancel()" variant="secondary">Cancel</AppButton>
+        <AppButton @click="onSave(value)">Save changes</AppButton>
       </div>
     </section>
   </FormKit>
