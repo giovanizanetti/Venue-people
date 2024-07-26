@@ -3,7 +3,7 @@
     :class="['button', typeClass, sizeClass, { 'is-loading': loading }]"
     :disabled="disabled || loading"
     variant="button"
-    @click.prevent="onClick"
+    @click.prevent
   >
     <span v-if="loading" class="spinner"></span>
     <slot />
@@ -11,8 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-// import { EMIT } from '@/constants';
-import { EMIT } from '@/constants';
 import { computed } from 'vue'
 
 const props = withDefaults(
@@ -27,10 +25,6 @@ const props = withDefaults(
     size: 'flex'
   }
 )
-
-const emit = defineEmits<{
-  (e: typeof EMIT.click, event: MouseEvent): void
-}>()
 
 const typeClass = computed(() => `button__${props.variant}`)
 const sizeClass = computed(() => `button__${props.size}`)
@@ -56,6 +50,10 @@ const onClick = (event: MouseEvent) => {
   position: relative;
   font-size: 0.75rem;
   height: 44px;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 
   &:hover {
     opacity: 0.8;

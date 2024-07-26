@@ -18,14 +18,14 @@ const onSave = (value: any) => {
 </script>
 
 <template>
-  <FormKit type="form" :actions="false" #default="{ value }">
+  <FormKit type="form" :actions="false" #default="{ value, state }">
     <section class="form-body">
       <slot name="body" :value="value"></slot>
     </section>
     <section class="form-actions">
       <div class="form-actions__inner">
         <AppButton @click="onCancel()" variant="secondary">Cancel</AppButton>
-        <AppButton @click="onSave(value)">Save changes</AppButton>
+        <AppButton :disabled="!state.valid" @click="onSave(value)">Save changes</AppButton>
       </div>
     </section>
   </FormKit>

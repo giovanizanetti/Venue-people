@@ -3,6 +3,10 @@ import { BREAKPOINTS } from '@/styles/variables'
 import type { IUser } from '@/mockdata/users'
 import { useWindowResize } from '@/composables/useWindowResize'
 import { computed } from 'vue'
+import { ROUTE } from '@/constants'
+import { useRouter } from 'vue-router'
+
+const route = useRouter()
 
 const { width } = useWindowResize()
 
@@ -19,12 +23,21 @@ const dynamicClasses = computed((): string[] => {
   return classes
 })
 
+const goToUserEditor = () => {
+  route.push({
+    name: ROUTE.contactEditor,
+    params: {
+      id: props.user.id
+    }
+  })
+}
+
 const onClick = () =>
   console.warn('Currentelly there is no functionalitty attached to this button')
 </script>
 
 <template>
-  <li :class="['list-item', ...[dynamicClasses]]">
+  <li @click="goToUserEditor" :class="['list-item', ...[dynamicClasses]]">
     <span class="avatar">
       <UserAvatar :src="user.image" />
     </span>
@@ -51,7 +64,7 @@ const onClick = () =>
     <span class="team-icon">
       <PeopleListItemTeamIcon :user="user" />
     </span>
-    <span class="remove-team-member" @click="onClick">
+    <span class="remove-team-member" @click.stop="onClick">
       <carbon:trash-can class="w-4 h-4" />
     </span>
   </li>
@@ -69,6 +82,11 @@ const onClick = () =>
   border-right: $thin-light-1;
   background-color: $grey-light-1;
   height: 64px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 
   &__first {
     border-top: $thin-light-1;

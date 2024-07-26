@@ -2,10 +2,11 @@
 import { storeToRefs } from 'pinia'
 import { useUsers } from '@/stores/users'
 import AppLoading from './AppLoading.vue'
+import { onMounted } from 'vue'
 
 const { users, loading, success } = storeToRefs(useUsers())
 
-useUsers().fetchUsers()
+onMounted(async () => await useUsers().fetchUsers())
 
 const isFirst = (index: number) => index == 0
 const isLast = (index: number) => users.value.length == index + 1

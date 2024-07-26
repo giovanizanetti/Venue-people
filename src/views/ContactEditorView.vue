@@ -1,32 +1,38 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { VALIDATION } from '@/constants'
+import { useRoute, useRouter } from 'vue-router'
+import { ROUTE, VALIDATION } from '@/constants'
 import AppInput from '@/components/AppInput.vue'
 import DoubleFieldFormContainer from '@/components/DoubleFieldFormContainer.vue'
 import AppForm from '@/components/AppForm.vue'
+import { useUsers } from '@/stores/users'
+import { storeToRefs } from 'pinia'
+import type { IUser } from '@/mockdata/users'
+import AppLoading from '@/components/AppLoading.vue'
 
+const route = useRoute()
 const router = useRouter()
 
-const initalState = {
-  fullname: '',
-  initials: '',
-  displayName: '',
-  role: '',
-  email: '',
-  phoneCountryPrefix: '',
-  phoneNumber: '',
-  street: '',
-  city: '',
-  postalCode: '',
-  country: '',
-  image: 'https://xsgames.co/randomusers/assets/avatars/male/24.jpg'
+const { loading } = storeToRefs(useUsers())
+
+const formData = ref<null | IUser>(null)
+
+getUser()
+
+async function getUser() {
+  const { id } = route.params
+  const user = await useUsers().getUserById(Number(id))
+
+  if (user) formData.value = user
 }
 
-const formData = ref({ ...initalState })
+const onSubmit = async (data: IUser) => {
+  if (formData.value) {
+    const data = await useUsers().updateUser(formData.value)
+    console.log(data, 'DATA')
+    if (data) router.push({ name: ROUTE.contactList })
+  }
 
-const onSubmit = async (data: typeof initalState) => {
-  console.log('submit', data)
   //TODO: Display a toast or other feedback to the user
   // try {
   // } catch (error) {
@@ -43,23 +49,25 @@ const onCancel = () => {
 </script>
 
 <template>
-  <AppForm @submit="onSubmit">
+  <AppLoading v-if="loading" :loading="loading" />
+
+  <AppForm v-if="formData" @submit="onSubmit" :loading="loading">
     <template #body>
       <div class="profile-picture">
-        <UserAvatar :src="formData.image" size="medium" />
+        <UserAvatar :src="formData?.image" size="medium" />
       </div>
 
       <section class="form-fields-container">
         <DoubleFieldFormContainer>
           <AppInput
             name="fullname"
-            label="Full name *"
-            v-model="formData.fullname"
+            label="Full name"
+            v-model="formData.fullName"
           />
 
           <AppInput
             name="initials"
-            label="Initials"
+            label="Initials *"
             v-model="formData.initials"
           />
         </DoubleFieldFormContainer>
@@ -70,12 +78,12 @@ const onCancel = () => {
           v-model="formData.displayName"
         />
 
-        <AppInput name="role" label="Role" v-model="formData.role" />
+        <AppInput name="role" label="Role" v-model="formData.xc" />
 
         <AppInput
           type="email"
           name="email"
-          label="Email"
+          label="Email *"
           v-model="formData.email"
           :validation-visibility="formData.email?.length > 3 && 'live'"
           :validation="VALIDATION.email"
@@ -95,14 +103,23 @@ const onCancel = () => {
           :validation="VALIDATION.phoneNumber"
         />
 
-        <AppInput name="street" label="Street" v-model="formData.street" />
+        <AppInput
+          name="addressLineOne"
+          label="Street"
+          v-model="formData.address.addressLineOne"
+        />
+        <AppInput
+          name="addressLineTwo"
+          v-model="formData.address.addressLineTwo"
+          :style="{ marginTop: '-3rem' }"
+        />
 
         <DoubleFieldFormContainer>
-          <AppInput name="city" label="City" v-model="formData.city" />
+          <AppInput name="city" label="City" v-model="formData.address.city" />
           <AppInput
             name="postal-code"
             label="Postal Code"
-            v-model="formData.postalCode"
+            v-model="formData.address.postalCode"
           />
         </DoubleFieldFormContainer>
 
@@ -110,7 +127,7 @@ const onCancel = () => {
           class="input"
           name="country"
           label="Country"
-          v-model="formData.country"
+          v-model="formData.address.country"
         />
       </section>
       <!-- <pre wrap>{{ value }}</pre> -->

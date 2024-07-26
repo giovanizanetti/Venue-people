@@ -15,3 +15,9 @@ export const EMIT = {
   cancel: 'cancel',
   click: 'click'
 } as const
+
+export const ROUTE = {
+  contactList: 'contact-list',
+  contactEditor: 'contact-editor',
+  home: 'home'
+}
