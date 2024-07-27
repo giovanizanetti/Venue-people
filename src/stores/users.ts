@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_PROPS, ROUTE } from '@/constants'
+import { LOCAL_STORAGE_PROPS } from '@/constants'
 import axios from '@/mockdata/axiosMock'
 import type { IUser } from '@/mockdata/users'
 import { acceptHMRUpdate, defineStore } from 'pinia'
@@ -6,7 +6,6 @@ import { ref, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 export const useUsers = defineStore('users', () => {
-  const router = useRouter()
   const users: Ref<IUser[]> = ref([])
   const loading = ref(false)
   const success = ref(false)
@@ -21,7 +20,6 @@ export const useUsers = defineStore('users', () => {
       const response = await axios.get('/users')
       users.value = response.data
       syncWithLocalStorage()
-      console.log(localStorage)
       success.value = true
     } catch (error) {
       success.value = false

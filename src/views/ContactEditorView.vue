@@ -29,17 +29,11 @@ async function getUser() {
 const onSubmit = async (data: IUser) => {
   if (formData.value) {
     const data = await useUsers().updateUser(formData.value)
-    console.log(data, 'DATA')
     if (data) router.push({ name: ROUTE.contactList })
   }
 
   //TODO: Display a toast or other feedback to the user
-  // try {
-  // } catch (error) {
-  //   console.error(error)
-  // }
-  // console.log(data.fullname)
-  // router.back()
+
 }
 
 const onCancel = () => {
