@@ -40,6 +40,7 @@ const isLast = (index: number) => users.value.length == index + 1
     align-items: center;
     @media screen and (max-width: $tablet-sm) {
       justify-content: center;
+    }
     // justify-content: center;
   }
 
