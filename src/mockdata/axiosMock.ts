@@ -1,10 +1,9 @@
 // src/axiosMock.ts
 import axios from 'axios'
-import type { AxiosResponse } from 'axios'
+import type { AxiosRequestHeaders, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import { mockUsers } from './users'
 import type { IUser } from './users'
 
-// Create an Axios instance
 const axiosInstance = axios.create()
 
 // Mocking function to intercept and mock responses
@@ -13,8 +12,8 @@ interface IConfig {
   data: IUser[]
   status: number
   statusText: string
-  header: object
-  config: any
+  headers: AxiosRequestHeaders
+  config: InternalAxiosRequestConfig
 }
 
 const get = (
@@ -31,21 +30,19 @@ const get = (
           headers: {},
           config: config || {}
         })
-      }, 1000) // Simulate a delay of 2 seconds
+      }, 1000)
     })
   }
 
-  // For other endpoints, use the actual Axios instance
   return axiosInstance(url, config)
 }
 
 const put = (
   url: string,
   data: any,
-  config?: IConfig,
+  config?: IConfig
 ): Promise<AxiosResponse<IUser>> => {
   if (url && url.startsWith('/users/')) {
-
     const id = parseInt(url.split('/').pop() || '')
     const index = mockUsers.findIndex((record) => record.id === id)
     if (index !== -1) {
@@ -54,21 +51,48 @@ const put = (
         setTimeout(() => {
           resolve({
             data: mockUsers[index],
-            status: 200,
+            status: 201,
             statusText: 'OK',
             headers: {},
             config: config || {}
           })
-        }, 1000) // Simulate a delay
+        }, 750)
       })
     }
   }
   return axiosInstance(url, config)
 }
 
-// export default mockAxios
+const remove = (
+  url: string
+): Promise<AxiosResponse<{ message: string; status: string }>> => {
+  if (url && url.startsWith('/users/')) {
+    const id = parseInt(url.split('/').pop() || '')
+    const index = mockUsers.findIndex((record) => record.id === id)
+    if (index !== -1) {
+      mockUsers.splice(index, 1)
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            data: {
+              message: 'Resource deleted successfully',
+              status: 'success'
+            },
+            status: 200,
+            statusText: 'OK',
+            headers: {},
+            config: {}
+          })
+        }, 500) // Simulate a delay
+      })
+    }
+  }
+  return axiosInstance(url)
+}
 
 export default {
   get,
-  put
+  put,
+  delete: remove
 }

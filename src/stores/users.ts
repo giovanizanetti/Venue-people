@@ -51,7 +51,18 @@ export const useUsers = defineStore('users', () => {
   }
 
   // const addUser = (user: IUser) => users.value.unshift(user)
-  const deleteUser = (teamId: number) => {}
+  const deleteUser = async (userId: number) => {
+    try {
+      loading.value = true
+      await axios.delete(`/users/${userId}`)
+      syncWithLocalStorage
+      await fetchUsers()
+    } catch (error) {
+      console.error(error)
+    } finally {
+      loading.value = false
+    }
+  }
 
   const loadFromLocalStorage = () => {
     const storedData = localStorage.getItem('users')
@@ -65,10 +76,10 @@ export const useUsers = defineStore('users', () => {
     loading,
     success,
     // addUser,
-    deleteUser,
     fetchUsers,
     getUserById,
-    updateUser
+    updateUser,
+    deleteUser
   }
 })
 
