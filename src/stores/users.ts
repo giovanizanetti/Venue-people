@@ -3,7 +3,6 @@ import axios from '@/mockdata/axiosMock'
 import type { IUser } from '@/mockdata/users'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref, type Ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 
 export const useUsers = defineStore('users', () => {
   const users: Ref<IUser[]> = ref([])
@@ -50,7 +49,11 @@ export const useUsers = defineStore('users', () => {
     }
   }
 
-  // const addUser = (user: IUser) => users.value.unshift(user)
+  const addUser = async (user: IUser) => {
+    // users.value.unshift(user)
+    console.log('AD  NEW USER FROM THE STORE')
+  }
+
   const deleteUser = async (userId: number) => {
     try {
       loading.value = true
@@ -64,18 +67,11 @@ export const useUsers = defineStore('users', () => {
     }
   }
 
-  const loadFromLocalStorage = () => {
-    const storedData = localStorage.getItem('users')
-    if (storedData) {
-      users.value = JSON.parse(storedData)
-    }
-  }
-
   return {
     users,
     loading,
     success,
-    // addUser,
+    addUser,
     fetchUsers,
     getUserById,
     updateUser,
