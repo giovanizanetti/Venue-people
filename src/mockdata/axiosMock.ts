@@ -1,10 +1,17 @@
 // src/axiosMock.ts
 import axios from 'axios'
-import type { AxiosRequestHeaders, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import type {
+  AxiosRequestHeaders,
+  AxiosResponse,
+  InternalAxiosRequestConfig
+} from 'axios'
 import { mockUsers } from './users'
+import { teamsMock } from './teams'
 import type { IUser } from './users'
 
 const axiosInstance = axios.create()
+const generaterId = () => Math.floor(Math.random() * 1000000001)
+const generateTeam = () => Math.floor(Math.random() * 3)
 
 // Mocking function to intercept and mock responses
 
@@ -63,6 +70,32 @@ const put = (
   return axiosInstance(url, config)
 }
 
+const post = (
+  url: string,
+  data: any,
+  config?: IConfig
+): Promise<AxiosResponse<IUser>> => {
+  if (url && url.startsWith('/users/new')) {
+    const id = generaterId()
+    const teams = [generateTeam()]
+    const user = { ...data, id }
+    mockUsers.splice(0, 0, user)
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          data,
+          status: 201,
+          statusText: 'OK',
+          headers: {},
+          config: config || {}
+        })
+      }, 500)
+    })
+  }
+  return axiosInstance(url, config)
+}
+
 const remove = (
   url: string
 ): Promise<AxiosResponse<{ message: string; status: string }>> => {
@@ -84,7 +117,7 @@ const remove = (
             headers: {},
             config: {}
           })
-        }, 500) // Simulate a delay
+        }, 500)
       })
     }
   }
@@ -94,5 +127,6 @@ const remove = (
 export default {
   get,
   put,
-  delete: remove
+  delete: remove,
+  post
 }

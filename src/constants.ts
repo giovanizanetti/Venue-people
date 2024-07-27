@@ -7,7 +7,8 @@ export const TEAM_TYPE = {
 export const VALIDATION = {
   phoneNumber: 'matches:/^0?[1-9]([-. ]?[0-9]{2}){4}$/',
   countryCode: 'required|^+?d{1,3}$',
-  email: 'required|email'
+  email: 'required|email',
+  required: 'required'
 } as const
 
 export const EMIT = {
@@ -19,8 +20,10 @@ export const EMIT = {
 
 export const ROUTE = {
   contactList: 'contact-list',
+  addUser: 'add-user',
   contactEditor: 'contact-editor',
-  home: 'home'
+  home: 'home',
+  notFound: '404'
 }
 
 export const LOCAL_STORAGE_PROPS = {
