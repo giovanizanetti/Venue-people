@@ -10,12 +10,14 @@ import DoubleFieldFormContainer from '@/components/DoubleFieldFormContainer.vue'
 import AppForm from '@/components/AppForm.vue'
 import AppLoading from '@/components/AppLoading.vue'
 
-const props = withDefaults(defineProps<{
-  user: IUser | null
-}>()
-,{
-  user: null
-})
+const props = withDefaults(
+  defineProps<{
+    user?: IUser | null
+  }>(),
+  {
+    user: null
+  }
+)
 const initialState: IUser = {
   id: 7, //TODO CHANGE
   fullName: '',
@@ -56,25 +58,30 @@ const onSubmit = async () => {
   const isNewUser = !props.user
 
   if (isNewUser) {
-    console.log('NEW USER')
+    useUsers().addUser(formData.value)
   } else {
     const data = await useUsers().updateUser(formData.value)
     if (data) router.push({ name: ROUTE.contactList })
   }
 
-  //TODO: Display a toast or other feedback to the user
+  //TODO: Display a toast or other feedback to the user if I have time
 }
 
 const onCancel = () => {
   formData.value = props.user
-  router.push({name: ROUTE.contactList})
+  router.push({ name: ROUTE.contactList })
 }
 </script>
 
 <template>
   <AppLoading v-if="loading" :loading="loading" />
 
-  <AppForm v-if="formData" @submit="onSubmit" :loading="loading" @cancel="onCancel">
+  <AppForm
+    v-if="formData"
+    @submit="onSubmit"
+    :loading="loading"
+    @cancel="onCancel"
+  >
     <template #body>
       <div class="profile-picture">
         <UserAvatar :src="formData?.image" size="medium" />
@@ -91,6 +98,8 @@ const onCancel = () => {
           <AppInput
             name="initials"
             label="Initials *"
+            :validation-visibility="'live'"
+            :validation="VALIDATION.required"
             v-model="formData.initials"
           />
         </DoubleFieldFormContainer>
@@ -108,7 +117,7 @@ const onCancel = () => {
           name="email"
           label="Email *"
           v-model="formData.email"
-          :validation-visibility="formData.email?.length > 3 && 'live'"
+          :validation-visibility="'live'"
           :validation="VALIDATION.email"
         />
         <span class="phone-number-container">
@@ -116,9 +125,7 @@ const onCancel = () => {
             <AppInput
               name="phoneCountryPrefix"
               v-model="formData.phoneCountryPrefix"
-              :validation-visibility="
-                formData.phoneCountryPrefix?.length > 2 && 'live'
-              "
+              :validation-visibility="'live'"
               :validation="'required'"
             />
           </span>
@@ -127,6 +134,7 @@ const onCancel = () => {
             <AppInput
               name="phone-number"
               v-model="formData.phoneNumber"
+              :validation-visibility="'live'"
               :validation="VALIDATION.phoneNumber"
             />
           </span>

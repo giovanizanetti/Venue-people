@@ -9,7 +9,7 @@ const { width } = useWindowResize()
   <div class="contact-list-container">
     <BrandName v-if="width >= BREAKPOINTS.desktop" />
     <TeamsList class="session" />
-    <PeopleList class="session" />
+    <PeopleList  />
   </div>
 </template>
 

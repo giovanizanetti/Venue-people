@@ -3,7 +3,6 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useUsers } from '@/stores/users'
 import type { IUser } from '@/mockdata/users'
-import { loadConfigFromFile } from 'vite'
 
 const route = useRoute()
 const user = ref<IUser | null>(null)

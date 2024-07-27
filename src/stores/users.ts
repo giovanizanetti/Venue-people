@@ -50,6 +50,11 @@ export const useUsers = defineStore('users', () => {
   }
 
   const addUser = async (user: IUser) => {
+    try {
+      const response = await axios.post('/users/new', user)
+    } catch (error) {
+      console.error(error)
+    }
     // users.value.unshift(user)
     console.log('AD  NEW USER FROM THE STORE')
   }
