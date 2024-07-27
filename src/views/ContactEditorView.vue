@@ -33,7 +33,6 @@ const onSubmit = async (data: IUser) => {
   }
 
   //TODO: Display a toast or other feedback to the user
-
 }
 
 const onCancel = () => {
@@ -82,26 +81,33 @@ const onCancel = () => {
           :validation-visibility="formData.email?.length > 3 && 'live'"
           :validation="VALIDATION.email"
         />
+        <span class="phone-number-container">
+          <span class="prefix">
+            <AppInput
+              name="phoneCountryPrefix"
+              v-model="formData.phoneCountryPrefix"
+              :validation-visibility="
+                formData.phoneCountryPrefix?.length > 2 && 'live'
+              "
+              :validation="'required'"
+            />
+          </span>
 
-        <AppInput
-          name="phoneCountryPrefix"
-          v-model="formData.phoneCountryPrefix"
-          :validation-visibility="
-            formData.phoneCountryPrefix?.length > 2 && 'live'
-          "
-          :validation="'required'"
-        />
-        <AppInput
-          name="phone-number"
-          v-model="formData.phoneNumber"
-          :validation="VALIDATION.phoneNumber"
-        />
+          <span class="number">
+            <AppInput
+              name="phone-number"
+              v-model="formData.phoneNumber"
+              :validation="VALIDATION.phoneNumber"
+            />
+          </span>
+        </span>
 
         <AppInput
           name="addressLineOne"
           label="Street"
           v-model="formData.address.addressLineOne"
         />
+
         <AppInput
           name="addressLineTwo"
           v-model="formData.address.addressLineTwo"
@@ -149,6 +155,37 @@ const onCancel = () => {
 
 .form-fields-container {
   flex: 5;
+  margin-left: -5px;
   margin-top: $margin-xl;
+
+  .phone-number-container {
+    display: flex;
+    position: relative;
+
+    .prefix {
+      flex: 1;
+
+      :deep(.formkit-outer) {
+        .formkit-input {
+          background: $white-1;
+          // z-index: 10;
+          width: 80px;
+        }
+      }
+    }
+
+    .number {
+      flex: 4;
+      position: absolute;
+      left: 80px;
+      :deep(.formkit-outer) {
+        margin-left: -5px;
+        .formkit-input {
+          border-left: none;
+        }
+      }
+      flex: 4;
+    }
+  }
 }
 </style>
