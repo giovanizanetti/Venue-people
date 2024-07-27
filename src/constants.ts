@@ -19,8 +19,10 @@ export const EMIT = {
 
 export const ROUTE = {
   contactList: 'contact-list',
+  addUser: 'add-user',
   contactEditor: 'contact-editor',
-  home: 'home'
+  home: 'home',
+  notFound: '404'
 }
 
 export const LOCAL_STORAGE_PROPS = {

@@ -85,6 +85,7 @@ declare module 'vue' {
     TeamsListItem: typeof import('./src/components/TeamsListItem.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     UserAvatar: typeof import('./src/components/UserAvatar.vue')['default']
+    UserForm: typeof import('./src/components/UserForm.vue')['default']
     UtilCard: typeof import('./src/components/UtilCard.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }

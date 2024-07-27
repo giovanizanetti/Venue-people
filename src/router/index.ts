@@ -21,14 +21,21 @@ const router = createRouter({
       component: () => import('../views/ContactListView.vue')
     },
     {
+      path: '/new-user',
+      name: ROUTE.addUser,
+
+      component: () => import('../views/AddUserView.vue')
+    },
+    {
       path: '/contact-editor/:id',
       name: ROUTE.contactEditor,
 
       component: () => import('../views/ContactEditorView.vue')
     },
+
     {
       path: '/:pathMatch(.*)*',
-      name: '404',
+      name: ROUTE.notFound,
       component: () => import('../views/404NotFound.vue')
     }
   ]

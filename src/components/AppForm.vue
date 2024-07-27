@@ -9,13 +9,8 @@ const emit = defineEmits<{
 
 defineProps<{ loading: boolean }>()
 
-const onCancel = () => {
-  console.log('CANCEL')
-}
-
-const onSave = (value: any) => {
-  emit(EMIT.submit, value)
-}
+const onCancel = () => emit(EMIT.cancel)
+const onSave = (value: any) => emit(EMIT.submit, value)
 </script>
 
 <template>
@@ -35,7 +30,6 @@ const onSave = (value: any) => {
         >
       </div>
     </section>
-
   </FormKit>
 </template>
 

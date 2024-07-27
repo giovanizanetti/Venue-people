@@ -3,8 +3,12 @@ import { storeToRefs } from 'pinia'
 import { useUsers } from '@/stores/users'
 import AppLoading from './AppLoading.vue'
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router';
+import { ROUTE } from '@/constants';
 
 const { users, loading, success } = storeToRefs(useUsers())
+
+const router = useRouter()
 
 onMounted(async () => await useUsers().fetchUsers())
 
@@ -12,11 +16,14 @@ const isFirst = (index: number) => index == 0
 const isLast = (index: number) => users.value.length == index + 1
 
 const removeUser = async (id: number) => {
-  useUsers().deleteUser(id) //Some work around for the reactivity
-  reloadKey.value++
+  //TODO: Show error to the user
+  useUsers().deleteUser(id)
+  reloadKey.value++ //Workaround for the reactivity
 }
 
 const reloadKey = ref(0)
+
+const goToAddUserForm = () => router.push({name: ROUTE.addUser})
 </script>
 
 <template>
@@ -37,7 +44,7 @@ const reloadKey = ref(0)
       </ul>
 
       <span v-if="!users?.length" class="message">No people yet!</span>
-      <AppAddButton class="add" type="user" />
+      <AppAddButton class="add" type="user" @click.stop="goToAddUserForm"/>
     </div>
   </template>
 </template>
