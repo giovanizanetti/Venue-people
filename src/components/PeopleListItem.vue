@@ -3,12 +3,17 @@ import { BREAKPOINTS } from '@/styles/variables'
 import type { IUser } from '@/mockdata/users'
 import { useWindowResize } from '@/composables/useWindowResize'
 import { computed } from 'vue'
-import { ROUTE } from '@/constants'
+import { EMIT, ROUTE } from '@/constants'
 import { useRouter } from 'vue-router'
+import { useUsers } from '@/stores/users'
 
 const route = useRouter()
 
 const { width } = useWindowResize()
+
+const emit = defineEmits<{
+  (e: typeof EMIT.remove, id: number): void
+}>()
 
 const props = defineProps<{
   user: IUser
@@ -32,8 +37,9 @@ const goToUserEditor = () => {
   })
 }
 
-const onClick = () =>
-  console.warn('Currentelly there is no functionalitty attached to this button')
+const removeUser = async () => {
+  emit(EMIT.remove, props.user.id)
+}
 </script>
 
 <template>
@@ -64,7 +70,7 @@ const onClick = () =>
     <span class="team-icon">
       <PeopleListItemTeamIcon :user="user" />
     </span>
-    <span class="remove-team-member" @click.stop="onClick">
+    <span class="remove-team-member" @click.stop="removeUser">
       <carbon:trash-can class="w-4 h-4" />
     </span>
   </li>

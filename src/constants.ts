@@ -13,7 +13,8 @@ export const VALIDATION = {
 export const EMIT = {
   submit: 'submit',
   cancel: 'cancel',
-  click: 'click'
+  click: 'click',
+  remove: 'remove'
 } as const
 
 export const ROUTE = {

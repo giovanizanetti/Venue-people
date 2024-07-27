@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import type { IUser } from '@/mockdata/users'
 import { storeToRefs } from 'pinia'
 import { useTeams } from '@/stores/teams'
+import { capitalize } from 'vue';
 const { teams } = storeToRefs(useTeams())
 
 const locale: 'en' | 'nl' = 'en' //TODO: get from i18n, if I have time to implement a language switch
@@ -50,7 +51,7 @@ const iconData = computed((): ITeamIconData[] => {
   <div
     v-for="(item, index) in iconData"
     :key="index"
-    :title="item.title"
+    :title="capitalize(item.title)"
     class="circle"
     :style="{ backgroundColor: item.backgroundColor }"
   >
