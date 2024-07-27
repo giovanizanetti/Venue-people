@@ -54,15 +54,16 @@ onMounted(async () =>
 
 const onSubmit = async () => {
   if (!formData.value) return
-
   const isNewUser = !props.user
+  let data
 
   if (isNewUser) {
-    useUsers().addUser(formData.value)
+    data = useUsers().addUser(formData.value)
   } else {
-    const data = await useUsers().updateUser(formData.value)
-    if (data) router.push({ name: ROUTE.contactList })
+    data = await useUsers().updateUser(formData.value)
   }
+
+  if (data) router.push({ name: ROUTE.contactList })
 
   //TODO: Display a toast or other feedback to the user if I have time
 }

@@ -6,10 +6,12 @@ import type {
   InternalAxiosRequestConfig
 } from 'axios'
 import { mockUsers } from './users'
+import { teamsMock } from './teams'
 import type { IUser } from './users'
 
 const axiosInstance = axios.create()
 const generaterId = () => Math.floor(Math.random() * 1000000001)
+const generateTeam = () => Math.floor(Math.random() * 3)
 
 // Mocking function to intercept and mock responses
 
@@ -75,8 +77,9 @@ const post = (
 ): Promise<AxiosResponse<IUser>> => {
   if (url && url.startsWith('/users/new')) {
     const id = generaterId()
-    const user = {...data, id}
-    mockUsers.splice(mockUsers?.length, 1, user)
+    const teams = [generateTeam()]
+    const user = { ...data, id }
+    mockUsers.splice(0, 0, user)
 
     return new Promise((resolve) => {
       setTimeout(() => {
