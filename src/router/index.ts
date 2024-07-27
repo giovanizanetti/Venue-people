@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { ROUTE } from '@/constants'
 
 // route level code-splitting
 // this generates a separate chunk (About.[hash].js) for this route
@@ -10,18 +11,18 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: ROUTE.home,
       component: HomeView
     },
     {
       path: '/contact-list',
-      name: 'contact-list',
+      name: ROUTE.contactList,
 
       component: () => import('../views/ContactListView.vue')
     },
     {
-      path: '/contact-editor',
-      name: 'contact-editor',
+      path: '/contact-editor/:id',
+      name: ROUTE.contactEditor,
 
       component: () => import('../views/ContactEditorView.vue')
     },

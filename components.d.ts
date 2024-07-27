@@ -10,6 +10,7 @@ declare module 'vue' {
     AppForm: typeof import('./src/components/AppForm.vue')['default']
     AppHeading: typeof import('./src/components/AppHeading.vue')['default']
     AppInput: typeof import('./src/components/AppInput.vue')['default']
+    AppLoading: typeof import('./src/components/AppLoading.vue')['default']
     AppTextInput: typeof import('./src/components/AppTextInput.vue')['default']
     BrandName: typeof import('./src/components/BrandName.vue')['default']
     'Carbon:3dCursorAlt': typeof import('~icons/carbon/3d-cursor-alt')['default']

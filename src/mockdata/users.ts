@@ -1,13 +1,14 @@
+import { LOCAL_STORAGE_PROPS } from '@/constants'
 import { userAddressMock } from './usersAddress'
 
-export const mockUsers: IUser[] = [
+const defaultData: IUser[] = [
   {
     id: 1,
     fullName: 'Staffy de Nielden',
     displayName: 'Staffy',
     initials: 'SN',
     email: 'staff_1@venue.com',
-    phoneNumber: '68872901',
+    phoneNumber: '0623383456',
     phoneCountryPrefix: '+31',
     teamIds: [1, 3],
     image: 'https://xsgames.co/randomusers/assets/avatars/male/24.jpg',
@@ -22,7 +23,7 @@ export const mockUsers: IUser[] = [
     displayName: 'Jenny',
     initials: 'JS',
     email: 'jenny_2@venue.com',
-    phoneNumber: '68872902',
+    phoneNumber: '0623383443',
     phoneCountryPrefix: '+31',
     teamIds: [2, 4],
     image: 'https://xsgames.co/randomusers/assets/avatars/female/45.jpg',
@@ -37,7 +38,7 @@ export const mockUsers: IUser[] = [
     displayName: 'John',
     initials: 'JD',
     email: 'john_3@venue.com',
-    phoneNumber: '68872903',
+    phoneNumber: '0626583456',
     phoneCountryPrefix: '+31',
     teamIds: [1, 2],
     image: 'https://xsgames.co/randomusers/assets/avatars/male/43.jpg',
@@ -52,7 +53,7 @@ export const mockUsers: IUser[] = [
     displayName: 'Sarah',
     initials: 'SJ',
     email: 'sarah_4@venue.com',
-    phoneNumber: '68872904',
+    phoneNumber: '0626583456',
     phoneCountryPrefix: '+31',
     teamIds: [3, 4],
     image: 'https://xsgames.co/randomusers/assets/avatars/female/77.jpg',
@@ -67,7 +68,7 @@ export const mockUsers: IUser[] = [
     displayName: 'Michael',
     initials: 'MB',
     email: 'michael_5@venue.com',
-    phoneNumber: '68872905',
+    phoneNumber: '0626583433',
     phoneCountryPrefix: '+31',
     teamIds: [2, 3],
     image: 'https://xsgames.co/randomusers/assets/avatars/male/26.jpg',
@@ -82,7 +83,7 @@ export const mockUsers: IUser[] = [
     displayName: 'Emily',
     initials: 'ED',
     email: 'emily_6@venue.com',
-    phoneNumber: '68872906',
+    phoneNumber: '0626583445',
     phoneCountryPrefix: '+31',
     teamIds: [1, 4],
     image: 'https://xsgames.co/randomusers/assets/avatars/male/33.jpg',
@@ -108,3 +109,12 @@ export interface IUser {
   xc: string
   userPermissions?: string[]
 }
+
+const loadData = (): IUser[]=> {
+  const storedData = localStorage.getItem('users')
+  if (storedData?.length) {
+    return JSON.parse(storedData)
+  } else return defaultData
+}
+
+export const mockUsers = loadData()
