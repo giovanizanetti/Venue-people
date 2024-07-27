@@ -38,7 +38,9 @@ const isLast = (index: number) => users.value.length == index + 1
   .heading {
     display: flex;
     align-items: center;
-    justify-content: center;
+    @media screen and (max-width: $tablet-sm) {
+      justify-content: center;
+    // justify-content: center;
   }
 
   .add:deep(.add) {
