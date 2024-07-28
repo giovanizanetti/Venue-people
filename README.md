@@ -26,7 +26,7 @@ This project is part of an assignment for the position of a front-end developer.
 
 - Show my ability to solve a problem by dividing it into smaller chunks and prioritising them before executing.
 - Show that I can use Git by creating branches and meaningful commit messages.
-- Prove that I'm comfortable with Vue.js by using advanced features like slots, attribute binding, reloading components, styling deep in a scoped style tag, passing props, emitting events and much more.
+- Prove that I'm comfortable with Vue.js by using advanced features like slots, attribute binding, reloading components, styling deep in a scoped style tag, passing props, emitting events, using events modifiers, directives and much more.
 - Show that I'm comfortable using Pinia as a state management tool by creating stores and sharing the state when necessary. For that, I also prefer using the setup syntax just to be consistent with the way I write my vue components.
 - Show my ability to use Sass by creating variables, nested styling and mixins.
 - Show that I'm attentive to details by doing my best to reproduce the mockup provided.

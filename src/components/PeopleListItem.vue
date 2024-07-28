@@ -5,7 +5,7 @@ import { useWindowResize } from '@/composables/useWindowResize'
 import { computed } from 'vue'
 import { EMIT, ROUTE } from '@/constants'
 import { useRouter } from 'vue-router'
-import { useUsers } from '@/stores/users'
+import { copyToClipboard } from '@/helpers/strings'
 
 const route = useRouter()
 
@@ -58,13 +58,13 @@ const removeUser = async () => {
       </div>
 
       <div class="contact">
-        <span v-if="width >= BREAKPOINTS.tabletMd" class="email user-info__item"
+        <span @click.stop="copyToClipboard(user.email)" v-if="width >= BREAKPOINTS.tabletMd" class="email user-info__item"
           >{{ user.email }} <span class="divisor">|</span></span
         >
         <span class="phone phone__prefix user-info__item">{{
           user.phoneCountryPrefix
         }}</span
-        ><span>{{ user.phoneNumber }}</span>
+        ><span @click.stop="copyToClipboard(user.phoneNumber)">{{ user.phoneNumber }}</span>
       </div>
     </div>
     <span class="team-icon">
