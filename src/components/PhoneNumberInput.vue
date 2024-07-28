@@ -75,7 +75,6 @@ defineProps<{
 
   .number {
     flex: 4;
-    // position: absolute;
     left: 70px;
     top: 0;
     margin-right: 5rem;
@@ -86,6 +85,10 @@ defineProps<{
     }
 
     :deep(.formkit-outer) {
+      .formkit-label {
+        margin-left: -4rem;
+      }
+
       margin-left: -5px;
       .formkit-input {
         border-left: none;
