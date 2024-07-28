@@ -38,8 +38,13 @@ const goToUserEditor = () => {
 }
 
 const removeUser = async () => {
-  emit(EMIT.remove, props.user.id)
+  emit(EMIT.remove, Number(props.user.id))
 }
+
+const copyPhone = () =>
+  `${copyToClipboard(props.user.phoneCountryPrefix)} ${copyToClipboard(
+    props.user.phoneNumber
+  )}`
 </script>
 
 <template>
@@ -47,25 +52,64 @@ const removeUser = async () => {
     <span class="avatar">
       <UserAvatar :src="user.image" />
     </span>
-    <div class="user-info">
+
+    <div v-if="width <= BREAKPOINTS.desktop" class="user-info-mobile">
       <div class="username">
-        <span class="user-info__name">
-          {{ props.user.displayName
-          }}<span
-            ><!--TODO: display user full name for large screens--></span
-          ></span
-        ><span class="xs user-info__position">{{ user.xc }}</span>
+        <span class="user-info-mobile__name">
+          {{ props.user.displayName }}
+        </span>
+        <span class="xs user-info-mobile__role">{{ user.xc }}</span>
       </div>
 
       <div class="contact">
-        <span @click.stop="copyToClipboard(user.email)" v-if="width >= BREAKPOINTS.tabletMd" class="email user-info__item"
-          >{{ user.email }} <span class="divisor">|</span></span
+        <span
+          v-if="width >= BREAKPOINTS.tabletSm"
+          @click.stop="copyToClipboard(user.email)"
+          class="email user-info-mobile__item"
         >
-        <span class="phone phone__prefix user-info__item">{{
-          user.phoneCountryPrefix
-        }}</span
-        ><span @click.stop="copyToClipboard(user.phoneNumber)">{{ user.phoneNumber }}</span>
+          {{ user.email }}
+          <span class="divisor">|</span>
+        </span>
+
+        <span
+          @click.stop="copyPhone()"
+          class="phone phone__prefix user-info-mobile__item"
+        >
+          {{ user.phoneCountryPrefix }}
+        </span>
+        <span class="phone" @click.stop="copyPhone()">
+          {{ user.phoneNumber }}
+        </span>
       </div>
+    </div>
+
+    <div v-else class="user-info-larger-screen">
+      <div class="user-name">
+        <span class="user-name__display-name">{{
+          props.user.displayName
+        }}</span>
+        <span class="">{{ props.user.fullName }}</span>
+      </div>
+
+      <span>{{ user.xc }}</span>
+
+      <span @click.stop="copyToClipboard(user.email)">
+        {{ user.email }}
+      </span>
+
+      <span>
+        <span class="phone phone__prefix" @click="copyPhone">
+          {{ user.phoneCountryPrefix }}
+        </span>
+
+        <span
+          class="phone"
+          @click.stop="copyToClipboard(user.phoneNumber)"
+          @click="copyPhone"
+        >
+          {{ user.phoneNumber }}
+        </span>
+      </span>
     </div>
     <span class="team-icon">
       <PeopleListItemTeamIcon :user="user" />
@@ -77,12 +121,25 @@ const removeUser = async () => {
 </template>
 
 <style lang="scss" scoped>
+$phone-leter-spacing: 1px;
+
+@mixin phone {
+  .phone {
+    font-weight: 300;
+    letter-spacing: $phone-leter-spacing;
+    &__prefix {
+      margin-right: $margin-xs;
+    }
+  }
+}
+
 .list-item {
+  font-size: $typography-1;
+  max-width: 100%;
   display: flex;
   align-items: center;
   list-style-type: none;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
   border-bottom: $thin-light-1;
   border-left: $thin-light-1;
   border-right: $thin-light-1;
@@ -120,17 +177,17 @@ const removeUser = async () => {
       flex: 1;
     }
   }
-  .user-info {
+  .user-info-mobile {
     flex: 7;
     display: flex;
     flex-direction: column;
 
     .username {
-      .user-info {
+      .user-info-mobile {
         &__name {
           font-weight: 500;
         }
-        &__position {
+        &__role {
           font-weight: 300;
         }
       }
@@ -142,27 +199,33 @@ const removeUser = async () => {
       display: flex;
       align-items: center;
       color: $grey-medium-1;
-      .phone {
-        font-weight: 300;
-        &__prefix {
-          margin-right: $margin-xs;
-        }
+      @include phone;
+    }
+
+    .divisor {
+      margin: 0 0.5rem;
+    }
+  }
+
+  .user-info-larger-screen {
+    flex: 7;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+
+    .user-name {
+      display: flex;
+      flex-direction: column;
+      &__display-name {
+        font-weight: 500;
       }
     }
 
-    @media screen and (max-width: $desktop) {
-      .divisor {
-        margin: 0 0.5rem;
-      }
-    }
-    @media screen and (min-width: $desktop) {
-      flex: 10;
-      flex-direction: row !important;
-      .divisor {
-        display: none;
-      }
-      &__item {
-        margin: 0 2rem;
+    .phone {
+      font-weight: 300;
+      letter-spacing: $phone-leter-spacing;
+      &__prefix {
+        margin-right: $margin-xs;
       }
     }
   }

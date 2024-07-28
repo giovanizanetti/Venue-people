@@ -72,7 +72,7 @@ const onSave = (value: any) => emit(EMIT.submit, value)
   position: relative;
   bottom: 0;
   color: transparent;
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $tablet-md) {
     border-top: none;
   }
 

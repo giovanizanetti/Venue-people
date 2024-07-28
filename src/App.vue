@@ -74,7 +74,9 @@ async function toggleLocales() {
   <div class="main-left">
     <NavBar />
     <main class="main">
-      <RouterView />
+      <transition name="route" appear>
+        <router-view />
+      </transition>
     </main>
   </div>
 </template>
@@ -89,6 +91,18 @@ async function toggleLocales() {
   }
   .main-left {
     margin-left: $main-menu-width-closed;
+  }
+  .route-enter-from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  .route-enter-active,
+  .route-leave-active {
+    transition: all 0.2s ease-out;
+  }
+  .route-leave-to {
+    opacity: 0;
+    transform: translateX(100px);
   }
 }
 </style>

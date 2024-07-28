@@ -1,20 +1,26 @@
 <template>
-  <div
-    class="field-section-multiple"
-    :style="{ flexDirection: width <= maxBreakpointColumn ? 'column' : 'row' }"
-  >
+  <div class="field-section-multiple" :style="style">
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
+import type { StyleValue } from 'vue';
+import { computed } from 'vue'
 
 const { width } = useWindowResize()
 
-defineProps<{
-  maxBreakpointColumn: number
+const props = defineProps<{
+  maxBreakpointColumn?: number
 }>()
+
+const style = computed((): StyleValue => {
+  return {
+    flexDirection:
+      width.value <= (Number(props?.maxBreakpointColumn)) ? 'column' : 'row'
+  }
+})
 </script>
 
 <style scoped lang="scss">
