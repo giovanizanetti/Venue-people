@@ -26,7 +26,7 @@ This project is part of an assignment for the position of a front-end developer.
 
 - Show my ability to solve a problem by dividing it into smaller chunks and prioritising them before executing.
 - Show that I can use Git by creating branches and meaningful commit messages.
-- Prove that I'm comfortable with Vue.js by using advanced features like slots, attribute binding, reloading components, styling deep in a scoped style tag, passing props, emitting events, using events modifiers, directives and much more.
+- Prove that I'm comfortable with Vue.js by using advanced features like slots, attribute binding, reloading components, styling deep, passing props, emitting events, using events modifiers, directives and much more.
 - Show that I'm comfortable using Pinia as a state management tool by creating stores and sharing the state when necessary. For that, I also prefer using the setup syntax just to be consistent with the way I write my vue components.
 - Show my ability to use Sass by creating variables, nested styling and mixins.
 - Show that I'm attentive to details by doing my best to reproduce the mockup provided.
@@ -72,7 +72,7 @@ trash icon.
 - I'm always attentive to reusability. I'm always creating helpers, utility functions, and utility components. Even if does not diminish the amount of code at first glance, it helps to keep the consistency in the way things happen in the application, especially with styling. Also, it improves development speed for future reuse.
 - When creating a utility component, I make it as dumb as possible. So it can be more predictable and work as a pure function by just receiving props and emitting events.
 - I have the habit of prefixing my types and interfaces with T or I, just to make things clear.
-- I like to have a constants file, some people also call it a dictionary. There I store string values that I know I will be using through the application many times. This is one more layer to make my apps less error-prone. I also create read-only objects there, which works similarly to typescript enums but is better for compilation and, Therefore safer to use. Examples of the things I like to store there: are route names (useful when navigating), emits names (useful to declare emits and emitting the events), validation, etc. The IDI auto-completion helps when reusing those values, making the development experience whay nicer.
+- I like to have a constants.ts file, some people also call it a dictionary. There, I store string values that I know I will be using through the application many times. This is one more layer to make my apps less error-prone. I also create read-only objects there, which works similarly to typescript enums but is better for compilation, therefore safer to use. Examples of the things I like to store there: are route names (useful when navigating), emits names (useful to declare emits and emitting the events), validation, etc. The IDI auto-completion helps when reusing those values, making the development experience way nicer.
 
 #### Process
 
