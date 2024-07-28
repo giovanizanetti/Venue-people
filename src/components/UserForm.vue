@@ -113,26 +113,27 @@ const onCancel = () => {
         />
 
         <AppInput name="role" label="Role" v-model="formData.xc" />
+        <DoubleFieldFormContainer>
+          <AppInput
+            type="email"
+            name="email"
+            label="Email *"
+            v-model="formData.email"
+            :validation-visibility="'live'"
+            :validation="VALIDATION.email"
+          />
 
-        <AppInput
-          type="email"
-          name="email"
-          label="Email *"
-          v-model="formData.email"
-          :validation-visibility="'live'"
-          :validation="VALIDATION.email"
-        />
-
-        <PhoneNumberInput
-          :phoneNumber="formData.phoneNumber"
-          :phoneCountryPrefix="formData.phoneCountryPrefix"
-          @phone-number-change="
-            (value) => formData && (formData.phoneNumber = value)
-          "
-          @prefix-change="
-            (value) => formData && (formData.phoneCountryPrefix = value)
-          "
-        />
+          <PhoneNumberInput
+            :phoneNumber="formData.phoneNumber"
+            :phoneCountryPrefix="formData.phoneCountryPrefix"
+            @phone-number-change="
+              (value) => formData && (formData.phoneNumber = value)
+            "
+            @prefix-change="
+              (value) => formData && (formData.phoneCountryPrefix = value)
+            "
+          />
+        </DoubleFieldFormContainer>
 
         <AppInput
           name="addressLineOne"

@@ -19,7 +19,7 @@ defineProps<{
     <span class="prefix">
       <AppInput
         name="prefix"
-        label="Phone number *"
+        label="."
         :value="phoneCountryPrefix"
         :validation-visibility="'live'"
         :validation="VALIDATION.prefix"
@@ -30,7 +30,7 @@ defineProps<{
     <span class="number">
       <AppInput
         name="phone-number"
-        label="."
+        label="Phone number *"
         :value="phoneNumber"
         :validation-visibility="'live'"
         :validation="VALIDATION.phoneNumber"
@@ -43,7 +43,10 @@ defineProps<{
 <style scoped lang="scss">
 .phone-number-container {
   display: flex;
-  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 250px;
+  min-width: 50%;
 
   .prefix {
     flex: 1;
