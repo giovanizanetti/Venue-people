@@ -1,92 +1,102 @@
-# Vue 3 Starter
+## What this project is about 👇
 
-> 🖖 A Better Vue 3 Starter Template，generate by [vuejs/create-vue](https://github.com/vuejs/create-vue).
+This project is part of an assignment for the position of a front-end developer. I'm building a Crud application where the user can visualize a list of users and perform CRUD actions on it.
 
-## Preview
+## Table of contents:
 
-<div>
-  <a href="https://stackblitz.com/github/xiaoluoboding/vue3-starter" rel="nofollow" target="_blank"><img src="https://camo.githubusercontent.com/bf5c9492905b6d3b558552de2c848c7cce2e0a0f0ff922967115543de9441522/68747470733a2f2f646576656c6f7065722e737461636b626c69747a2e636f6d2f696d672f6f70656e5f696e5f737461636b626c69747a2e737667" alt="" data-canonical-src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" style="max-width: 100%;"></a>
-</div>
+- **[Technologies used](#technologies-used)**
+- **[Goals for this project](#goals-for-this-project)**
+- **[Requirements](#requirements)**
+- **[Features](#features)**
+- **[Coding](#coding)**
+- **[Process](#process)**
+- **[Instalation](#instalation)**
 
-## Features
+## Technologies used 👇
 
-- 💨 [windicss](https://windicss.org/integrations/vite.html) - Next generation utility-first CSS framework
-- 🤹 [unplugin-icons](https://github.com/antfu/unplugin-icons) - Use icons from any iconsets
-- 🍍 [pinia](https://pinia.esm.dev/) - The Vue Store that you will enjoy using
-- 🌍 [vue-i18n](https://vue-i18n.intlify.dev/installation.html) - Vue I18n is internationalization plugin for Vue.js
-- 🛠️ [@vueuse/core](https://vueuse.org/) - Collection of essential Vue Composition Utilities
+- Vue 3
+- Typescript
+- Pinia
+- FormKit
+- Vite
+- Scss
+- I18n
 
-## Use the Template
+## Goals for this project: 👇
 
-### GitHub Template
+- Show my ability to solve a problem by dividing it into smaller chunks and prioritising them before executing.
+- Show that I can use Git by creating branches and meaningful commit messages.
+- Prove that I'm comfortable with Vue.js by using advanced features like slots, attribute binding, reloading components, styling deep in a scoped style tag, passing props, emitting events and much more.
+- Show that I'm comfortable using Pinia as a state management tool by creating stores and sharing the state when necessary. For that, I also prefer using the setup syntax just to be consistent with the way I write my vue components.
+- Show my ability to use Sass by creating variables, nested styling and mixins.
+- Show that I'm attentive to details by doing my best to reproduce the mockup provided.
+- Last but not least. Show a working application where the user can navigate smoothly.
 
-[create a repo from this template on GitHub](https://github.com/xiaoluoboding/vue3-starter/generate)
+## Requirements 👇
 
-### Clone to local
+- Vue Vue3/typescript-based project. Suggested packages: Pinia, Sass, FormKit.
+- Readme with at least instructions on how to run the project.
+- Reproduce the following **[Figma-mockup](https://www.figma.com/file/AF8zAvKtLNVewZmcJbEOxS/Test_Front-End_VenueUsers?type=design&node-id=0%3A1&mode=design&t=ZsdHyVMLRJ4BOmhy-1)** by paying attention to reponsiveness.
 
-```bash
-$> npx degit xiaoluoboding/vue3-starter my-vue3-app
-$> Done. Now run:
-$>
-$>   cd my-vue3-app
-$>   pnpm install
-$>   pnpm run lint
-$>   pnpm run dev
-```
+## Features 👇
 
-## Recommended IDE Setup
+- Views: Home, Contact list and Contact editor.
+- Create the components for the contact view.
+    - ContactCard to display the contact information. 
+    - You can delete a contact by clicking the
+trash icon. 
+    - If we click on an email or phone number; we want to copy it to the clipboard.
+    
+- TeamCard that shows the team information.
+- TopNavigationBar with rerouting.
+- MainNavigationBar with rerouting.(_to be honest this one confused me a bit, so I left it and decided to focus on other aspects of the assignment_)
+- Create the contact edit view
+    - When clicking on a contact card, you should be redirected to the contact edit page
+    where a form will be displayed with the user's information. 
+    - Can edit the user from the form and save the changes. The updated data should be visible now on the contact page. 
+    - If the user clicks cancel, they will be redirected to the contact list view.
+    - Validation for email, phone number and initials
+- Axios Integration: 
+    - Set up Axios in the project to fetch data from a mock API endpoint.
+    - Create mock data representing a collection of items. Ensure the data is structured appropriately and includes various properties relevant to the items.
+    - Display the fetched data in the application
+    - Implement basic CRUD functionality to interact with the data. Users
+    should be able to view, add, edit, and delete items from the collection
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+#### Coding
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- In a team I'm always accountble and try my best to make a good balance between development speed and code quality. Always thinking about the codebase healthy to build a robust product for the client and for company to to be abble to profity for many years.
+- I try to write understandable variables name. Not necessarily the smallest.
+- Smaller components. However, sometimes it makes sense to keep things grouped in a bigger component.
+- I'm always attentive to reusability. I'm always creating helpers, utility functions, and utility components. Even if does not diminish the amount of code at first glance, it helps to keep the consistency in the way things happen in the application, especially with styling. Also, it improves development speed for future reuse.
+- When creating a utility component, I make it as dumb as possible. So it can be more predictable and work as a pure function by just receiving props and emitting events.
+- I have the habit of prefixing my types and interfaces with T or I, just to make things clear.
+- I like to have a constants file, some people also call it a dictionary. There I store string values that I know I will be using through the application many times. This is one more layer to make my apps less error-prone. I also create read-only objects there, which works similarly to typescript enums but is better for compilation and, Therefore safer to use. Examples of the things I like to store there: are route names (useful when navigating), emits names (useful to declare emits and emitting the events), validation, etc. The IDI auto-completion helps when reusing those values, making the development experience whay nicer.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+#### Process
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+* I like using Trello to organize my thoughts and draw a plan.
+* Tackle it by priority, Aways watching the requirements.
+* Test
+* Fix bugs
+* Add extra features to imporve ux
+* If I get stuck I always try to find the solution in one of the options:
+  - Documentation
+  - Google
+  - Stackoverflow
+  - Youtube / Udemy tutorials
+  - Get a second opinion
+  - Pair programming
+ 
+  
+## Instalation
 
-## Customize configuration
+- Run ```git clone https://github.com/giovanizanetti/Venue-people.git``` from your machine.
+- ```cd``` to the project folder
+- ```yarn``` to install all dependencies of the project.
+- run ```yarn run dev``` to see the project on your browser.
+- Build for production by running ```yarn build``` 
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-pnpm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm run lint
-```
-
-## Related Template
-
-* [nuxt3-starter](https://github.com/xiaoluoboding/nuxt3-starter) - 💚 A Better Nuxt 3 Starter Template，generate by `nuxi`.
-
-## License
-
-[MIT](./LICENSE) - [@xiaoluoboding](https://github.com/xiaoluoboding)
+## [Check out the deployed version here!](https://my-books-app.netlify.app/)
