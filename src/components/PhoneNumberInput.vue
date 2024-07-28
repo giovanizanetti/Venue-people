@@ -17,24 +17,24 @@ defineProps<{
 <template>
   <span class="phone-number-container">
     <span class="prefix">
-        <AppInput
+      <AppInput
+        name="prefix"
         label="Phone number *"
-        name="phoneCountryPrefix"
         :value="phoneCountryPrefix"
-        @change="(value) => emit(EMIT.changePhoneNumber, value)"
         :validation-visibility="'live'"
-        :validation="'required'"
+        :validation="VALIDATION.prefix"
+        @input="(value) => emit(EMIT.changePhoneNumber, value)"
       />
     </span>
 
     <span class="number">
       <AppInput
-        label="."
         name="phone-number"
+        label="."
         :value="phoneNumber"
-        @change="(value) => emit(EMIT.changePhoneNumber, value)"
         :validation-visibility="'live'"
         :validation="VALIDATION.phoneNumber"
+        @input="(value) => emit(EMIT.changePhoneNumber, value)"
       />
     </span>
   </span>
@@ -60,6 +60,7 @@ defineProps<{
     flex: 4;
     position: absolute;
     left: 80px;
+
     :deep(.formkit-outer) {
       margin-left: -5px;
       .formkit-input {

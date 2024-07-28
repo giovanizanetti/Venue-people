@@ -25,7 +25,7 @@ const initialState: IUser = {
   initials: '',
   email: '',
   phoneNumber: '',
-  phoneCountryPrefix: '',
+  phoneCountryPrefix: '+31',
   teamIds: [],
   image: '',
   address: {
@@ -162,7 +162,6 @@ const onCancel = () => {
           v-model="formData.address.country"
         />
       </section>
-      <pre wrap>{{ value }}</pre>
     </template>
   </AppForm>
 </template>

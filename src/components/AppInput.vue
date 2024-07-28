@@ -1,5 +1,5 @@
 <template>
-  <FormKit v-bind="$attrs" />
+  <FormKit  v-bind="$attrs" />
 </template>
 
 <style scoped lang="scss">

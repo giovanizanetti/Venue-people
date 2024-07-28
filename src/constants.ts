@@ -5,8 +5,9 @@ export const TEAM_TYPE = {
 } as const
 
 export const VALIDATION = {
-  phoneNumber: 'matches:/^0?[1-9]([-. ]?[0-9]{2}){4}$/',
-  countryCode: 'required|^+?d{1,3}$',
+  number: 'number',
+  prefix: 'required|number|min:2',
+  phoneNumber: 'required|number|min:6',
   email: 'required|email',
   required: 'required'
 } as const
