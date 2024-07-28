@@ -136,7 +136,6 @@ $phone-leter-spacing: 1px;
 .list-item {
   font-size: $typography-1;
   max-width: 100%;
-  overflow-x: hidden;
   display: flex;
   align-items: center;
   list-style-type: none;
