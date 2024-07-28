@@ -1,5 +1,5 @@
 <template>
-  <FormKit  v-bind="$attrs" />
+  <FormKit v-bind="$attrs" />
 </template>
 
 <style scoped lang="scss">
@@ -19,6 +19,7 @@
     border-radius: $radius-xs;
     background: transparent;
     margin: $margin-xxs 0;
+    font-weight: 300;
   }
 }
 :deep(.formkit-message) {

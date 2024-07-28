@@ -19,6 +19,7 @@ const props = withDefaults(
     user: null
   }
 )
+
 const initialState: IUser = {
   fullName: '',
   displayName: '',

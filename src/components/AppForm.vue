@@ -14,7 +14,12 @@ const onSave = (value: any) => emit(EMIT.submit, value)
 </script>
 
 <template>
-  <FormKit type="form" :actions="false" #default="{ value, state }">
+  <FormKit
+    type="form"
+    :actions="false"
+    #default="{ value, state }"
+    @keypress.enter.prevent
+  >
     <section class="form-body">
       <slot name="body" :value="value"></slot>
     </section>
@@ -23,9 +28,10 @@ const onSave = (value: any) => emit(EMIT.submit, value)
       <div class="form-actions__inner">
         <AppButton @click="onCancel()" variant="secondary">Cancel</AppButton>
         <AppButton
+          type="submit"
           :disabled="!state.valid || !state.dirty"
           :loading="loading"
-          @click="onSave(value)"
+          @click.prevent="onSave(value)"
           >Save changes</AppButton
         >
       </div>
@@ -88,7 +94,7 @@ const onSave = (value: any) => emit(EMIT.submit, value)
       margin-top: -3rem;
       padding: 0;
       .button {
-        width: 174px
+        width: 174px;
       }
     }
   }
