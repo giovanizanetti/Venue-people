@@ -6,8 +6,8 @@ export const TEAM_TYPE = {
 
 export const VALIDATION = {
   number: 'number',
-  prefix: 'required|number|min:2',
-  phoneNumber: 'required|number|min:6',
+  prefix: 'required|number|min:2|max:4',
+  phoneNumber: 'required|number|min:6|max:12',
   email: 'required|email',
   required: 'required'
 } as const
