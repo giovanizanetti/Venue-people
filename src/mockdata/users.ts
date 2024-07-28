@@ -1,4 +1,3 @@
-import { LOCAL_STORAGE_PROPS } from '@/constants'
 import { userAddressMock } from './usersAddress'
 
 const defaultData: IUser[] = [
@@ -95,7 +94,7 @@ const defaultData: IUser[] = [
 ]
 
 export interface IUser {
-  id: number
+  id?: number
   fullName: string
   displayName: string
   initials: string

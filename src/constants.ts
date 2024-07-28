@@ -15,7 +15,9 @@ export const EMIT = {
   submit: 'submit',
   cancel: 'cancel',
   click: 'click',
-  remove: 'remove'
+  remove: 'remove',
+  changePhoneNumber: 'phone-number-change',
+  changePrefix: 'prefix-change'
 } as const
 
 export const ROUTE = {

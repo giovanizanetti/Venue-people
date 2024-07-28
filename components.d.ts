@@ -29,6 +29,7 @@ declare module 'vue' {
     PeopleList: typeof import('./src/components/PeopleList.vue')['default']
     PeopleListItem: typeof import('./src/components/PeopleListItem.vue')['default']
     PeopleListItemTeamIcon: typeof import('./src/components/PeopleListItemTeamIcon.vue')['default']
+    PhoneNumberInput: typeof import('./src/components/PhoneNumberInput.vue')['default']
     TeamsList: typeof import('./src/components/TeamsList.vue')['default']
     TeamsListItem: typeof import('./src/components/TeamsListItem.vue')['default']
     UserAvatar: typeof import('./src/components/UserAvatar.vue')['default']
