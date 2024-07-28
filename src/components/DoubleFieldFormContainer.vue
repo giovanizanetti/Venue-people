@@ -1,8 +1,21 @@
 <template>
-  <div class="field-section-multiple">
+  <div
+    class="field-section-multiple"
+    :style="{ flexDirection: width <= maxBreakpointColumn ? 'column' : 'row' }"
+  >
     <slot />
   </div>
 </template>
+
+<script setup lang="ts">
+import { useWindowResize } from '@/composables/useWindowResize'
+
+const { width } = useWindowResize()
+
+defineProps<{
+  maxBreakpointColumn: number
+}>()
+</script>
 
 <style scoped lang="scss">
 .field-section-multiple {

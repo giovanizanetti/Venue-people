@@ -13,12 +13,15 @@ onMounted(async () => await getUser())
 async function getUser() {
   const { id } = route.params
 
-  loading.value = true
-  const response = await useUsers().getUserById(Number(id))
-
-  if (response) {
-    user.value = response
-    loading.value = false
+  try {
+    loading.value = true
+    const response = await useUsers().getUserById(Number(id))
+    if (response) {
+      user.value = response
+      loading.value = false
+    }
+  } catch (error) {
+    console.error(error)
   }
 }
 </script>

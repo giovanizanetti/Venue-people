@@ -9,6 +9,7 @@ import AppInput from '@/components/AppInput.vue'
 import DoubleFieldFormContainer from '@/components/DoubleFieldFormContainer.vue'
 import AppForm from '@/components/AppForm.vue'
 import AppLoading from '@/components/AppLoading.vue'
+import PhoneNumberInput from './PhoneNumberInput.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -18,14 +19,14 @@ const props = withDefaults(
     user: null
   }
 )
+
 const initialState: IUser = {
-  id: 7, //TODO CHANGE
   fullName: '',
   displayName: '',
   initials: '',
   email: '',
   phoneNumber: '',
-  phoneCountryPrefix: '',
+  phoneCountryPrefix: '+31',
   teamIds: [],
   image: '',
   address: {
@@ -55,6 +56,7 @@ onMounted(async () =>
 const onSubmit = async () => {
   if (!formData.value) return
   const isNewUser = !props.user
+
   let data
 
   if (isNewUser) {
@@ -79,8 +81,8 @@ const onCancel = () => {
 
   <AppForm
     v-if="formData"
-    @submit="onSubmit"
     :loading="loading"
+    @submit="onSubmit"
     @cancel="onCancel"
   >
     <template #body>
@@ -112,34 +114,27 @@ const onCancel = () => {
         />
 
         <AppInput name="role" label="Role" v-model="formData.xc" />
+        <DoubleFieldFormContainer :maxBreakpointColumn="600">
+          <AppInput
+            type="email"
+            name="email"
+            label="Email *"
+            v-model="formData.email"
+            :validation-visibility="'live'"
+            :validation="VALIDATION.email"
+          />
 
-        <AppInput
-          type="email"
-          name="email"
-          label="Email *"
-          v-model="formData.email"
-          :validation-visibility="'live'"
-          :validation="VALIDATION.email"
-        />
-        <span class="phone-number-container">
-          <span class="prefix">
-            <AppInput
-              name="phoneCountryPrefix"
-              v-model="formData.phoneCountryPrefix"
-              :validation-visibility="'live'"
-              :validation="'required'"
-            />
-          </span>
-
-          <span class="number">
-            <AppInput
-              name="phone-number"
-              v-model="formData.phoneNumber"
-              :validation-visibility="'live'"
-              :validation="VALIDATION.phoneNumber"
-            />
-          </span>
-        </span>
+          <PhoneNumberInput
+            :phoneNumber="formData.phoneNumber"
+            :phoneCountryPrefix="formData.phoneCountryPrefix"
+            @phone-number-change="
+              (value) => formData && (formData.phoneNumber = value)
+            "
+            @prefix-change="
+              (value) => formData && (formData.phoneCountryPrefix = value)
+            "
+          />
+        </DoubleFieldFormContainer>
 
         <AppInput
           name="addressLineOne"
@@ -169,7 +164,6 @@ const onCancel = () => {
           v-model="formData.address.country"
         />
       </section>
-      <!-- <pre wrap>{{ value }}</pre> -->
     </template>
   </AppForm>
 </template>
@@ -196,34 +190,5 @@ const onCancel = () => {
   flex: 5;
   margin-left: -5px;
   margin-top: $margin-xl;
-
-  .phone-number-container {
-    display: flex;
-    position: relative;
-
-    .prefix {
-      flex: 1;
-
-      :deep(.formkit-outer) {
-        .formkit-input {
-          background: $white-1;
-          width: 80px;
-        }
-      }
-    }
-
-    .number {
-      flex: 4;
-      position: absolute;
-      left: 80px;
-      :deep(.formkit-outer) {
-        margin-left: -5px;
-        .formkit-input {
-          border-left: none;
-        }
-      }
-      flex: 4;
-    }
-  }
 }
 </style>

@@ -13,12 +13,14 @@
 
   .formkit-input {
     width: 100%;
-    padding: 0.5rem;
+    padding: $padding-xs $padding-sm;
     height: 52px;
     border: $thin-light-1;
     border-radius: $radius-xs;
     background: transparent;
     margin: $margin-xxs 0;
+    font-size: $typography-1;
+    font-weight: 300;
   }
 }
 :deep(.formkit-message) {
