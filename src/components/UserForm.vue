@@ -114,7 +114,7 @@ const onCancel = () => {
         />
 
         <AppInput name="role" label="Role" v-model="formData.xc" />
-        <DoubleFieldFormContainer>
+        <DoubleFieldFormContainer :maxBreakpointColumn="600">
           <AppInput
             type="email"
             name="email"

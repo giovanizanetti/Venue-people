@@ -42,27 +42,48 @@ defineProps<{
 
 <style scoped lang="scss">
 .phone-number-container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  max-width: 250px;
+  max-width: 50%;
   min-width: 50%;
+  margin-right: 1.7rem;
+  @media screen and (max-width: $tablet-md) {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: $mobile) {
+    max-width: 100%;
+    margin-right: 2rem;
+  }
 
   .prefix {
     flex: 1;
+    position: absolute;
+    top: 0;
+    margin-right: 1.7rem;
 
     :deep(.formkit-outer) {
       .formkit-input {
         background: $white-1;
-        width: 80px;
+        width: 70px;
       }
     }
   }
 
   .number {
     flex: 4;
-    position: absolute;
-    left: 80px;
+    // position: absolute;
+    left: 70px;
+    top: 0;
+    margin-right: 5rem;
+    min-width: 172px;
+
+    @media screen and (max-width: $tablet-md) {
+      pasition: absolute;
+    }
 
     :deep(.formkit-outer) {
       margin-left: -5px;
