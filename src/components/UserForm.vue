@@ -101,7 +101,6 @@ const onCancel = () => {
           <AppInput
             name="initials"
             label="Initials *"
-            :validation-visibility="'live'"
             :validation="VALIDATION.required"
             v-model="formData.initials"
           />
@@ -120,7 +119,6 @@ const onCancel = () => {
             name="email"
             label="Email *"
             v-model="formData.email"
-            :validation-visibility="'live'"
             :validation="VALIDATION.email"
           />
 

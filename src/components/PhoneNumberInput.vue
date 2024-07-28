@@ -21,7 +21,6 @@ defineProps<{
         name="prefix"
         label="."
         :value="phoneCountryPrefix"
-        :validation-visibility="'live'"
         :validation="VALIDATION.prefix"
         @input="(value) => emit(EMIT.changePhoneNumber, value)"
       />
@@ -32,7 +31,6 @@ defineProps<{
         name="phone-number"
         label="Phone number *"
         :value="phoneNumber"
-        :validation-visibility="'live'"
         :validation="VALIDATION.phoneNumber"
         @input="(value) => emit(EMIT.changePhoneNumber, value)"
       />
@@ -92,6 +90,10 @@ defineProps<{
       margin-left: -5px;
       .formkit-input {
         border-left: none;
+      }
+
+      .formkit-message {
+        margin-left: -4rem;
       }
     }
     flex: 4;

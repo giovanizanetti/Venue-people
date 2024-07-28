@@ -199,8 +199,7 @@ $phone-leter-spacing: 1px;
       display: flex;
       align-items: center;
       color: $grey-medium-1;
-      @include phone
-      
+      @include phone;
     }
 
     .divisor {
