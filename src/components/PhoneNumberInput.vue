@@ -56,7 +56,6 @@ defineProps<{
 
   @media screen and (min-width: $mobile) {
     max-width: 100%;
-    margin-right: 2rem;
   }
 
   .prefix {
