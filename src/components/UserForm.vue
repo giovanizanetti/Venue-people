@@ -80,11 +80,11 @@ const onCancel = () => {
 
   <AppForm
     v-if="formData"
-    @submit="onSubmit"
     :loading="loading"
+    @submit="onSubmit"
     @cancel="onCancel"
   >
-    <template #body="{ value }">
+    <template #body>
       <div class="profile-picture">
         <UserAvatar :src="formData?.image" size="medium" />
       </div>

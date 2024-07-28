@@ -14,7 +14,7 @@ const onSave = (value: any) => emit(EMIT.submit, value)
 </script>
 
 <template>
-  <FormKit type="form" :actions="false" #default="{ value, state, dirty }">
+  <FormKit type="form" :actions="false" #default="{ value, state }">
     <section class="form-body">
       <slot name="body" :value="value"></slot>
     </section>
@@ -61,21 +61,36 @@ const onSave = (value: any) => emit(EMIT.submit, value)
 }
 
 .form-actions {
-  margin-top: $margin-lg !important;
-  background-color: $white-1;
+  margin-top: $margin-lg !important; //TODO: find a better way
   border-top: $thin-light-1;
-  border-bottom: $thin-light-1;
   position: relative;
-  widows: 100%;
   bottom: 0;
+  color: transparent;
+  @media screen and (min-width: $desktop) {
+    border-top: none;
+  }
 
   &__inner {
+    height: 72px;
     align-items: center;
+    padding: 0 1rem;
+    color: transparent;
     display: flex;
     gap: $margin-sm;
-    height: 124px;
+    height: 72px;
     justify-content: center;
     @include getMargin;
+    @media screen and (min-width: $tablet-sm) {
+      height: 124px;
+    }
+    @media screen and (min-width: $tablet-md) {
+      justify-content: flex-end;
+      margin-top: -3rem;
+      padding: 0;
+      .button {
+        width: 174px
+      }
+    }
   }
 }
 </style>
