@@ -13,7 +13,9 @@ const { width } = useWindowResize()
       :size="width > BREAKPOINTS.mobile ? TYPOGRAPHY.xxl : TYPOGRAPHY.lg"
       class="brand-name"
     />
-    <router-link class="link" :to="to">People list</router-link>
+      <router-link  class="link" :to="to"
+      >People list</router-link
+    >
   </main>
 </template>
 

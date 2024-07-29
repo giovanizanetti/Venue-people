@@ -1,4 +1,5 @@
 hello: Hello, {name}!
 language: Language
-menu:
-  home: Home
+home: Start
+cancel: annuleren
+saveChanges: wijzigingen opslaan

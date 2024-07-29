@@ -22,15 +22,15 @@ const toggleLocales = async () => {
   <header>
     <nav class="navbar">
       <span class="link">
-        <a @click="router.back()" to="#">
-          <mdi:chevron-left class="w-4 h-4" />
+        <a v-tooltip.bottom="'Go back'" @click="router.back()" to="#">
+          <mdi:chevron-left class="w-5 h-5" />
           <span v-if="width >= BREAKPOINTS.tabletSm" class="link__text"
             >Back
-          </span></a
-        >
+          </span>
+        </a>
       </span>
-      <span v-if="width <= BREAKPOINTS.tabletSm" class="link">
-        <a @click="toggleLocales" to="#">
+      <span class="link language-switch">
+        <a v-tooltip.bottom="locale == 'en' ? 'Switch to Dutch' : 'Switch to English'"  @click="toggleLocales" to="#">
           {{ locale.toUpperCase() }}
         </a>
       </span>
@@ -75,6 +75,10 @@ header {
       &:hover {
         color: darken($white-1, 15%);
       }
+    }
+
+    .language-switch {
+      font-size: $typography-1;
     }
   }
 

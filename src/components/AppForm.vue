@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { EMIT } from '@/constants'
 import AppButton from '@/components/AppButton.vue'
+import { useI18n } from 'vue-i18n'
+import { capitalize } from '@/helpers/strings'
+
+const { t } = useI18n()
 
 const emit = defineEmits<{
   (e: typeof EMIT.submit, value: any): void
@@ -26,13 +30,15 @@ const onSave = (value: any) => emit(EMIT.submit, value)
 
     <section class="form-actions">
       <div class="form-actions__inner">
-        <AppButton @click="onCancel()" variant="secondary">Cancel</AppButton>
+        <AppButton @click="onCancel()" variant="secondary">{{
+          capitalize(t('cancel'))
+        }}</AppButton>
         <AppButton
           type="submit"
           :disabled="!state.valid || !state.dirty"
           :loading="loading"
           @click.prevent="onSave(value)"
-          >Save changes</AppButton
+          >{{ capitalize(t('saveChanges')) }}</AppButton
         >
       </div>
     </section>

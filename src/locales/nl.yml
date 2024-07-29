@@ -1,4 +1,6 @@
 hello: Hello, {name}!
-language: Language
-menu:
-  home: Home
+language: language
+home: home
+cancel: cancel
+saveChanges: save changes
+# placeholder: 
