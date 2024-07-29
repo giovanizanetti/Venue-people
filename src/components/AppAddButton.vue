@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <RouterLink to="/" @click="handleDummyClick">
     <span class="add"
-      ><carbon:add class="w-5 h-5" /><span class="text">{{
+      ><span class="text">{{
         `New ${capitalize(type)}`
       }}</span>
     </span></RouterLink

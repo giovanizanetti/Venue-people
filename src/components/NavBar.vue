@@ -12,7 +12,7 @@ const { width } = useWindowResize()
     <nav class="navbar">
       <span class="link">
         <a @click="router.back()" to="#">
-          <carbon:arrow-left class="w-5 h-5" />
+          <carbon:arrow-left class="w-4 h-4" />
           <span v-if="width >= BREAKPOINTS.tabletSm" class="link__text"
             >Back
           </span></a
@@ -20,7 +20,7 @@ const { width } = useWindowResize()
       </span>
       <span v-if="width <= BREAKPOINTS.tabletSm" class="link">
         <a @click="router.back()" to="#">
-          <carbon:circle-dash class="w-5 h-5" />
+          <carbon:circle-dash class="w-4 h-4" />
         </a>
       </span>
     </nav>
@@ -65,6 +65,25 @@ header {
         color: darken($white-1, 15%);
       }
     }
+  }
+
+  .main {
+    margin-top: $top-nav-height;
+  }
+  .main-left {
+    margin-left: $main-menu-width-closed;
+  }
+  .fade-enter-from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: all 0.2s ease-out;
+  }
+  .fade-leave-to {
+    opacity: 0;
+    transform: translateX(100px);
   }
 }
 </style>
