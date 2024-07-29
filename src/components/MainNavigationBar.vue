@@ -89,7 +89,6 @@ const expandMenu = () => {
   z-index: 2;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  @include fade-in;
 
   &__expanded {
     width: 170px;

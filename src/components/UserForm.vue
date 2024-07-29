@@ -88,6 +88,7 @@ const onCancel = () => {
     <template #body>
       <div class="profile-picture">
         <UserAvatar :src="formData?.image" size="medium" />
+        <carbon:edit class="w-4 h-4 icon" /> 
       </div>
 
       <section class="form-fields-container">
@@ -171,6 +172,19 @@ const onCancel = () => {
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
+
+  .icon {
+    top: 2rem;
+    right: 1rem;
+    background: $white-1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid black;
+    
+  }
 
   @media screen and (min-width: $tablet-sm) {
     margin-left: -$margin-sm;

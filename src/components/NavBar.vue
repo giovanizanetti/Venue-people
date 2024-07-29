@@ -12,7 +12,7 @@ const { width } = useWindowResize()
     <nav class="navbar">
       <span class="link">
         <a @click="router.back()" to="#">
-          <carbon:arrow-left class="w-4 h-4" />
+          <mdi:chevron-left class="w-4 h-4" />
           <span v-if="width >= BREAKPOINTS.tabletSm" class="link__text"
             >Back
           </span></a

@@ -17,7 +17,7 @@ const { width } = useWindowResize()
 .contact-list-container {
   margin: $margin-xxl $margin-lg;
   .session {
-    margin: $margin-md 0;
+    margin: $margin-sm 0;
   }
   @media screen and (max-width: $tablet-sm) {
     margin: $margin-xxl 0;

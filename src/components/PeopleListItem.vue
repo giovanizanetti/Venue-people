@@ -203,7 +203,7 @@ $phone-leter-spacing: 1px;
     }
 
     .divisor {
-      margin: 0 0.5rem;
+      margin: 0 0.3rem;
     }
   }
 

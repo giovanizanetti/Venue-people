@@ -10,11 +10,11 @@ withDefaults(
 </script>
 
 <template>
-  <h1 class="b" :style="{ fontSize: size }">Venue People</h1>
+  <h1 :style="{ fontSize: size }">Venue People</h1>
 </template>
 
 <style lang="scss" scoped>
-.b {
+h1 {
   font-family: 'Cormorant Infant', serif;
 }
 </style>
