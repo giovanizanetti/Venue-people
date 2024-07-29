@@ -6,6 +6,9 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ROUTE } from '@/constants'
 import { useI18n } from 'vue-i18n'
+import { useToast } from 'vue-toast-notification'
+
+const toast = useToast()
 
 const { t } = useI18n()
 
@@ -18,8 +21,13 @@ const isFirst = (index: number) => index == 0
 const isLast = (index: number) => users.value.length == index + 1
 
 const removeUser = async (id: number) => {
-  //TODO: Show error to the user
   useUsers().deleteUser(id)
+  toast.open({
+    message: 'User deleted successfully',
+    position: 'top-right',
+    type: 'success'
+  })
+
   reloadKey.value++ //Workaround for the reactivity
 }
 

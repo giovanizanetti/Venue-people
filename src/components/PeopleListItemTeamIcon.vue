@@ -20,7 +20,6 @@ interface ITeamIconData {
 const getTeamIconData = (teamId: number): ITeamIconData | null => {
   const hasTeam = props.user.teamIds.some((id) => id === teamId)
 
-  console.log(hasTeam)
   if (hasTeam) {
     const team = teams.value[teamId]
     return {

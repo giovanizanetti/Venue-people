@@ -13,6 +13,9 @@ import PhoneNumberInput from './PhoneNumberInput.vue'
 import { generateImage } from '@/mockdata/users'
 import { useI18n } from 'vue-i18n'
 import { capitalize } from 'vue'
+import { useToast } from 'vue-toast-notification'
+
+const toast = useToast()
 
 const { t } = useI18n()
 
@@ -64,11 +67,19 @@ const onSubmit = async () => {
 
   let data
 
+  let message
+
   if (isNewUser) {
-    data = useUsers().addUser(formData.value)
+    data = await useUsers().addUser(formData.value)
+    message = 'User updated succcessfully'
   } else {
     data = await useUsers().updateUser(formData.value)
+    message = 'User created succcessfully'
   }
+  toast.open({
+    message,
+    position: 'top-right'
+  })
 
   if (data) router.push({ name: ROUTE.contactList })
 
@@ -118,7 +129,11 @@ const onCancel = () => {
           v-model="formData.displayName"
         />
 
-        <AppInput name="role" :label="capitalize(t('role'))" v-model="formData.xc" />
+        <AppInput
+          name="role"
+          :label="capitalize(t('role'))"
+          v-model="formData.xc"
+        />
         <DoubleFieldFormContainer :maxBreakpointColumn="600">
           <AppInput
             type="email"
@@ -153,7 +168,11 @@ const onCancel = () => {
         />
 
         <DoubleFieldFormContainer>
-          <AppInput name="city" :label="capitalize(t('city'))" v-model="formData.address.city" />
+          <AppInput
+            name="city"
+            :label="capitalize(t('city'))"
+            v-model="formData.address.city"
+          />
           <AppInput
             name="postal-code"
             :label="capitalize(t('postalcode'))"

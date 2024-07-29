@@ -59,8 +59,7 @@ export const useUsers = defineStore('users', () => {
     } finally {
       loading.value = false
     }
-    // users.value.unshift(user)
-    console.log('AD  NEW USER FROM THE STORE')
+  
   }
 
   const deleteUser = async (userId: number) => {

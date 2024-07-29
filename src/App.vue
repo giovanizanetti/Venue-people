@@ -2,10 +2,8 @@
 import MainNavigationBar from './components/MainNavigationBar.vue'
 import { RouterView } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
-
 import '@/styles/base.scss'
 import '@/styles/v-tooltip.scss'
-
 </script>
 
 <template>
