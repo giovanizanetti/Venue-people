@@ -23,7 +23,7 @@
             <mdi:euro class="w-4 h-4" />
             <span v-if="isExpanded" class="text">Placeholder</span>
           </li>
-          <li>
+          <li @click="goToHomePage">
             <mdi:home class="w-4 h-4" />
             <span v-if="isExpanded" class="text">Home</span>
           </li>
@@ -33,7 +33,7 @@
         <ul class="inner-container">
           <li>
             <mdi:search class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Home</span>
+            <span v-if="isExpanded" class="text">Search</span>
           </li>
           <li>
             <mdi:error class="w-4 h-4" />
@@ -48,17 +48,23 @@
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
 import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 const { height } = useWindowResize()
 const minHeight = computed(() => `${height.value - 60}px`)
 const isExpanded = ref(false)
-const showText = ref(false)
 
 const expandMenu = () => {
   isExpanded.value = !isExpanded.value
-
-  console.log('click', isExpanded.value)
 }
+
+const goToHomePage = () => {
+
+  router.push('/')
+}
+
 </script>
 
 <style lang="scss" scope>

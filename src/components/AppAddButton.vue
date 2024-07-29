@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <RouterLink to="/" @click="handleDummyClick">
+  <RouterLink to="#" @click="handleDummyClick">
     <span class="add"
       ><span class="text">{{
         `New ${capitalize(type)}`

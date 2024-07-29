@@ -28,14 +28,7 @@ const props = withDefaults(
 
 const typeClass = computed(() => `button__${props.variant}`)
 const sizeClass = computed(() => `button__${props.size}`)
-
-const onClick = (event: MouseEvent) => {
-  if (!props.disabled && !props.loading) {
-    // emit(EMIT.click, event)
-  }
-}
 </script>
-
 <style scoped lang="scss">
 .button {
   border: none;

@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 5050",
-    "test:unit": "vitest --environment jsdom",
+    "test": "vitest --environment jsdom",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
@@ -43,7 +43,7 @@
     "unplugin-vue-components": "^0.18.5",
     "vite": "^2.9.16",
     "vite-plugin-windicss": "^1.9.2",
-    "vitest": "^0.5.9",
+    "vitest": "^2.0.4",
     "vue-tsc": "^0.31.4"
   }
 }
