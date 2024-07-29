@@ -41,33 +41,28 @@ This project is part of an assignment for the position of a front-end developer.
 ## Features 👇
 
 - Views: Home, Contact list and Contact editor.
-- Create the components for the contact view.
-    - ContactCard to display the contact information. 
-    - You can delete a contact by clicking the
-trash icon. 
-    - If we click on an email or phone number; we want to copy it to the clipboard.
-    
-- TeamCard that shows the team information.
-- TopNavigationBar with rerouting.
-- MainNavigationBar with rerouting.(_to be honest this one confused me a bit, so I left it and decided to focus on other aspects of the assignment_)
+- Create the components for the contact view. - ContactCard to display the contact information. - You can delete a contact by clicking the
+  trash icon.
+- If we click on an email or phone number; we want to copy it to the clipboard.
+- TeamCard that shows the team information;
+- TopNavigationBar with rerouting;
+- MainNavigationBar with rerouting.(_for that I added a link to the some page, as there is already a rerouting on button the top navigation_);
 - Create the contact edit view
-    - When clicking on a contact card, you should be redirected to the contact edit page
-    where a form will be displayed with the user's information. 
-    - Can edit the user from the form and save the changes. The updated data should be visible now on the contact page. 
-    - If the user clicks cancel, they will be redirected to the contact list view.
-    - Validation for email, phone number and initials
-- Axios Integration: 
-    - Set up Axios in the project to fetch data from a mock API endpoint.
-    - Create mock data representing a collection of items. Ensure the data is structured appropriately and includes various properties relevant to the items.
-    - Display the fetched data in the application
-    - Implement basic CRUD functionality to interact with the data. Users
-    should be able to view, add, edit, and delete items from the collection
-
+  - When clicking on a contact card, you should be redirected to the contact edit page;
+    where a form will be displayed with the user's information.;
+  - Can edit the user from the form and save the changes. The updated data should be visible now on the contact page;
+  - If the user clicks cancel, they will be redirected to the contact list view;
+  - Validation for email, phone number and initials
+- Axios Integration;
+  - Set up Axios in the project to fetch data from a mock API endpoint;
+  - Create mock data representing a collection of items. Ensure the data is structured appropriately and includes various properties relevant to the items;
+  - Display the fetched data in the application;
+  - Implement basic CRUD functionality to interact with the data. Users should be able to view, add, edit, and delete items from the collection;
 
 #### Coding
 
-- In a team I'm always accountble and try my best to make a good balance between development speed and code quality. Always thinking about the codebase healthy to build a robust product for the client and for company to to be abble to profity for many years.
-- I try to write understandable variables name. Not necessarily the smallest.
+- In a team, I'm always accountable and try my best to make a good balance between development speed and code quality. Always thinking about the codebase healthy to build a robust product for the client and for the company to be able to profit for many years.
+- I try to write understandable variable names. Not necessarily the smallest.
 - Smaller components. However, sometimes it makes sense to keep things grouped in a bigger component.
 - I'm always attentive to reusability. I'm always creating helpers, utility functions, and utility components. Even if does not diminish the amount of code at first glance, it helps to keep the consistency in the way things happen in the application, especially with styling. Also, it improves development speed for future reuse.
 - When creating a utility component, I make it as dumb as possible. So it can be more predictable and work as a pure function by just receiving props and emitting events.
@@ -76,27 +71,25 @@ trash icon.
 
 #### Process
 
-* I like using Trello to organize my thoughts and draw a plan.
-* Tackle it by priority, Aways watching the requirements.
-* Test
-* Fix bugs
-* Add extra features to imporve ux
-* If I get stuck I always try to find the solution in one of the options:
+- I like using Trello to organize my thoughts and draw a plan;
+- Tackle it by priority by aways watching the requirements;
+- Test;
+- Fix bugs;
+- Add extra features to improve ux;
+- If I get stuck I always try to find the solution in one of the options;
   - Documentation
   - Google
   - Stackoverflow
   - Youtube / Udemy tutorials
   - Get a second opinion
   - Pair programming
- 
-  
+
 ## Instalation
 
-- Run ```git clone https://github.com/giovanizanetti/Venue-people.git``` from your machine.
-- ```cd``` to the project folder
-- ```yarn``` to install all dependencies of the project.
-- run ```yarn run dev``` to see the project on your browser.
-- Build for production by running ```yarn build``` 
-
+- Run `git clone https://github.com/giovanizanetti/Venue-people.git` from your machine.
+- `cd` to the project folder
+- `yarn` to install all dependencies of the project.
+- run `yarn run dev` to see the project on your browser.
+- Build for production by running `yarn build`
 
 ## [Check out the deployed version here!](https://my-books-app.netlify.app/)

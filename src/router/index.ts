@@ -32,7 +32,11 @@ const router = createRouter({
 
       component: () => import('../views/ContactEditorView.vue')
     },
-
+    {
+      path: '/readme',
+      name: ROUTE.readme,
+      component: () => import('../views/ReadMe.vue')
+    },
     {
       path: '/:pathMatch(.*)*',
       name: ROUTE.notFound,

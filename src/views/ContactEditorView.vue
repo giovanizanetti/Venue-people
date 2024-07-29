@@ -29,7 +29,9 @@ async function getUser() {
 </script>
 
 <template>
-  <UserForm v-if="user" :user="user" />
-  <span v-if="!user && !loading">Failed loading the user</span>
-  <AppLoading v-if="loading" :loading="loading" />
+  <section>
+    <UserForm v-if="user" :user="user" />
+    <span v-if="!user && !loading">Failed loading the user</span>
+    <AppLoading v-if="loading" :loading="loading" />
+  </section>
 </template>

@@ -19,7 +19,7 @@ export const EMIT = {
   remove: 'remove',
   changePhoneNumber: 'phone-number-change',
   changePrefix: 'prefix-change',
-  homeClick: 'home-click',
+  homeClick: 'home-click'
 } as const
 
 export const ROUTE = {
@@ -27,7 +27,8 @@ export const ROUTE = {
   addUser: 'add-user',
   contactEditor: 'contact-editor',
   home: 'home',
-  notFound: '404'
+  notFound: '404',
+  readme: 'readme'
 }
 
 export const LOCAL_STORAGE_PROPS = {

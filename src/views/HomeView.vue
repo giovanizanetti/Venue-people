@@ -15,9 +15,10 @@ const { t } = useI18n()
       :size="width > BREAKPOINTS.mobile ? TYPOGRAPHY.xxl : TYPOGRAPHY.lg"
       class="brand-name"
     />
-    <router-link class="link" :to="to">{{
-      capitalize(t('peopleList'))
-    }}</router-link>
+    <router-link class="link" :to="ROUTE.contactList">
+      {{ capitalize(t('peopleList')) }}
+    </router-link>
+    <router-link class="link" :to="ROUTE.readme">Readme </router-link>
   </main>
 </template>
 
@@ -29,10 +30,14 @@ const { t } = useI18n()
   align-items: center;
   height: 60vh;
 
+  .brand-name {
+    margin-bottom: $margin-md;
+  }
+
   .link {
     font-size: $typography-3;
     text-decoration: underline;
-    margin-top: $margin-xxl;
+    margin: $margin-xs;
 
     &:hover {
       color: $grey-medium-1;

@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  <UserForm />
+  <section><UserForm :user="null" /></section>
 </template>
