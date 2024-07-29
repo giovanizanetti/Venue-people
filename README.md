@@ -92,4 +92,4 @@ This project is part of an assignment for the position of a front-end developer.
 - run `yarn run dev` to see the project on your browser.
 - Build for production by running `yarn build`
 
-## [Check out the deployed version here!](https://my-books-app.netlify.app/)
+## [Check out the deployed version here!](https://github.com/giovanizanetti/Venue-people/)

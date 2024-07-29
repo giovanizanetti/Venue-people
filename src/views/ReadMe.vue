@@ -98,10 +98,11 @@
     font-size: 1.8rem;
     text-decoration: underline;
     font-weight: 600;
-    margin-top: $margin-lg;
+    margin-top: $margin-lg; o
     &:hover {
       opacity: 0.8;
     }
   }
+  margin-bottom: 3rem;
 }
 </style>
