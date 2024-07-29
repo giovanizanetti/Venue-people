@@ -50,7 +50,7 @@
     <a
       class="git-hub-link"
       href="https://github.com/giovanizanetti/Venue-people#readme"
-      >Check the complete README on my git hub page</a
+      >Check the complete README on my Github page</a
     >
   </div>
 </template>
@@ -70,7 +70,6 @@
   .sub-heading {
     font-size: $typography-4;
     padding: $margin-lg $margin-xl;
-
   }
   .section-heading {
     text-align: center;
@@ -105,11 +104,4 @@
     }
   }
 }
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
 </style>
