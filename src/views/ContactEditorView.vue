@@ -2,6 +2,8 @@
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useUsers } from '@/stores/users'
+import UserForm from '@/components/UserForm.vue'
+import AppLoading from '@/components/AppLoading.vue'
 import type { IUser } from '@/mockdata/users'
 
 const route = useRoute()

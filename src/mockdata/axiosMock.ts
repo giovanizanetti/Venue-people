@@ -5,8 +5,7 @@ import type {
   AxiosResponse,
   InternalAxiosRequestConfig
 } from 'axios'
-import { mockUsers } from './users'
-import { teamsMock } from './teams'
+import { mockUsers, avatars  } from './users'
 import type { IUser } from './users'
 
 const axiosInstance = axios.create()
@@ -78,7 +77,7 @@ const post = (
   if (url && url.startsWith('/users/new')) {
     const id = generaterId()
     const teams = [generateTeam()]
-    const user = { ...data, id }
+    const user = { ...data, id, teams }
     mockUsers.splice(0, 0, user)
 
     return new Promise((resolve) => {

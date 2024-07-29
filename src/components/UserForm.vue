@@ -10,6 +10,7 @@ import DoubleFieldFormContainer from '@/components/DoubleFieldFormContainer.vue'
 import AppForm from '@/components/AppForm.vue'
 import AppLoading from '@/components/AppLoading.vue'
 import PhoneNumberInput from './PhoneNumberInput.vue'
+import { generateImage } from '@/mockdata/users'
 
 const props = withDefaults(
   defineProps<{
@@ -28,7 +29,7 @@ const initialState: IUser = {
   phoneNumber: '',
   phoneCountryPrefix: '+31',
   teamIds: [],
-  image: '',
+  image: generateImage(),
   address: {
     id: 7, //TODO: CHANGE
     addressLineOne: '',
@@ -88,7 +89,7 @@ const onCancel = () => {
     <template #body>
       <div class="profile-picture">
         <UserAvatar :src="formData?.image" size="medium" />
-        <carbon:edit class="w-4 h-4 icon" /> 
+        <carbon:edit class="w-4 h-4 icon" />
       </div>
 
       <section class="form-fields-container">
@@ -183,7 +184,6 @@ const onCancel = () => {
     height: 40px;
     padding: 10px;
     border: 1px solid black;
-    
   }
 
   @media screen and (min-width: $tablet-sm) {
@@ -202,6 +202,5 @@ const onCancel = () => {
   flex: 5;
   margin-left: -5px;
   margin-top: $margin-xl;
-
 }
 </style>
