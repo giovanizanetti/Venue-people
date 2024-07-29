@@ -33,15 +33,15 @@ import '@/styles/v-tooltip.scss'
   }
   .fade-enter-from {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(50px);
   }
   .fade-enter-active,
   .fade-leave-active {
-    transition: all 0.2s ease-out;
+    transition: all 0.1s ease-out;
   }
   .fade-leave-to {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(50px);
   }
 }
 </style>
