@@ -11,7 +11,12 @@ defineProps<{ color: string; label: string }>()
       <div class="circle" :style="{ backgroundColor: color }" />
     </div>
     <div class="title">{{ capitalize(label) }}</div>
-    <div v-tooltip="'Not functional'" class="icon-button" role="button" @click="handleDummyClick">
+    <div
+      v-tooltip="'Not functional'"
+      class="icon-button"
+      role="button"
+      @click="handleDummyClick"
+    >
       <carbon:edit class="w-4 h-4" />
     </div>
   </li>

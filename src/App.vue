@@ -11,9 +11,11 @@ import '@/styles/v-tooltip.scss'
   <div class="main-left">
     <NavBar />
     <main class="main">
-      <transition name="fade" appear>
-        <router-view />
-      </transition>
+      <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
   </div>
 </template>

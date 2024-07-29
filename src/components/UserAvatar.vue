@@ -12,7 +12,7 @@ const props = withDefaults(
   }
 )
 
-const sizeClass = computed(() => `avatar__${props.size}`)
+const sizeClass = computed(() => `avatar avatar__${props.size}`)
 </script>
 
 <template>

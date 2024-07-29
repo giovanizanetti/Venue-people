@@ -82,8 +82,6 @@ const onSubmit = async () => {
   })
 
   if (data) router.push({ name: ROUTE.contactList })
-
-  //TODO: Display a toast or other feedback to the user if I have time
 }
 
 const onCancel = () => {

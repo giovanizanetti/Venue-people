@@ -64,6 +64,7 @@ const copyPhone = () =>
 
       <div class="contact">
         <span
+          v-tooltip="t('clickToCopyType', { type: t('email') })"
           v-if="width >= BREAKPOINTS.tabletSm"
           @click.stop="copyToClipboard(user.email)"
           class="email user-info-mobile__item"
@@ -78,7 +79,11 @@ const copyPhone = () =>
         >
           {{ user.phoneCountryPrefix }}
         </span>
-        <span class="phone" @click.stop="copyPhone()">
+        <span
+          v-tooltip="t('clickToCopyType', { type: t('phoneNumber') })"
+          class="phone"
+          @click.stop="copyPhone()"
+        >
           {{ user.phoneNumber }}
         </span>
       </div>
