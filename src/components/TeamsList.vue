@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useTeams } from '@/stores/teams'
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 
-const locale = 'en' //TODO: get from I18n
+const { locale } = useI18n()
 const { teams } = storeToRefs(useTeams())
 </script>
 
@@ -14,10 +15,10 @@ const { teams } = storeToRefs(useTeams())
         v-for="(team, key) in teams"
         :key="key"
         :color="team.color"
-        :label="team.name[locale]"
+        :label="team.name?.[locale as 'en' | 'nl']"
       />
     </ul>
-    <AppAddButton type="team" />
+    <AppAddButton :tooltip="'Not functional'" type="team" />
   </div>
 </template>
 

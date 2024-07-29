@@ -11,6 +11,10 @@ import AppForm from '@/components/AppForm.vue'
 import AppLoading from '@/components/AppLoading.vue'
 import PhoneNumberInput from './PhoneNumberInput.vue'
 import { generateImage } from '@/mockdata/users'
+import { useI18n } from 'vue-i18n'
+import { capitalize } from 'vue'
+
+const { t } = useI18n()
 
 const props = withDefaults(
   defineProps<{
@@ -96,13 +100,13 @@ const onCancel = () => {
         <DoubleFieldFormContainer>
           <AppInput
             name="fullname"
-            label="Full name"
+            :label="t('fullName')"
             v-model="formData.fullName"
           />
 
           <AppInput
             name="initials"
-            label="Initials *"
+            :label="capitalize(`${t('initials')} *`)"
             :validation="VALIDATION.required"
             v-model="formData.initials"
           />
@@ -110,16 +114,16 @@ const onCancel = () => {
 
         <AppInput
           name="display-name"
-          label="Display name"
+          :label="capitalize(t('displayName'))"
           v-model="formData.displayName"
         />
 
-        <AppInput name="role" label="Role" v-model="formData.xc" />
+        <AppInput name="role" :label="capitalize(t('role'))" v-model="formData.xc" />
         <DoubleFieldFormContainer :maxBreakpointColumn="600">
           <AppInput
             type="email"
             name="email"
-            label="Email *"
+            :label="capitalize(`${t('email')} *`)"
             v-model="formData.email"
             :validation="VALIDATION.email"
           />
@@ -138,7 +142,7 @@ const onCancel = () => {
 
         <AppInput
           name="addressLineOne"
-          label="Street"
+          :label="capitalize(t('street'))"
           v-model="formData.address.addressLineOne"
         />
 
@@ -149,10 +153,10 @@ const onCancel = () => {
         />
 
         <DoubleFieldFormContainer>
-          <AppInput name="city" label="City" v-model="formData.address.city" />
+          <AppInput name="city" :label="capitalize(t('city'))" v-model="formData.address.city" />
           <AppInput
             name="postal-code"
-            label="Postal Code"
+            :label="capitalize(t('postalcode'))"
             v-model="formData.address.postalCode"
           />
         </DoubleFieldFormContainer>
@@ -160,7 +164,7 @@ const onCancel = () => {
         <AppInput
           class="input"
           name="country"
-          label="Country"
+          :label="capitalize(t('country'))"
           v-model="formData.address.country"
         />
       </section>

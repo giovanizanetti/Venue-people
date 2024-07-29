@@ -18,7 +18,8 @@ export function TooltipDirective(el: HTMLElement, binding: DirectiveBinding) {
   el.setAttribute('data-tooltip', binding.value?.text || binding.value)
   el.classList.add('with-tooltip')
 
-  const position:TPosition = binding.value.position || getPositionClass(binding.modifiers)
+  const position: TPosition =
+    binding.value.position || getPositionClass(binding.modifiers)
   el.classList.add(`tooltip--${position}`)
 }
 

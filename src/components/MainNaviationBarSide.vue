@@ -17,7 +17,9 @@
           </li>
           <li>
             <mdi:account-circle le class="w-4 h-4" background />
-            <span v-if="isExpanded" class="text">Profile</span>
+            <span v-if="isExpanded" class="text">{{
+              capitalize(t('profile'))
+            }}</span>
           </li>
           <li>
             <mdi:euro class="w-4 h-4" />
@@ -25,7 +27,9 @@
           </li>
           <li @click="onHomeClick">
             <mdi:home class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Home</span>
+            <span v-if="isExpanded" class="text">{{
+              capitalize(t('home'))
+            }}</span>
           </li>
         </ul>
       </nav>
@@ -33,7 +37,9 @@
         <ul class="inner-container">
           <li>
             <mdi:search class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Search</span>
+            <span v-if="isExpanded" class="text">{{
+              capitalize(t('search'))
+            }}</span>
           </li>
           <li>
             <mdi:error class="w-4 h-4" />
@@ -49,6 +55,10 @@
 import { useWindowResize } from '@/composables/useWindowResize'
 import { EMIT } from '@/constants'
 import { computed, ref } from 'vue'
+import { capitalize } from '@/helpers/strings'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const emit = defineEmits<{
   (e: typeof EMIT.homeClick): void

@@ -3,10 +3,9 @@ import { computed } from 'vue'
 import type { IUser } from '@/mockdata/users'
 import { storeToRefs } from 'pinia'
 import { useTeams } from '@/stores/teams'
-import { capitalize } from 'vue';
-const { teams } = storeToRefs(useTeams())
+import { capitalize } from 'vue'
 
-const locale: 'en' | 'nl' = 'en' //TODO: get from i18n, if I have time to implement a language switch
+const { teams } = storeToRefs(useTeams())
 
 const props = defineProps<{
   user: IUser
@@ -20,12 +19,14 @@ interface ITeamIconData {
 
 const getTeamIconData = (teamId: number): ITeamIconData | null => {
   const hasTeam = props.user.teamIds.some((id) => id === teamId)
+
+  console.log(hasTeam)
   if (hasTeam) {
     const team = teams.value[teamId]
     return {
       label: team.abbreviation,
       backgroundColor: team.color,
-      title: team.name[locale]
+      title: team.name['en']
     }
   } else return null
 }

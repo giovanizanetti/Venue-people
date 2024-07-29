@@ -1,5 +1,26 @@
-hello: Hello, {name}!
-language: Language
-home: Start
-cancel: annuleren
-saveChanges: wijzigingen opslaan
+language: language
+home: home
+cancel: cancel
+saveChanges: Save changes
+search: zoekopdracht
+profile: profile
+goToPreviousRoute: Go to the previous route
+back: back
+noPeopleYet: No peopple yet!
+clickToCopyType: Click to copy {type}
+email: email
+phoneNumber: phone number
+deleteType: Delete a {type}
+user: user
+addNewType: Add new {type}
+name: name
+fullName: Full @:name
+initials: initials
+displayName: Display name
+role: role
+street: street
+city: city
+postalcode: postal-code
+country: country
+notFound: Not found
+peopleList: People list

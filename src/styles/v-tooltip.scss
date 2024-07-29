@@ -9,10 +9,10 @@
   transition: opacity .6;
   color: #ffffff;
   text-align: center;
-  padding: 2px;
+  padding: 2px 5px;
   border-radius: 2px;
   min-width: 120px;
-  background: #5e5d5d;
+  background: $black-2;
   pointer-events: none;
   z-index: 1;
 }
@@ -23,7 +23,7 @@
   content: '';
   border-width: 5px;
   border-style: solid;
-  border-color: #5e5d5d transparent transparent transparent;
+  border-color: $black-2 transparent transparent transparent;
   position: absolute;
   z-index: 1;
   pointer-events: none;
@@ -63,23 +63,23 @@
 .tooltip--left::after {
   inset-block-start: 25%;
   inset-inline-start: -20%;
-  border-color: transparent transparent transparent #5e5d5d;
+  border-color: transparent transparent transparent $black-2;
 }
 
 .tooltip--right::after {
   inset-block-start: 25%;
   inset-inline-end: -20%;
-  border-color: transparent #5e5d5d transparent transparent;
+  border-color: transparent $black-2 transparent transparent;
 }
 
 .tooltip--top::after {
   inset-block-start: -20%;
   inset-inline-start: 40%;
-  border-color: #5e5d5d transparent transparent transparent;
+  border-color: $black-2 transparent transparent transparent;
 }
 
 .tooltip--bottom::after {
   inset-block-end: -20%;
   inset-inline-start: 40%;
-  border-color: transparent transparent #5e5d5d transparent;
+  border-color: transparent transparent $black-2 transparent;
 }

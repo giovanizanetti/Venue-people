@@ -1,14 +1,16 @@
 <script lang="ts" setup>
+import { capitalize } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-
 const router = useRouter()
+const { t } = useI18n()
 </script>
 
 <template>
   <main class="main">
     <h1>404</h1>
-    <span>Not Found</span>
-    <span @click="router.back()" class="back">Go back</span>
+    <span>{{ t('notFound') }}</span>
+    <span @click="router.back()" class="back">{{ capitalize(t('back')) }}</span>
   </main>
 </template>
 

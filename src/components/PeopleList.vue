@@ -5,6 +5,9 @@ import AppLoading from './AppLoading.vue'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ROUTE } from '@/constants'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const { users, loading, success } = storeToRefs(useUsers())
 const router = useRouter()
@@ -34,7 +37,7 @@ const goToAddUserForm = () => router.push({ name: ROUTE.addUser })
       <ul v-if="success && users?.length">
         <PeopleListItem
           v-for="(user, index) in users"
-          :key="user.id + reloadKey"
+          :key="Number(user.id) + reloadKey"
           :user="user"
           :isLast="isLast(index)"
           :isFirst="isFirst(index)"
@@ -42,8 +45,13 @@ const goToAddUserForm = () => router.push({ name: ROUTE.addUser })
         />
       </ul>
 
-      <span v-if="!users?.length" class="message">No people yet!</span>
-      <AppAddButton class="add" type="user" @click.stop="goToAddUserForm" />
+      <span v-if="!users?.length" class="message">{{ t('noPeopleYet') }}</span>
+      <AppAddButton
+        :tooltip="t('addNewType', { type: t('user') })"
+        class="add"
+        type="user"
+        @click.stop="goToAddUserForm"
+      />
     </div>
   </template>
 </template>

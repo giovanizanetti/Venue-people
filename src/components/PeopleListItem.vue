@@ -6,9 +6,11 @@ import { computed } from 'vue'
 import { EMIT, ROUTE } from '@/constants'
 import { useRouter } from 'vue-router'
 import { copyToClipboard } from '@/helpers/strings'
+import { useI18n } from 'vue-i18n'
 
 const route = useRouter()
 const { width } = useWindowResize()
+const { t } = useI18n()
 
 const emit = defineEmits<{
   (e: typeof EMIT.remove, id: number): void
@@ -92,11 +94,14 @@ const copyPhone = () =>
 
       <span>{{ user.xc }}</span>
 
-      <span @click.stop="copyToClipboard(user.email)">
+      <span
+        v-tooltip="t('clickToCopyType', { type: t('email') })"
+        @click.stop="copyToClipboard(user.email)"
+      >
         {{ user.email }}
       </span>
 
-      <span>
+      <span v-tooltip="t('clickToCopyType', { type: t('phoneNumber') })">
         <span class="phone phone__prefix" @click="copyPhone">
           {{ user.phoneCountryPrefix }}
         </span>
@@ -113,7 +118,11 @@ const copyPhone = () =>
     <span class="team-icon">
       <PeopleListItemTeamIcon :user="user" />
     </span>
-    <span class="remove-team-member" @click.stop="removeUser">
+    <span
+      v-tooltip="t('deleteType', { type: t('user') })"
+      class="remove-team-member"
+      @click.stop="removeUser"
+    >
       <carbon:trash-can class="w-4 h-4" />
     </span>
   </li>

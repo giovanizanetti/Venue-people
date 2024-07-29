@@ -4,13 +4,16 @@ import { handleDummyClick } from '@/helpers/dummyFunctinality'
 
 defineProps<{
   type: string
+  tooltip: string
 }>()
 </script>
 
 <template>
   <RouterLink to="#" @click="handleDummyClick">
     <span class="add"
-      ><span class="text">{{ `New ${capitalize(type)}` }}</span>
+      ><span v-tooltip="tooltip" class="text">{{
+        `New ${capitalize(type)}`
+      }}</span>
     </span>
   </RouterLink>
 </template>

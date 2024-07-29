@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { EMIT, VALIDATION } from '@/constants'
 import AppInput from '@/components/AppInput.vue'
+import { capitalize } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const emit = defineEmits<{
   (e: typeof EMIT.changePhoneNumber, value: string): void
@@ -28,7 +32,7 @@ defineProps<{
     <span class="number">
       <AppInput
         name="phone-number"
-        label="Phone number *"
+        :label="`${capitalize(t('phoneNumber'))} *`"
         :value="phoneNumber"
         :validation="VALIDATION.phoneNumber"
         @input="(value) => emit(EMIT.changePhoneNumber, value)"

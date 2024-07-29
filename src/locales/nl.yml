@@ -1,6 +1,26 @@
-hello: Hello, {name}!
-language: language
-home: home
-cancel: cancel
-saveChanges: save changes
-# placeholder: 
+language: Language
+home: startpagina
+cancel: annuleren
+saveChanges: Wijzigingen opslaan
+search: search
+profile: profiel
+goToPreviousRoute: Ga naar de vorige route
+back: terug
+noPeopleYet: Nog geen mensen!
+clickToCopyType: Klik om {type} te kopiëren
+email: e-mail
+phoneNumber: telefoonnummer
+deleteType: Verwijder een {type}
+user: gebruiker
+addNewType: Voeg een nieuwe {type} toe
+name: naam
+fullName: Voor-en achternaam
+initials: initialen
+displayName: Weergavenaam
+role: rol
+street: straat
+city: stad
+postalcode: post-code
+country: land
+notFound: Niet gevonden
+peopleList: Mensenlijst

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
 import { ROUTE } from '@/constants'
+import { capitalize } from '@/helpers/strings'
 import { BREAKPOINTS, TYPOGRAPHY } from '@/styles/variables'
+import { useI18n } from 'vue-i18n'
 const to = ROUTE.contactList
-
 const { width } = useWindowResize()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -13,9 +15,9 @@ const { width } = useWindowResize()
       :size="width > BREAKPOINTS.mobile ? TYPOGRAPHY.xxl : TYPOGRAPHY.lg"
       class="brand-name"
     />
-      <router-link  class="link" :to="to"
-      >People list</router-link
-    >
+    <router-link class="link" :to="to">{{
+      capitalize(t('peopleList'))
+    }}</router-link>
   </main>
 </template>
 

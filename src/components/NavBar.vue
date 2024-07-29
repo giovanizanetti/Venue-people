@@ -4,6 +4,9 @@ import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
 import { BREAKPOINTS } from '@/styles/variables'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import { capitalize } from '@/helpers/strings'
+
+const { t } = useI18n()
 
 const router = useRouter()
 const { width } = useWindowResize()
@@ -22,15 +25,25 @@ const toggleLocales = async () => {
   <header>
     <nav class="navbar">
       <span class="link">
-        <a v-tooltip.bottom="'Go back'" @click="router.back()" to="#">
+        <a
+          v-tooltip.bottom="t('goToPreviousRoute')"
+          @click="router.back()"
+          to="#"
+        >
           <mdi:chevron-left class="w-5 h-5" />
           <span v-if="width >= BREAKPOINTS.tabletSm" class="link__text"
-            >Back
+            >{{ capitalize(t('back')) }}
           </span>
         </a>
       </span>
       <span class="link language-switch">
-        <a v-tooltip.bottom="locale == 'en' ? 'Switch to Dutch' : 'Switch to English'"  @click="toggleLocales" to="#">
+        <a
+          v-tooltip.bottom="
+            locale == 'en' ? 'Switch to Dutch' : 'Switch to English'
+          "
+          @click="toggleLocales"
+          to="#"
+        >
           {{ locale.toUpperCase() }}
         </a>
       </span>
