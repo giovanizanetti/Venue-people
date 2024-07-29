@@ -1,7 +1,7 @@
 <template>
   <nav class="bottom-menu">
     <ul class="inner-container">
-      <mdi:diamond class="w-7 h-7 logo" />
+      <img class="logo" width="40" height="40" src="../assets/Constell-logo.png" />
       <span>
         <li>
           <mdi:content-paste class="w-5 h-5" />

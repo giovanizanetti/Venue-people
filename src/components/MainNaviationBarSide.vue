@@ -4,7 +4,7 @@
       <mdi:chevron-right class="w-6 h-6 expand__icon" />
     </div>
     <div class="main-navigation__inner" :style="{ minHeight }">
-      <mdi:diamond class="w-7 h-7" />
+      <img width="40" height="40" src="../assets/Constell-logo.png" />
       <nav class="links__upper">
         <ul class="inner-container">
           <li>
