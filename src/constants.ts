@@ -18,7 +18,8 @@ export const EMIT = {
   click: 'click',
   remove: 'remove',
   changePhoneNumber: 'phone-number-change',
-  changePrefix: 'prefix-change'
+  changePrefix: 'prefix-change',
+  homeClick: 'home-click',
 } as const
 
 export const ROUTE = {

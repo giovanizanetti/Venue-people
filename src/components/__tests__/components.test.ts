@@ -56,8 +56,3 @@ describe('AppLoading', () => {
     expect(wrapper.text()).toContain('Something went wrong')
   })
 })
-
-// variant?: 'primary' | 'secondary' | 'danger' | 'warning'
-//     size?: 'small' | 'medium' | 'large' | 'flex'
-//     disabled?: boolean
-//     loading?: boolean

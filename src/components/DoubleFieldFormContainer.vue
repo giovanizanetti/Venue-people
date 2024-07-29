@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
-import type { StyleValue } from 'vue';
+import type { StyleValue } from 'vue'
 import { computed } from 'vue'
 
 const { width } = useWindowResize()
@@ -18,7 +18,7 @@ const props = defineProps<{
 const style = computed((): StyleValue => {
   return {
     flexDirection:
-      width.value <= (Number(props?.maxBreakpointColumn)) ? 'column' : 'row'
+      width.value <= Number(props?.maxBreakpointColumn) ? 'column' : 'row'
   }
 })
 </script>

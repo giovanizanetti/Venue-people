@@ -7,7 +7,6 @@ import { RouterLink, RouterView } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import NavBar from '@/components/NavBar.vue'
 
-import HelloWorld from '@/components/HelloWorld.vue'
 import { isDark, toggleDark } from '@/composables/useDarkmode'
 import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
 
@@ -34,16 +33,16 @@ async function toggleLocales() {
 </script>
 
 <template>
-  <!-- <header>
-    <div class="wrapper" lg="flex place-items-center flex-wrap">
-      <nav
+  <header>
+    <!-- <div class="wrapper" lg="flex place-items-center flex-wrap"> -->
+      <!-- <nav
         class="w-full text-xs text-center mt-8"
         lg="text-left text-base py-4 px-0 mt-4 -ml-4"
       >
         <RouterLink to="/">{{ $t('menu.home') }}</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-      </nav>
-      <div class="w-full text-center mt-8 space-x-4" lg="text-left">
+      </nav> -->
+      <!-- <div class="w-full text-center mt-8 space-x-4" lg="text-left">
         <button
           border="~ [var(--color-border)]"
           class="p-2 rounded-md bg-transparent"
@@ -66,11 +65,11 @@ async function toggleLocales() {
         >
           <carbon:logo-github class="w-6 h-6" />
         </button>
-      </div>
-    </div>
-  </header> -->
+      </div> -->
+    <!-- </div> -->
+  </header>
 
-  <MainNavigationBar v-if="width >= BREAKPOINTS.tabletSm" />
+  <MainNavigationBar />
   <div class="main-left">
     <NavBar />
     <main class="main">

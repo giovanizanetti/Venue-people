@@ -1,10 +1,21 @@
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
+import { availableLocales, loadLanguageAsync } from '@/plugins/i18n'
 import { BREAKPOINTS } from '@/styles/variables'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { width } = useWindowResize()
+const { locale } = useI18n()
+
+const toggleLocales = async () => {
+  const locales = availableLocales
+  const newLocale =
+    locales[(locales.indexOf(locale.value) + 1) % locales.length]
+  await loadLanguageAsync(newLocale)
+  locale.value = newLocale
+}
 </script>
 
 <template>
@@ -19,8 +30,8 @@ const { width } = useWindowResize()
         >
       </span>
       <span v-if="width <= BREAKPOINTS.tabletSm" class="link">
-        <a @click="router.back()" to="#">
-          <carbon:circle-dash class="w-4 h-4" />
+        <a @click="toggleLocales" to="#">
+          {{ locale.toUpperCase() }}
         </a>
       </span>
     </nav>

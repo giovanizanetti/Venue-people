@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { EMIT, VALIDATION } from '@/constants'
-
 import AppInput from '@/components/AppInput.vue'
 
 const emit = defineEmits<{

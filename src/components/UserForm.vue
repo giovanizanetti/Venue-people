@@ -202,5 +202,6 @@ const onCancel = () => {
   flex: 5;
   margin-left: -5px;
   margin-top: $margin-xl;
+
 }
 </style>

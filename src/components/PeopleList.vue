@@ -3,11 +3,10 @@ import { storeToRefs } from 'pinia'
 import { useUsers } from '@/stores/users'
 import AppLoading from './AppLoading.vue'
 import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router';
-import { ROUTE } from '@/constants';
+import { useRouter } from 'vue-router'
+import { ROUTE } from '@/constants'
 
 const { users, loading, success } = storeToRefs(useUsers())
-
 const router = useRouter()
 
 onMounted(async () => await useUsers().fetchUsers())
@@ -23,7 +22,7 @@ const removeUser = async (id: number) => {
 
 const reloadKey = ref(0)
 
-const goToAddUserForm = () => router.push({name: ROUTE.addUser})
+const goToAddUserForm = () => router.push({ name: ROUTE.addUser })
 </script>
 
 <template>
@@ -44,7 +43,7 @@ const goToAddUserForm = () => router.push({name: ROUTE.addUser})
       </ul>
 
       <span v-if="!users?.length" class="message">No people yet!</span>
-      <AppAddButton class="add" type="user" @click.stop="goToAddUserForm"/>
+      <AppAddButton class="add" type="user" @click.stop="goToAddUserForm" />
     </div>
   </template>
 </template>

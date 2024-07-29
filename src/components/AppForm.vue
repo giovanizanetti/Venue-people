@@ -60,22 +60,24 @@ const onSave = (value: any) => emit(EMIT.submit, value)
   margin: 0 $margin-sm;
 
   @include getMargin;
-
   @media screen and (min-width: $tablet-sm) {
     flex-direction: row;
   }
 }
 
 .form-actions {
-  margin-top: $margin-lg !important; //TODO: find a better way
+  margin-top: 9rem;
   border-top: $thin-light-1;
   position: relative;
-  bottom: 0;
   color: transparent;
-  @media screen and (min-width: $tablet-md) {
-    border-top: none;
+  @media screen and (max-width: $tablet-sm) {
+    bottom: 80px;
   }
-
+  @media screen and (min-width: $tablet-md) {
+    bottom: 0;
+    border-top: none;
+    margin-top: $margin-lg;
+  }
   &__inner {
     height: 72px;
     align-items: center;

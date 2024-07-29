@@ -3,7 +3,6 @@ import { useTeams } from '@/stores/teams'
 import { storeToRefs } from 'pinia'
 
 const locale = 'en' //TODO: get from I18n
-
 const { teams } = storeToRefs(useTeams())
 </script>
 

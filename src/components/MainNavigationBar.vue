@@ -1,73 +1,28 @@
 <template>
-  <div :class="['main-navigation', isExpanded && 'main-navigation__expanded']">
-    <div class="expand" @click="expandMenu">
-      <mdi:chevron-right class="w-6 h-6 expand__icon" />
-    </div>
-    <div class="main-navigation__inner" :style="{ minHeight }">
-      <mdi:diamond class="w-7 h-7" />
-      <nav class="links__upper">
-        <ul class="inner-container">
-          <li>
-            <mdi:content-paste class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Placeholder</span>
-          </li>
-          <li>
-            <mdi:diamond class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Placeholder</span>
-          </li>
-          <li>
-            <mdi:account-circle le class="w-4 h-4" background />
-            <span v-if="isExpanded" class="text">Profile</span>
-          </li>
-          <li>
-            <mdi:euro class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Placeholder</span>
-          </li>
-          <li @click="goToHomePage">
-            <mdi:home class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Home</span>
-          </li>
-        </ul>
-      </nav>
-      <nav class="links__bottom">
-        <ul class="inner-container">
-          <li>
-            <mdi:search class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Search</span>
-          </li>
-          <li>
-            <mdi:error class="w-4 h-4" />
-            <span v-if="isExpanded" class="text">Placeholder</span>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+  <template v-if="width <= BREAKPOINTS.tabletSm">
+    <MainNavigationBarBottom @home-click="goToHomePage" />
+  </template>
+  <template v-else>
+    <MainNavigationBarSide @home-click="goToHomePage" />
+  </template>
 </template>
 
 <script setup lang="ts">
 import { useWindowResize } from '@/composables/useWindowResize'
-import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router';
+import { BREAKPOINTS } from '@/styles/variables'
+import MainNavigationBarBottom from './MainNavigationBarBottom.vue'
+import MainNavigationBarSide from './MainNaviationBarSide.vue'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-const { height } = useWindowResize()
-const minHeight = computed(() => `${height.value - 60}px`)
-const isExpanded = ref(false)
-
-const expandMenu = () => {
-  isExpanded.value = !isExpanded.value
-}
+const { width } = useWindowResize()
 
 const goToHomePage = () => {
-
   router.push('/')
 }
-
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 @mixin fade-in {
   opacity: 1;
   animation-name: fadeInOpacity;

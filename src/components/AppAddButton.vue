@@ -10,11 +10,9 @@ defineProps<{
 <template>
   <RouterLink to="#" @click="handleDummyClick">
     <span class="add"
-      ><span class="text">{{
-        `New ${capitalize(type)}`
-      }}</span>
-    </span></RouterLink
-  >
+      ><span class="text">{{ `New ${capitalize(type)}` }}</span>
+    </span>
+  </RouterLink>
 </template>
 <style lang="scss" scoped>
 .add {

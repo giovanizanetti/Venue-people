@@ -8,7 +8,6 @@ import { useRouter } from 'vue-router'
 import { copyToClipboard } from '@/helpers/strings'
 
 const route = useRouter()
-
 const { width } = useWindowResize()
 
 const emit = defineEmits<{
