@@ -92,7 +92,7 @@ const defaultData: IUser[] = [
     phoneNumber: '0626583445',
     phoneCountryPrefix: '+31',
     teamIds: [1, 4],
-    image: avatars[6],
+    image: avatars[0],
     address: userAddressMock[6],
     isEmployee: true,
     xc: '6th Chef',
