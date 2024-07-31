@@ -8,8 +8,9 @@ import '@/styles/v-tooltip.scss'
 
 <template>
   <MainNavigationBar />
-  <div class="main-left">
-    <NavBar />
+  <NavBar />
+
+  <div class="main-left" :style="{ overflowX: 'hidden' }">
     <main class="main">
       <router-view v-slot="{ Component }">
         <transition name="fade">

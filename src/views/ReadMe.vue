@@ -98,7 +98,9 @@
     font-size: 1.8rem;
     text-decoration: underline;
     font-weight: 600;
-    margin-top: $margin-lg; o
+    margin-top: $margin-lg; 
+    text-align: center;
+    margin: 5rem 2rem;
     &:hover {
       opacity: 0.8;
     }
