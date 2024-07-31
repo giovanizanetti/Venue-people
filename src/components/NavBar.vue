@@ -27,6 +27,7 @@ const toggleLocales = async () => {
       <span class="link">
         <a
           v-tooltip.bottom="t('goToPreviousRoute')"
+          :title="t('goToPreviousRoute')"
           @click="router.back()"
           to="#"
         >
@@ -70,6 +71,10 @@ header {
 
     @media screen and (max-width: $tablet-sm) {
       padding: 0 $padding-md;
+    }
+
+    @media screen and (min-width: $tablet-sm) {
+      margin-left: 56px;
     }
 
     .link {

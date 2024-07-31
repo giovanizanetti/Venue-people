@@ -9,7 +9,6 @@ import '@/styles/v-tooltip.scss'
 <template>
   <MainNavigationBar />
   <NavBar />
-
   <div class="main-left" :style="{ overflowX: 'hidden' }">
     <main class="main">
       <router-view v-slot="{ Component }">

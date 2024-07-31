@@ -13,6 +13,7 @@ defineProps<{ color: string; label: string }>()
     <div class="title">{{ capitalize(label) }}</div>
     <div
       v-tooltip="'Not functional'"
+      :title="'Not functional'"
       class="icon-button"
       role="button"
       @click="handleDummyClick"

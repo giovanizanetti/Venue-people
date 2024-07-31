@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <RouterLink to="#" @click="handleDummyClick">
     <span class="add"
-      ><span v-tooltip="tooltip" class="text">{{
+      ><span v-tooltip="tooltip" :title="tooltip" class="text">{{
         `New ${capitalize(type)}`
       }}</span>
     </span>

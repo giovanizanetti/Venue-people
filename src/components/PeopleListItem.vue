@@ -65,6 +65,7 @@ const copyPhone = () =>
       <div class="contact">
         <span
           v-tooltip="t('clickToCopyType', { type: t('email') })"
+          :title="t('clickToCopyType', { type: t('email') })"
           v-if="width >= BREAKPOINTS.tabletSm"
           @click.stop="copyToClipboard(user.email)"
           class="email user-info-mobile__item"
@@ -81,6 +82,7 @@ const copyPhone = () =>
         </span>
         <span
           v-tooltip="t('clickToCopyType', { type: t('phoneNumber') })"
+          :title="t('clickToCopyType', { type: t('phoneNumber') })"
           class="phone"
           @click.stop="copyPhone()"
         >
@@ -101,12 +103,16 @@ const copyPhone = () =>
 
       <span
         v-tooltip="t('clickToCopyType', { type: t('email') })"
+        :title="t('clickToCopyType', { type: t('email') })"
         @click.stop="copyToClipboard(user.email)"
       >
         {{ user.email }}
       </span>
 
-      <span v-tooltip="t('clickToCopyType', { type: t('phoneNumber') })">
+      <span
+        v-tooltip="t('clickToCopyType', { type: t('phoneNumber') })"
+        :title="t('clickToCopyType', { type: t('phoneNumber') })"
+      >
         <span class="phone phone__prefix" @click="copyPhone">
           {{ user.phoneCountryPrefix }}
         </span>
@@ -125,6 +131,7 @@ const copyPhone = () =>
     </span>
     <span
       v-tooltip="t('deleteType', { type: t('user') })"
+      :title="t('deleteType', { type: t('user') })"
       class="remove-team-member"
       @click.stop="removeUser"
     >
