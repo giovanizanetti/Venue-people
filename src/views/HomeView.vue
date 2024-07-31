@@ -18,7 +18,7 @@ const { t } = useI18n()
     <router-link class="link" :to="ROUTE.contactList">
       {{ capitalize(t('peopleList')) }}
     </router-link>
-    <router-link class="link" :to="ROUTE.readme">Readme </router-link>
+    <router-link class="link" :to="ROUTE.readme">{{ capitalize(t('readme')) }}</router-link>
   </main>
 </template>
 
