@@ -25,12 +25,12 @@
         Some extra features on top of the requirements 👇🏻
       </h3>
       <ul>
-        <li>Translations <i>(English and Dutch)</i></li>
-        <li>Feedback with toast notification</li>
-        <li>Tooltips</li>
-        <li>Transitions</li>
-        <li>Drawer side navigation</li>
-        <li>404 page</li>
+        <li>- Translations <i>(English and Dutch)</i></li>
+        <li>- Feedback with toast notification</li>
+        <li>- Tooltips</li>
+        <li>- Transitions</li>
+        <li>- Drawer side navigation</li>
+        <li>- 404 page</li>
       </ul>
     </section>
 
@@ -38,13 +38,13 @@
       <h3 class="section-heading">What If I had to build more features 👇🏻</h3>
       <ul>
         <li>
-          I would add the possibility of performing CRUD operations on team
+          - I would add the possibility of performing CRUD operations on team
         </li>
-        <li>I would add pagination for the user's list.</li>
-        <li>I would add a light /dark theme toggle.</li>
-        <li>I would make a photo upload functionality</li>
-        <li>I would look for opportunities to improve the UX</li>
-        <li>More tests</li>
+        <li>- I would add pagination for the user's list.</li>
+        <li>- I would add a light /dark theme toggle.</li>
+        <li>- I would make a photo upload functionality</li>
+        <li>- I would look for opportunities to improve the UX</li>
+        <li>- More tests</li>
       </ul>
     </section>
     <a
@@ -65,21 +65,32 @@
   }
   .heading {
     font-size: $typography-5;
+
     text-align: center;
   }
   .sub-heading {
-    font-size: $typography-4;
-    padding: $margin-lg $margin-xl;
+    font-size: $typography-3;
+    text-align: center;
+    padding: $margin-md $margin-lg;
+    @media screen and (min-width: $tablet-md) {
+      font-size: $typography-4;
+      padding: $margin-lg $margin-xl;
+    }
   }
   .section-heading {
     text-align: center;
     font-size: $typography-3;
     font-weight: 600;
+    margin: $margin-xs $margin-lg;
   }
   section {
     ul {
       text-align: center;
-      margin: $margin-md $margin-xl;
+      margin: $margin-sm;
+      @media screen and (min-width: $tablet-md) {
+        margin: $margin-md $margin-xl;
+      }
+
       li {
         text-align: center;
         font-size: 1.2rem;
@@ -98,7 +109,7 @@
     font-size: 1.8rem;
     text-decoration: underline;
     font-weight: 600;
-    margin-top: $margin-lg; 
+    margin-top: $margin-lg;
     text-align: center;
     margin: 5rem 2rem;
     &:hover {
