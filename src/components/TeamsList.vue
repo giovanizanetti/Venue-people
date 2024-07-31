@@ -43,6 +43,7 @@ const { teams } = storeToRefs(useTeams())
   .heading {
     @media screen and (max-width: $tablet-sm) {
       width: 358px;
+      text-align: center;
     }
   }
 }
